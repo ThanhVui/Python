@@ -941,5 +941,38 @@ function
 # stuff = dict()
 # print(stuff['candy'])
 
-# stuff = dict()
-# print(stuff.get('candy',-1))
+stuff = dict()
+print(stuff.get('candy',-1))
+
+
+# 10.2 Write a program to read through the mbox-short.txt and figure out the distribution by hour of the day for each of the messages. You can pull the hour out from the 'From ' line by finding the time and then splitting the string a second time using a colon.
+# From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
+# Once you have accumulated the counts for each hour, print out the counts, sorted by hour as shown below.
+# Asking user to enter the source file
+# fname = input("Enter file:")
+# if len(fname) < 1 : fname = "mbox-short.txt"
+# # Opening the source file
+# fhandle = open(fname)
+
+# # Creating a dictionary for the hours
+# hours = dict()
+
+# # Reading file line-by-line
+# for line in fhandle:
+#     line.rstrip()
+#     # Looking for lines starting with 'From'
+#     if line.startswith('From ') :
+#         # Splitting lines starting with 'From'
+#         ls = line.split()
+#         # Taking the split with the time
+#         time = ls[5]
+#         # Splitting the time
+#         tm = time.split(':')
+#         # Taking the split with the hour
+#         hour = tm[0]
+#         # Adding the hour in the dictionary and counting
+#         hours[hour] = hours.get(hour, 0) + 1
+
+# # Printing the hours and their counts in ascending order by hours
+# for k,v in sorted(hours.items()):
+#     print(k,v)
