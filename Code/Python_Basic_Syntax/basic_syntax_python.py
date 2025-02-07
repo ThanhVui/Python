@@ -941,8 +941,8 @@ function
 # stuff = dict()
 # print(stuff['candy'])
 
-stuff = dict()
-print(stuff.get('candy',-1))
+# stuff = dict()
+# print(stuff.get('candy',-1))
 
 
 # 10.2 Write a program to read through the mbox-short.txt and figure out the distribution by hour of the day for each of the messages. You can pull the hour out from the 'From ' line by finding the time and then splitting the string a second time using a colon.
@@ -976,3 +976,475 @@ print(stuff.get('candy',-1))
 # # Printing the hours and their counts in ascending order by hours
 # for k,v in sorted(hours.items()):
 #     print(k,v)
+
+
+#Finding Numbers in a Haystack
+
+#In this assignment you will read through and parse a file with text and numbers.
+#You will extract all the numbers in the file and compute the sum of the numbers.
+
+#Data Files
+#We provide two files for this assignment.
+#One is a sample file where we give you the sum for your testing and the other is the actual data you need to process for the assignment.
+
+#Sample data: http://py4e-data.dr-chuck.net/regex_sum_42.txt (There are 90 values with a sum=445833)
+#Actual data: http://py4e-data.dr-chuck.net/regex_sum_38794.txt (There are 90 values and the sum ends with 360)
+
+#The basic outline of this problem is to read the file, look for integers using the re.findall(),
+#looking for a regular expression of '[0-9]+'
+#and then converting the extracted strings to integers and summing up the integers.
+
+# import re
+# name = input("Enter file:")
+# if len(name) < 1 : name = "test.txt"
+# fh = open(name)
+# newlist = list()
+# for line in fh :
+#     line = re.findall('[0-9]+', line)  #finds all numbers '.[0-9]*[0-9]' was before and it missed py4e.com and etx
+#     for number in line :
+#         newlist.append(int(number)) # creates newlist with int line values
+# print(sum(newlist))
+
+
+## supershort print( sum( [ ****** *** * in **********('[0-9]+',**************************.read()) ] ) )
+
+
+#Exploring the HyperText Transport Protocol
+
+#You are to retrieve the following document using the HTTP protocol in a way that you can examine the HTTP Response headers.
+
+#http://data.pr4e.org/intro-short.txt
+#There are three ways that you might retrieve this web page and look at the response headers:
+
+#Preferred: Modify the socket1.py program to retrieve the above URL and print out the headers and data.
+#Make sure to change the code to retrieve the above URL - the values are different for each URL.
+#Open the URL in a web browser with a developer console or FireBug and manually examine the headers that are returned.
+#Use the telnet program as shown in lecture to retrieve the headers and content.
+#Enter the header values in each of the fields below and press "Submit".
+
+# import socket
+
+# mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# mysock.connect(('data.pr4e.org', 80))
+# cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
+# mysock.send(cmd)
+
+# while True:
+#     data = mysock.recv(512)
+#     if (len(data) < 1):
+#         break
+#     print(data.decode())
+# mysock.close()
+
+#Scraping Numbers from HTML using BeautifulSoup.
+#In this assignment you will write a Python program similar to http://www.py4e.com/code3/urllink2.py.
+#The program will use urllib to read the HTML from the data files below,
+#and parse the data, extracting numbers and compute the sum of the numbers in the file.
+
+
+#The file is a table of names and comment counts. You can ignore most of the data in the file except for lines like the following:
+
+#<tr><td>Modu</td><td><span class="comments">90</span></td></tr>
+#<tr><td>Kenzie</td><td><span class="comments">88</span></td></tr>
+#<tr><td>Hubert</td><td><span class="comments">87</span></td></tr>
+#You are to find all the <span> tags in the file and pull out the numbers from the tag and sum the numbers.
+#Look at the sample code provided. It shows how to find all of a certain kind of tag, loop through the tags and extract the various aspects of the tags.
+
+...
+# Retrieve all of the anchor tags
+#tags = soup('a')
+#for tag in tags:
+   # Look at the parts of a tag
+ #  print 'TAG:',tag
+  # print 'URL:',tag.get('href', None)
+   #print 'Contents:',tag.contents[0]
+   #print 'Attrs:',tag.attrs
+#You need to adjust this code to look for span tags and pull out the text content of the span tag, convert them to integers and add them up to complete the assignment.
+#Sample Execution
+
+#$ python3 solution.py
+#Enter - http://py4e-data.dr-chuck.net/comments_42.html
+#Count 50
+#Sum 2...
+
+
+# To run this, you can install BeautifulSoup
+# https://pypi.python.org/pypi/beautifulsoup4
+
+# Or download the file
+# http://www.py4e.com/code3/bs4.zip
+# and unzip it in the same directory as this file
+
+#Actual data: http://py4e-data.dr-chuck.net/comments_38796.html (Sum ends with 87)
+
+# from urllib.request import urlopen
+# from bs4 import BeautifulSoup
+# import ssl
+
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+
+# url = input('Enter - ')
+# html = urlopen(url, context=ctx).read()
+
+# # html.parser is the HTML parser included in the standard Python 3 library.
+# # information on other HTML parsers is here:
+# # http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser
+# soup = BeautifulSoup(html, "html.parser")
+# sumnum = list()
+# # Retrieve all of the anchor tags
+# tags = soup('span')
+# for tag in tags:
+#     # Look at the parts of a tag (just for fun)
+#     print('TAG:', tag)
+#     print('URL:', tag.get('href', None))
+#     print('Contents:', tag.contents[0])
+#     print('Attrs:', tag.attrs)
+#     x = tag.contents[0]
+#     sumnum.append(int(x))
+# print(sum(sumnum))
+
+
+# import urllib.request, urllib.parse, urllib.error
+
+# fhand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+
+# counts = dict()
+# for line in fhand:
+#     words = line.decode().split()
+#     for word in words:
+#         counts [word] = counts.get(word, 0)+1
+# print(counts)
+
+
+#Scraping Numbers from HTML using BeautifulSoup.
+#In this assignment you will write a Python program similar to http://www.py4e.com/code3/urllink2.py.
+#The program will use urllib to read the HTML from the data files below,
+#and parse the data, extracting numbers and compute the sum of the numbers in the file.
+
+
+#The file is a table of names and comment counts. You can ignore most of the data in the file except for lines like the following:
+
+#<tr><td>Modu</td><td><span class="comments">90</span></td></tr>
+#<tr><td>Kenzie</td><td><span class="comments">88</span></td></tr>
+#<tr><td>Hubert</td><td><span class="comments">87</span></td></tr>
+#You are to find all the <span> tags in the file and pull out the numbers from the tag and sum the numbers.
+#Look at the sample code provided. It shows how to find all of a certain kind of tag, loop through the tags and extract the various aspects of the tags.
+
+...
+# Retrieve all of the anchor tags
+#tags = soup('a')
+#for tag in tags:
+   # Look at the parts of a tag
+ #  print 'TAG:',tag
+  # print 'URL:',tag.get('href', None)
+   #print 'Contents:',tag.contents[0]
+   #print 'Attrs:',tag.attrs
+#You need to adjust this code to look for span tags and pull out the text content of the span tag, convert them to integers and add them up to complete the assignment.
+#Sample Execution
+
+#$ python3 solution.py
+#Enter - http://py4e-data.dr-chuck.net/comments_42.html
+#Count 50
+#Sum 2...
+
+
+# To run this, you can install BeautifulSoup
+# https://pypi.python.org/pypi/beautifulsoup4
+
+# Or download the file
+# http://www.py4e.com/code3/bs4.zip
+# and unzip it in the same directory as this file
+
+#Actual data: http://py4e-data.dr-chuck.net/comments_38796.html (Sum ends with 87)
+
+# from urllib.request import urlopen
+# from bs4 import BeautifulSoup
+# import ssl
+
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+
+# url = input('Enter - ')
+# html = urlopen(url, context=ctx).read()
+
+# # html.parser is the HTML parser included in the standard Python 3 library.
+# # information on other HTML parsers is here:
+# # http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser
+# soup = BeautifulSoup(html, "html.parser")
+# sumnum = list()
+# # Retrieve all of the anchor tags
+# tags = soup('span')
+# for tag in tags:
+#     # Look at the parts of a tag (just for fun)
+#     print('TAG:', tag)
+#     print('URL:', tag.get('href', None))
+#     print('Contents:', tag.contents[0])
+#     print('Attrs:', tag.attrs)
+#     x = tag.contents[0]
+#     sumnum.append(int(x))
+# print(sum(sumnum))
+
+
+#Actual problem: Start at: http://py4e-data.dr-chuck.net/known_by_Bailley.html
+#Find the link at position 18 (the first name is 1). Follow that link.
+#Repeat this process 7 times. The answer is the last name that you retrieve.
+#Hint: The first character of the name of the last page that you will load is: I
+
+# from urllib.request import urlopen
+# from bs4 import BeautifulSoup
+# import ssl
+
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+
+# url = input('Enter - ')
+# html = urlopen(url, context=ctx).read()
+
+# soup = BeautifulSoup(html, "html.parser")
+
+# # Retrieve all of the anchor tags
+# tags = soup('a')
+
+# position = input('Enter position: ')
+# position = int(position)
+# position = position - 1 # to take into account 0,1,2 ...
+# count = input('Enter count: ') # desired amount of cycle repetitions
+# count = int(count)
+
+# meter = 0 # for 0 repetitions of the cycle
+# meter = int(meter)
+
+# while count != meter :
+
+#     print('TAG:', tags[position])
+#     print('URL:', tags[position].get('href', None))
+#     print('Contents:', tags[position].contents[0])
+#     print('Attrs:', tags[position].attrs)
+#     meter = meter + 1
+
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+
+#     url = tags[position].get('href', None)
+#     print(url)
+#     html = urlopen(url, context=ctx).read()
+#     soup = BeautifulSoup(html, "html.parser")
+#     tags = soup('a')
+#     print('break', meter, count)
+
+
+#Extracting Data from XML
+
+#In this assignment you will write a Python program somewhat similar to http://www.py4e.com/code3/geoxml.py.
+#The program will prompt for a URL, read the XML data from that URL using urllib and then parse
+#and extract the comment counts from the XML data, compute the sum of the numbers in the file.
+
+#Sample data: http://py4e-data.dr-chuck.net/comments_42.xml (Sum=2553)
+#Actual data: http://py4e-data.dr-chuck.net/comments_38798.xml (Sum ends with 55)
+
+#<comment>
+  #<name>Matthias</name>
+  #<count>97</count>
+#</comment>
+#You are to look through all the <comment> tags and find the <count> values sum the numbers.
+#The closest sample code that shows how to parse XML is geoxml.py.
+#But since the nesting of the elements in our data is different than the data we are parsing
+#in that sample code you will have to make real changes to the code.
+#To make the code a little simpler, you can use an XPath selector string to
+#look through the entire tree of XML for any tag named 'count' with the following line of code:
+
+#counts = tree.findall('.//count')
+#Take a look at the Python ElementTree documentation and look for the supported XPath syntax for details.
+#You could also work from the top of the XML down to the comments node and then loop through the child nodes of the comments node.
+
+# import urllib.request, urllib.parse, urllib.error
+# import xml.etree.ElementTree as ET
+
+# url = input('Enter - ')
+# print('1_Retrieving', url, type(url)) #class str
+# uh = urllib.request.urlopen(url)
+# print('2_uh', uh, type(uh)) #class 'http.client.HTTPResponse'
+# data = uh.read()
+# print("3_uh.read() or data", data, type(data)) #calss bytes
+# data = data.decode()
+# print("4_data decode", data, type(data)) #class str
+# tree = ET.fromstring(data)
+# print("5_tree", tree, type(tree)) #class 'xml.etree.ElementTree.Element'
+# count = tree.findall('.//count')
+# print("6_count", count, type(count), "len", len(count)) #class 'list
+# i = 0
+# i = int(i)
+# sumnum = list()
+# while True :
+#     try :
+#         countext = count[i].text
+#         countext = int(countext)
+#         sumnum.append(countext)
+#         print("7_count", countext, type(countext))
+#         i = i + 1
+#         continue
+#     except :
+#         break
+# print("sumnum", sum(sumnum), type(sumnum))
+
+
+#Extracting Data from JSON
+
+#In this assignment you will write a Python program somewhat similar to http://www.py4e.com/code3/json2.py.
+#The program will prompt for a URL, read the JSON data from that URL using urllib and then parse
+#and extract the comment counts from the JSON data, compute the sum of the numbers in the file and enter the sum below:
+#We provide two files for this assignment.
+#One is a sample file where we give you the sum for your testing and the other is the actual data you need to process for the assignment.
+
+#Sample data: http://py4e-data.dr-chuck.net/comments_42.json (Sum=2553)
+#Actual data: http://py4e-data.dr-chuck.net/comments_38799.json (Sum ends with 87)
+
+#You do not need to save these files to your folder since your program will read the data directly from the URL.
+#Note: Each student will have a distinct data url for the assignment - so only use your own data url for analysis.
+#Data Format
+#The data consists of a number of names and comment counts in JSON as follows:
+
+#The closest sample code that shows how to parse JSON and extract a list is json2.py.
+#You might also want to look at geoxml.py to see how to prompt for a URL and retrieve data from a URL.
+
+# import json
+# import urllib.request, urllib.parse, urllib.error
+
+# url = input('Enter - ')
+# print('1_Retrieving', url, type(url)) #class str
+# uh = urllib.request.urlopen(url)
+# print('2_uh', uh, type(uh)) #class 'http.client.HTTPResponse'
+# data = uh.read()
+# print("3_uh.read() or data", data, type(data)) #calss bytes
+# data = data.decode()
+# print("4_data decode", data, type(data)) #class str
+# info = json.loads(data)
+# print("5_info", info, type(info), '5_len_info', len(info)) #class dict
+# print('6_comments',info['comments'][2]['count']) # just as way to recover smth
+# print('7_comments type', type(info['comments']), '7_comments len', len(info['comments']))
+# x = 0
+# for item in (info['comments']) :
+#     print('count', item['count'], type(item['count']))
+#     x = x + item['count']
+# print(x)
+
+
+#In this assignment you will write a Python program somewhat similar to http://www.py4e.com/code3/geojson.py.
+#The program will prompt for a location, contact a web service and retrieve JSON for the web service
+#and parse that data, and retrieve the first place_id from the JSON.
+#A place ID is a textual identifier that uniquely identifies a place as within Google Maps.
+#API End Points
+
+#To complete this assignment, you should use this API endpoint that has a static subset of the Google Data:
+
+#http://py4e-data.dr-chuck.net/geojson?
+#This API uses the same parameters (sensor and address) as the Google API. This API also has no rate limit so you can test as often as you like.
+#If you visit the URL with no parameters, you get a list of all of the address values which can be used with this API.
+#To call the API, you need to provide address
+#that you are requesting as the address= parameter
+#that is properly URL encoded using the urllib.urlencode() fuction as shown in http://www.py4e.com/code3/geojson.py
+
+#Test Data / Sample Execution
+
+#You can test to see if your program is working with a location of "South Federal University"
+#which will have a place_id of "ChIJJ8oO7_B_bIcR2AlhC8nKlok".
+
+#Please run your program to find the place_id for this location:
+
+#Banaras Hindu University
+#Make sure to enter the name and case exactly as above and enter the place_id and your Python code below.
+#Hint: The first seven characters of the place_id are "ChIJqSi ..."
+#Make sure to retreive the data from the URL specified above and not the normal Google API.
+#Your program should work with the Google API - but the place_id may not match for this assignment.
+
+# import urllib.request, urllib.parse, urllib.error
+# import json
+
+# # Note that Google is increasingly requiring keys
+# # for this API
+# serviceurl = 'http://py4e-data.dr-chuck.net/geojson?'
+
+# while True:
+#     address = input('Enter location: ')
+#     if len(address) < 1: break
+
+#     url = serviceurl + urllib.parse.urlencode(
+#         {'address': address})
+
+#     print('Retrieving', url)
+#     uh = urllib.request.urlopen(url)
+#     data = uh.read().decode()
+#     print('Retrieved', len(data), 'characters')
+
+#     try:
+#         js = json.loads(data)
+#     except:
+#         js = None
+
+#     if not js or 'status' not in js or js['status'] != 'OK':
+#         print('==== Failure To Retrieve ====')
+#         print(data)
+#         continue
+
+#     print(json.dumps(js, indent=4))
+
+#     lat = js["results"][0]["geometry"]["location"]["lat"]
+#     lng = js["results"][0]["geometry"]["location"]["lng"]
+#     print('lat', lat, 'lng', lng)
+#     location = js['results'][0]['formatted_address']
+#     print(location)
+
+
+# import urllib.parse
+# import urllib.request
+# import json
+
+# # Correct API Endpoint
+# api_url = "http://py4e-data.dr-chuck.net/opengeo?"
+
+# # Input location
+# location = input("Enter location: ")
+
+# # Encode location into URL format
+# params = {"q": location}
+# url = api_url + urllib.parse.urlencode(params)
+
+# # Retrieve data from API
+# print("Retrieving", url)
+# response = urllib.request.urlopen(url)
+# data = response.read().decode()
+
+# print("Retrieved", len(data), "characters")
+
+# # Parse JSON
+# try:
+#     json_data = json.loads(data)
+    
+#     # Print full JSON response for debugging
+#     print(json.dumps(json_data, indent=4))
+
+#     # Check if 'features' exist and extract properties
+#     if "features" in json_data and len(json_data["features"]) > 0:
+#         properties = json_data["features"][0]["properties"]
+        
+#         # Print all available fields to find the plus_code
+#         print("Properties:", json.dumps(properties, indent=4))
+
+#         # If plus_code exists, extract it
+#         if "plus_code" in properties:
+#             plus_code = properties["plus_code"]
+#             print("Plus code:", plus_code)
+#         else:
+#             print("No plus code found in properties.")
+#     else:
+#         print("No valid location data found.")
+# except json.JSONDecodeError:
+#     print("Error parsing JSON response")
