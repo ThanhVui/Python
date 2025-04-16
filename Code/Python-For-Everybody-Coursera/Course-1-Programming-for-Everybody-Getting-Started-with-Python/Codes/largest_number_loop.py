@@ -8,3 +8,5 @@ for the_num in [9, 41, 12, 3, 74, 15]:
     print(largest_so_far, the_num)
 
 print('After', largest_so_far)
+#
+# Before -1

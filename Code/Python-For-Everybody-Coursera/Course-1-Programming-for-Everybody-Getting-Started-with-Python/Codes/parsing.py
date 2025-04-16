@@ -1,5 +1,7 @@
 # Want to extract domain hotmail.com
 data = 'From ritchie_ng@hotmail.com Tues May 31'
+print(len(data))
+
 at_position = data.find('@')
 print(at_position)
 

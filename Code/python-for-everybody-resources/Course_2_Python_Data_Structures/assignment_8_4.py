@@ -5,6 +5,7 @@
 #When the program completes, sort and print the resulting words in alphabetical order.
 #You can download the sample data at http://www.py4e.com/code3/romeo.txt
 
+# The way 1
 fname = input("Enter file name: ")
 fh = open(fname)
 x = 0
@@ -40,3 +41,22 @@ print(emptylist)
 #print(lst.rstrip(lst))
 #print(line)
 #print(line.rstrip())
+
+
+# The way 2
+# 8.4: Open the file romeo.txt and read it line by line
+fname = input("Enter file name: ")
+fh = open(fname)
+
+words = []  # Final list of unique words
+
+for line in fh:
+    line = line.rstrip()
+    splitline = line.split()
+    for word in splitline:
+        if word not in words:
+            words.append(word)
+
+words.sort()  # Sort the list alphabetically
+
+print(words)

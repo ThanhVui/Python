@@ -1,10 +1,10 @@
 n = 5
 while n > 0:
-    print n
+    print(n)
     n -= 1
     # n = n - 1
-print 'Blastoff!'
-print n
+print('Blastoff!')
+print(n)
 
 # Results
 # 5 --> print 5 then subtract 1 = 4

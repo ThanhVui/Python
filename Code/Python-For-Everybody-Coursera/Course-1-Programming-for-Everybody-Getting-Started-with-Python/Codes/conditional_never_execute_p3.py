@@ -11,3 +11,5 @@ elif x < 10:
     # This will never run.
 else:
     print('Above 20')
+# This code takes an input number and checks it against several conditions.
+# It prints different messages based on the value of x.

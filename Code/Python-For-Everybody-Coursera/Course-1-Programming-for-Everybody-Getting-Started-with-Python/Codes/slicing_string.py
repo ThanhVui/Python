@@ -15,4 +15,3 @@ print(s[8:])
 
 print(s[:])
 # Prints all
-

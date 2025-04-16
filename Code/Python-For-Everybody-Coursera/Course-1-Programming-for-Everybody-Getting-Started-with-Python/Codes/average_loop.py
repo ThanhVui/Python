@@ -8,4 +8,5 @@ for value in [9, 41, 12, 3, 74, 15]:
     sum += value
     print(count, sum, value)
 print('After', count, sum, sum / count)
-
+# This code calculates the average of a list of numbers.
+# It initializes a count and sum variable, iterates through a list of numbers,

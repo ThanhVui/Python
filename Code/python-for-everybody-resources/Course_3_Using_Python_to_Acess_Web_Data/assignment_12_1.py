@@ -12,15 +12,46 @@
 #Enter the header values in each of the fields below and press "Submit".
 
 import socket
-
+## Use the socket module to create a socket and connect to the server
+## on port 80.
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-mysock.connect(('data.pr4e.org', 80))
+mysock.connect(('data.pr4e.org', 80))## Create a socket object
+## Connect to the server on port 80 (HTTP)
 cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
-mysock.send(cmd)
+mysock.send(cmd)## Send the command to the server
 
 while True:
-    data = mysock.recv(512)
+    data = mysock.recv(512)## Receive up to 512 bytes of data from the socket
     if (len(data) < 1):
         break
     print(data.decode())
 mysock.close()
+
+
+def getSocket():
+    host = 'data.pr4e.org'
+    port = 80
+    url = 'http://data.pr4e.org/intro-short.txt'
+
+    # Create and connect socket
+    mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    mysock.connect((host, port))
+
+    # Send HTTP GET request
+    request = f'GET {url} HTTP/1.0\r\nHost: {host}\r\n\r\n'
+    mysock.send(request.encode())
+
+    # Receive full response
+    full_response = b""
+    while True:
+        data = mysock.recv(512)
+        if len(data) < 1:
+            break
+        full_response += data
+
+    mysock.close()
+    return full_response.decode()
+
+# Example usage:
+response = getSocket()
+print(response)

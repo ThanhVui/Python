@@ -6,17 +6,18 @@
 #You can download the sample data at http://www.py4e.com/code3/mbox-short.txt when you are testing below enter mbox-short.txt as the file name.
 
 # Use the file name mbox-short.txt as the file name
-fname = input("Enter file name: ")
-fh = open(fname)
+fname = input("Enter file name: ") # Prompt the user for a file name
+# Open the file with the provided name
+fh = open(fname)# Open the file for reading
 n = 0 # for amount of lines
 n1 = 0 #for summ
-xDSPAM = 0
-nfloat = float(n)
-for line in fh:
+xDSPAM = 0# for xDSPAM confidence
+nfloat = float(n)# Initialize nfloat to 0.0
+for line in fh:# Loop through each line in the file
     if not line.startswith("X-DSPAM-Confidence:") : continue
-    n = n + 1
-    xDSPAM = line[line.find('0') : ]
-    xDSPAMfl = float(xDSPAM)
-    n1 = n1 + xDSPAMfl
-median = n1 / n
-print("Average spam confidence:", median)
+    n = n + 1# Increment the line count
+    xDSPAM = line[line.find('0') : ]# Extract the substring starting from the first '0'
+    xDSPAMfl = float(xDSPAM)# Convert the extracted substring to a float
+    n1 = n1 + xDSPAMfl# Add the float value to the sum
+median = n1 / n# Calculate the average
+print("Average spam confidence:", median)# Print the average spam confidence
