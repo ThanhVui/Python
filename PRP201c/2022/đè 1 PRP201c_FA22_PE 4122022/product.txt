@@ -1,0 +1,8 @@
+TV02,Samsung 50,TV
+TV01,Samsung 43,TV
+PH03,SamSung S13,PH
+PH01,Iphone 14,PH
+PH02,Iphone 13,PH
+LT01,Macbook Pro M3,LT
+TV03,LG OLED 55,TV
+PH04,Google Pixel 8,PH

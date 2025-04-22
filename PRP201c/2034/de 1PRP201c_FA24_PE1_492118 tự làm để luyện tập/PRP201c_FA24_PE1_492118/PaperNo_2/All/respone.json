@@ -1,0 +1,66 @@
+{
+    "results":[ 
+        {
+            "gender": "female",
+            "name": {
+                "title": "Ms",
+                "first": "Ellen",
+                "last": "Huhta"
+            },
+            "location": {
+                "street": {
+                    "number": 355,
+                    "name": "Rotuaari"
+                },
+                "city": "Pudasjärvi",
+                "state": "Northern Ostrobothnia",
+                "country": "Finland",
+                "postcode": 71792,
+                "coordinates": {
+                    "latitude": "-27.4293",
+                    "longitude": "65.2024"
+                },
+                "timezone": {
+                    "offset": "+11:00",
+                    "description": "Magadan, Solomon Islands, New Caledonia"
+                }
+            },
+            "email": "ellen.huhta@example.com",
+            "login": {
+                "uuid": "22bf0ba6-ad69-44b5-bb75-b3182efb7bb7",
+                "username": "goldenpeacock272",
+                "password": "idefix",
+                "salt": "YzKqRtET",
+                "md5": "14bd61fce2aa56a160934b6ef093b266",
+                "sha1": "2603d5751c1d8ef563d3b041fb87142d8c725ee2",
+                "sha256": "8be807366d6b36b7c05f26e562f1c6e58d668ca19cc2d50ef72c5ddd7a311431"
+            },
+            "dob": {
+                "date": "1949-04-08T07:50:17.513Z",
+                "age": 76
+            },
+            "registered": {
+                "date": "2012-05-18T12:34:04.196Z",
+                "age": 12
+            },
+            "phone": "09-974-774",
+            "cell": "045-547-90-07",
+            "id": {
+                "name": "HETU",
+                "value": "NaNNA938undefined"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/13.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/13.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/13.jpg"
+            },
+            "nat": "FI"
+        }
+    ],
+    "info": {
+        "seed": "c6869fe41e287aa8",
+        "results": 1,
+        "page": 1,
+        "version": "1.4"
+    }
+}
