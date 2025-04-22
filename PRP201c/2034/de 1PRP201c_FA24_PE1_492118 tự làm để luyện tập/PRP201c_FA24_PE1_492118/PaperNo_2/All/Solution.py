@@ -93,7 +93,7 @@ def load_user_data(filename):
     line_number = 0
 
     try:
-        with open(filename, "r", encoding='utf-8', newline='') as file:
+        with open(filename, "r", newline='') as file:
             csv_reader = csv.reader(file)
             
             try:
@@ -512,7 +512,7 @@ def main():
     # Step 1: Load user data from CSV
     print("\nSTEP 1: Loading User Data")
     print("-" * 40)
-    user_data_file = "user_data.csv"
+    user_data_file = "D:/Study-AI/Python/PRP201c/2034/de 1PRP201c_FA24_PE1_492118 tự làm để luyện tập/PRP201c_FA24_PE1_492118/PaperNo_2/All/user_data.csv"
     users = load_user_data(user_data_file)
     
     if users:
