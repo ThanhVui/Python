@@ -1,4 +1,3 @@
-
 # Q1 
 import csv
 from datetime import datetime

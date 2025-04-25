@@ -400,8 +400,8 @@ def fetch_and_update_user_info():
                 
                 # Update database
                 cursor.execute('''
-                    UPDATE Users 
-                    SET Username = ?, PictureURL = ?, Timezone = ? 
+                    UPDATE Users
+                    SET Username = ?, PictureURL = ?, Timezone = ?
                     WHERE ID = ?
                 ''', (username, picture_url, timezone, user_id))
                 
@@ -431,6 +431,7 @@ def fetch_and_update_user_info():
 #    - Impact: Exceeding the limit usually results in an error (like HTTP 429 Too Many Requests). Applications might need logic to handle rate limits, such as pausing requests (backoff) or using API keys that offer higher limits. (randomuser.me is quite open, but this is crucial for most APIs).
 
 # 3. API Changes and Versioning:
+
 #    - Challenge: APIs evolve. The structure of the JSON response, endpoint URLs, or required parameters might change over time (breaking changes).
 #    - Impact: This requires ongoing maintenance of the code that interacts with the API to ensure compatibility. Relying on specific API versions (if available) can help mitigate this.
 
