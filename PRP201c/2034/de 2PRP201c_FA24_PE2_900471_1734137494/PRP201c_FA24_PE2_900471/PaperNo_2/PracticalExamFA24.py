@@ -1,7 +1,7 @@
 import sqlite3
 import cloudscraper
-
 import matplotlib.pyplot as plt 
+
 # Q1 
 class ColorPalette: 
     def __init__(self, ID, title, userName, hexCode, rgbValues, hsvValues, numberOfVotes , numberOfHearts):
@@ -103,8 +103,8 @@ def data_visualize_color_trend(colors):
     # Vẽ biểu đồ ngang trên subplot thứ hai (ax2)
     bars = ax2.barh(yAxis_bar, xAxis_bar, color='skyblue')
     ax2.set_title("All colors vote distribution", fontsize=14, fontweight='bold')
-    ax2.set_xlabel("Number of hearts", fontsize=12)
-    ax2.set_ylabel("Colors", fontsize=12)
+    ax2.set_ylabel("Number of hearts", fontsize=12)
+    ax2.set_xlabel("Colors", fontsize=12)
     ax2.grid(True, axis='x')
     
     # Đảm bảo tên màu hiển thị đầy đủ
@@ -121,7 +121,6 @@ def data_visualize_color_trend(colors):
     
     # Hiển thị biểu đồ
     plt.show()
-
 
 # Q3 
 def createFileIfNotExist(fileName): 

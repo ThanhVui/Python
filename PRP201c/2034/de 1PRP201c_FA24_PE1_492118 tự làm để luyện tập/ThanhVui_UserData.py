@@ -327,7 +327,6 @@ def gender_percentage():
 # Question 5:
 def main():
     # Question 1:
-    # filename = "D:/Study-AI/Python/PRP201c/2034/de 1PRP201c_FA24_PE1_492118 tự làm để luyện tập/PRP201c_FA24_PE1_492118/PaperNo_2/All/user_data.csv"
     filename = "D:/Study-AI/Python/Practical/1_PRP201c_FA24_PE1_492118/PRP201c_FA24_PE1_492118/PRP201c_FA24_PE1_492118/PaperNo_2/All/user_data.csv"
     data = load_user_data(filename)
     
