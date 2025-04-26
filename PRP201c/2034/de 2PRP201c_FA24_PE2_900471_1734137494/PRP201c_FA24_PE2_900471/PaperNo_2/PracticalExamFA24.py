@@ -17,7 +17,7 @@ class ColorPalette:
     def __str__(self):
         return f"Title: {self.title}\nUser: {self.userName}\nHex: {self.hexCode}\nVotes: {self.numberOfVoteAndHearts}"
 
-def fetch_top_rated_colors(): 
+def fetch_top_rated_colors():
     print("==========Q1==========")
     data = []
     apiUrl = "https://www.colourlovers.com/api/colors/top?format=json"
@@ -192,8 +192,6 @@ def queries(cursor):
     except Exception as e:
         print(f"Error executing queries: {e}")
 
-
-
 def store_top_colors_in_database(colors): 
     print("==========Q33==========")
 
@@ -240,7 +238,6 @@ def category_color_purlarity():
          connector.commit()
 
 #Q5 
-
 def testSysFunc(): 
     print("==========Q5==========")
 
@@ -277,15 +274,12 @@ def testSysFunc():
         cursor.close()
         connector.commit()
 
-
 def main(): 
     colors = fetch_top_rated_colors()
-    data_visualize_color_trend(colors)
+    # data_visualize_color_trend(colors)
     store_top_colors_in_database(colors)
     category_color_purlarity()
     testSysFunc()
-
    
-
 if __name__ == "__main__":
     main()

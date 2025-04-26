@@ -1,0 +1,2882 @@
+=============================================================hàm/phương thức cơ bản============================================
+Dưới đây là trình bày về các loại toán tử trong Python và các hàm/phương thức cơ bản thường dùng với các cấu trúc dữ liệu chính của nó.
+
+**Phần 1: Các Toán tử trong Python (Operators)**
+
+Toán tử là các ký hiệu đặc biệt dùng để thực hiện các phép toán trên các giá trị (toán hạng - operands).
+
+**1. Toán tử Số học (Arithmetic Operators)**
+Dùng để thực hiện các phép toán số học cơ bản.
+
+
+* `+` : Phép cộng (Ví dụ: `5 + 3` kết quả là `8`)
+* `-` : Phép trừ (Ví dụ: `5 - 3` kết quả là `2`)
+* `*` : Phép nhân (Ví dụ: `5 * 3` kết quả là `15`)
+* `/` : Phép chia (kết quả luôn là số thực - float) (Ví dụ: `5 / 2` kết quả là `2.5`)
+* `%` : Phép chia lấy dư (Modulus) (Ví dụ: `5 % 2` kết quả là `1`)
+* `**` : Phép lũy thừa (Ví dụ: `5 ** 2` kết quả là `25`)
+* `//` : Phép chia lấy phần nguyên (Floor Division) (Ví dụ: `5 // 2` kết quả là `2`)
+
+
+**2. Toán tử So sánh (Comparison Operators)**
+Dùng để so sánh hai giá trị, kết quả trả về là `True` hoặc `False`.
+
+
+* `==` : So sánh bằng (Ví dụ: `5 == 3` là `False`)
+* `!=` : So sánh không bằng (Ví dụ: `5 != 3` là `True`)
+* `>` : Lớn hơn (Ví dụ: `5 > 3` là `True`)
+* `<` : Nhỏ hơn (Ví dụ: `5 < 3` là `False`)
+* `>=` : Lớn hơn hoặc bằng (Ví dụ: `5 >= 5` là `True`)
+* `<=` : Nhỏ hơn hoặc bằng (Ví dụ: `5 <= 3` là `False`)
+
+
+**3. Toán tử Logic (Logical Operators)**
+Dùng để kết hợp các biểu thức điều kiện, hoạt động trên các giá trị boolean (`True`, `False`).
+
+* `and` : Logic VÀ (Trả về `True` nếu cả hai toán hạng đều `True`) (Ví dụ: `(5 > 3) and (2 < 4)` là `True`)
+* `or` : Logic HOẶC (Trả về `True` nếu ít nhất một toán hạng là `True`) (Ví dụ: `(5 < 3) or (2 < 4)` là `True`)
+* `not` : Logic PHỦ ĐỊNH (Đảo ngược trạng thái logic) (Ví dụ: `not (5 < 3)` là `True`)
+
+**4. Toán tử Bitwise (Bitwise Operators)**
+Thực hiện thao tác trên từng bit của các số nguyên. Ít phổ biến hơn cho người mới bắt đầu.
+
+* `&` : Bitwise AND
+* `|` : Bitwise OR
+* `^` : Bitwise XOR
+* `~` : Bitwise NOT (Phủ định bit)
+* `<<` : Dịch trái (Left Shift)
+* `>>` : Dịch phải (Right Shift)
+
+**5. Toán tử Gán (Assignment Operators)**
+Dùng để gán giá trị cho biến.
+
+* `=` : Gán giá trị (Ví dụ: `x = 5`)
+* `+=` : Cộng và gán (Ví dụ: `x += 3` tương đương `x = x + 3`)
+* `-=`, `*=`, `/=`, `%=`, `**=`, `//=`, `&=`, `|=`, `^=`, `>>=`, `<<=`: Tương tự cho các phép toán khác.
+
+**6. Toán tử Đồng nhất (Identity Operators)**
+So sánh xem hai biến có trỏ đến **cùng một đối tượng** trong bộ nhớ hay không.
+
+* `is` : Trả về `True` nếu hai biến là cùng một đối tượng.
+* `is not` : Trả về `True` nếu hai biến không phải là cùng một đối tượng.
+
+
+```python
+
+a = [1, 2]
+b = [1, 2]
+c = a
+print(a == b)    # Output: True (Giá trị giống nhau)
+print(a is b)    # Output: False (Là hai đối tượng list khác nhau trong bộ nhớ)
+print(a is c)    # Output: True (c và a trỏ đến cùng một đối tượng list)
+
+```
+
+**7. Toán tử Thành viên (Membership Operators)**
+
+Kiểm tra xem một giá trị có tồn tại trong một chuỗi (string), danh sách (list), bộ (tuple), tập hợp (set), hoặc từ điển (dictionary - kiểm tra key) hay không.
+
+
+* `in` : Trả về `True` nếu giá trị có trong chuỗi/tập hợp.
+* `not in` : Trả về `True` nếu giá trị không có trong chuỗi/tập hợp.
+
+
+```python
+my_list = [1, 2, 3, 'a']
+print(2 in my_list)      # Output: True
+print('b' not in my_list) # Output: True
+```
+
+
+---
+
+
+**Phần 2: Các Hàm và Phương thức Cơ bản với Cấu trúc Dữ liệu Python**
+
+
+**1. Số (`int`, `float`)**
+
+
+* **Hàm tích hợp sẵn:**
+    * `abs(x)`: Trả về giá trị tuyệt đối của `x`.
+    * `round(number, ndigits)`: Làm tròn số `number` đến `ndigits` chữ số thập phân (mặc định là 0).
+    * `pow(base, exp)`: Tương đương `base ** exp`.
+    * `int(x)`: Chuyển `x` thành số nguyên.
+    * `float(x)`: Chuyển `x` thành số thực.
+
+* **Module `math`:** Cần `import math`
+    * `math.sqrt(x)`: Căn bậc hai.
+    * `math.ceil(x)`: Làm tròn lên số nguyên gần nhất.
+    * `math.floor(x)`: Làm tròn xuống số nguyên gần nhất.
+    * `math.pi`, `math.e`: Hằng số Pi và e.
+
+
+**2. Chuỗi (`str`) - Bất biến (Immutable)**
+
+* **Phương thức (gọi bằng `chuoi.phuong_thuc()`):**
+    * `.upper()` / `.lower()`: Chuyển thành chữ hoa/thường.
+    * `.strip()` / `.lstrip()` / `.rstrip()`: Xóa khoảng trắng thừa ở hai đầu/trái/phải.
+    * `.split(separator)`: Tách chuỗi thành list các chuỗi con dựa trên `separator`.
+    * `separator.join(iterable)`: Nối các phần tử trong `iterable` thành một chuỗi bằng `separator`.
+    * `.replace(old, new)`: Thay thế `old` bằng `new`.
+    * `.startswith(prefix)` / `.endswith(suffix)`: Kiểm tra bắt đầu/kết thúc bằng chuỗi con.
+    * `.find(sub)` / `.index(sub)`: Tìm vị trí `sub` (find trả về -1 nếu không thấy, index báo lỗi).
+    * `.isdigit()` / `.isalpha()` / `.isalnum()`: Kiểm tra có phải toàn số/chữ/chữ và số không.
+    * `.format(...)`: Định dạng chuỗi (cách cũ hơn f-string).
+
+
+* **Hàm tích hợp sẵn:**
+
+    * `len(chuoi)`: Trả về độ dài chuỗi.
+* **Toán tử:** `+` (nối chuỗi), `*` (lặp lại chuỗi).
+* **Indexing & Slicing:** `chuoi[index]`, `chuoi[start:stop:step]` để truy cập ký tự/chuỗi con.
+
+**3. Danh sách (`list`) - Khả biến (Mutable)**
+
+* **Phương thức:**
+    * `.append(item)`: Thêm `item` vào cuối list.
+    * `.extend(iterable)`: Nối các phần tử từ `iterable` vào cuối list.
+    * `.insert(index, item)`: Chèn `item` vào vị trí `index`.
+    * `.remove(item)`: Xóa phần tử `item` đầu tiên tìm thấy (báo lỗi nếu không có).
+    * `.pop(index=-1)`: Xóa và trả về phần tử tại `index` (mặc định là cuối list).
+    * `.clear()`: Xóa hết phần tử.
+    * `.index(item)`: Trả về vị trí `item` đầu tiên (báo lỗi nếu không có).
+    * `.count(item)`: Đếm số lần `item` xuất hiện.
+    * `.sort()`: Sắp xếp list (thay đổi list gốc).
+    * `.reverse()`: Đảo ngược thứ tự list (thay đổi list gốc).
+    * `.copy()`: Tạo bản sao nông (shallow copy) của list.
+* **Hàm tích hợp sẵn:**
+    * `len(list)`: Số lượng phần tử.
+    * `sum(list)`: Tổng các phần tử (nếu là số).
+    * `min(list)` / `max(list)`: Phần tử nhỏ nhất/lớn nhất.
+    * `sorted(list)`: Trả về một list mới đã được sắp xếp (không đổi list gốc).
+* **Toán tử:** `+` (nối list), `*` (lặp lại list).
+* **Indexing & Slicing:** `list[index]`, `list[start:stop:step]`, gán giá trị `list[index] = value`.
+
+**4. Bộ (`tuple`) - Bất biến (Immutable)**
+
+* **Phương thức:**
+    * `.index(item)`: Tìm vị trí `item`.
+    * `.count(item)`: Đếm số lần `item` xuất hiện.
+* **Hàm tích hợp sẵn:** `len()`, `sum()`, `min()`, `max()`, `sorted()` (trả về list).
+* **Toán tử:** `+`, `*`.
+* **Indexing & Slicing:** `tuple[index]`, `tuple[start:stop:step]`.
+
+**5. Từ điển (`dict`) - Khả biến (Mutable)**
+
+* **Phương thức:**
+    * `.keys()`: Trả về view chứa các key.
+    * `.values()`: Trả về view chứa các value.
+    * `.items()`: Trả về view chứa các cặp (key, value).
+    * `.get(key, default=None)`: Lấy value của `key`, trả về `default` nếu key không tồn tại (không báo lỗi).
+    * `.pop(key, default)`: Xóa và trả về value của `key` (báo lỗi nếu key không có và không có default).
+    * `.popitem()`: Xóa và trả về cặp (key, value) cuối cùng (trong Python 3.7+).
+    * `.update(other_dict)`: Cập nhật dict với các cặp key-value từ `other_dict`.
+    * `.clear()`: Xóa hết các cặp key-value.
+    * `.copy()`: Tạo bản sao nông.
+* **Hàm tích hợp sẵn:** `len(dict)` (số cặp key-value).
+* **Truy cập/Gán:** `dict[key]`, `dict[key] = value`.
+* **Toán tử:** Dùng `in` để kiểm tra key có tồn tại không (`key in dict`).
+
+**6. Tập hợp (`set`) - Khả biến (Mutable), phần tử duy nhất**
+
+* **Phương thức:**
+    * `.add(item)`: Thêm phần tử (nếu chưa có).
+    * `.update(iterable)`: Thêm các phần tử từ `iterable`.
+    * `.remove(item)`: Xóa `item` (báo lỗi nếu không có).
+    * `.discard(item)`: Xóa `item` (không báo lỗi nếu không có).
+    * `.pop()`: Xóa và trả về một phần tử bất kỳ.
+    * `.clear()`: Xóa hết phần tử.
+    * `.copy()`: Tạo bản sao nông.
+    * `.union(other_set)` hoặc `set1 | set2`: Phép hợp.
+    * `.intersection(other_set)` hoặc `set1 & set2`: Phép giao.
+    * `.difference(other_set)` hoặc `set1 - set2`: Phép hiệu.
+    * `.symmetric_difference(other_set)` hoặc `set1 ^ set2`: Phép hiệu đối xứng.
+    * `.issubset(other_set)` hoặc `set1 <= set2`: Kiểm tra tập con.
+    * `.issuperset(other_set)` hoặc `set1 >= set2`: Kiểm tra tập cha.
+* **Hàm tích hợp sẵn:** `len(set)`.
+* **Toán tử:** Dùng `in` để kiểm tra thành viên.
+=============================================================cơ sở dữ liệu cơ bản============================================
+Chào bạn, dưới đây là phần trình bày về cơ sở dữ liệu cơ bản, các câu lệnh SQL ví dụ và cách kết hợp với Python.
+
+### I. Cơ Sở Dữ Liệu (Database - DB) là gì?
+
+1.  **Khái niệm:**
+    * Cơ sở dữ liệu (CSDL) là một tập hợp dữ liệu được tổ chức, lưu trữ và quản lý một cách có hệ thống trên máy tính.
+    * Mục đích chính là để dễ dàng truy cập, quản lý và cập nhật dữ liệu.
+    * Hãy tưởng tượng nó như một tủ hồ sơ điện tử siêu thông minh, nơi bạn có thể lưu trữ thông tin một cách ngăn nắp và tìm kiếm nhanh chóng.
+
+2.  **Tại sao cần CSDL?**
+    * **Lưu trữ hiệu quả:** Lưu trữ lượng lớn dữ liệu một cách có cấu trúc.
+    * **Truy xuất nhanh chóng:** Tìm kiếm và lấy dữ liệu dễ dàng thông qua các truy vấn.
+    * **Quản lý tập trung:** Dữ liệu được quản lý tại một nơi, dễ dàng bảo trì và cập nhật.
+    * **An toàn và bảo mật:** Cung cấp các cơ chế kiểm soát truy cập và bảo vệ dữ liệu.
+    * **Toàn vẹn dữ liệu:** Đảm bảo dữ liệu chính xác và nhất quán thông qua các ràng buộc.
+    * **Chia sẻ dữ liệu:** Cho phép nhiều người dùng hoặc ứng dụng truy cập dữ liệu cùng lúc.
+
+3.  **Loại CSDL phổ biến (Cho người mới bắt đầu):**
+    * **Cơ sở dữ liệu quan hệ (Relational Database):** Đây là loại phổ biến nhất. Dữ liệu được tổ chức thành các bảng (tables). Mỗi bảng có các hàng (rows - bản ghi) và cột (columns - thuộc tính). Các bảng có thể liên kết với nhau thông qua các khóa (keys). Ví dụ: MySQL, PostgreSQL, SQLite, SQL Server, Oracle.
+
+### II. Ngôn ngữ truy vấn có cấu trúc (SQL - Structured Query Language)
+
+* SQL là ngôn ngữ tiêu chuẩn được sử dụng để giao tiếp với các CSDL quan hệ.
+* Nó cho phép bạn thực hiện các thao tác chính như:
+    * Định nghĩa cấu trúc dữ liệu (tạo bảng, sửa bảng...).
+    * Truy vấn dữ liệu (lấy thông tin).
+    * Chèn, cập nhật, xóa dữ liệu.
+    * Quản lý quyền truy cập.
+
+### III. Các câu lệnh SQL cơ bản (CRUD Operations)
+
+Giả sử chúng ta có một bảng tên là `Students` (Sinh viên) với các cột: `id` (mã sinh viên - khóa chính), `name` (tên), `age` (tuổi), `major` (ngành học).
+
+1.  **CREATE (Tạo):**
+    * **Tạo Cơ sở dữ liệu:**
+        ```sql
+        CREATE DATABASE school_management;
+        ```
+    * **Tạo Bảng:** (Sau khi đã chọn CSDL `school_management` để làm việc)
+        ```sql
+        CREATE TABLE Students (
+            id INT PRIMARY KEY AUTO_INCREMENT, -- Mã SV, tự động tăng
+            name VARCHAR(100) NOT NULL,       -- Tên, không được để trống
+            age INT,
+            major VARCHAR(50)
+        );
+        ```
+        * `INT`: Kiểu số nguyên.
+        * `VARCHAR(n)`: Kiểu chuỗi ký tự có độ dài tối đa n.
+        * `PRIMARY KEY`: Khóa chính, định danh duy nhất cho mỗi hàng.
+        * `AUTO_INCREMENT`: Tự động tăng giá trị (thường dùng cho ID).
+        * `NOT NULL`: Cột này không được phép có giá trị rỗng (NULL).
+
+2.  **READ (Đọc / Truy vấn):** Dùng lệnh `SELECT`
+    * **Lấy tất cả thông tin từ bảng:**
+        ```sql
+        SELECT * FROM Students;
+        ```
+    * **Lấy một số cột cụ thể:**
+        ```sql
+        SELECT name, major FROM Students;
+        ```
+    * **Lấy dữ liệu với điều kiện:** (Lấy sinh viên có tuổi lớn hơn 20)
+        ```sql
+        SELECT * FROM Students WHERE age > 20;
+        ```
+    * **Lấy dữ liệu và sắp xếp:** (Lấy sinh viên và sắp xếp theo tên A-Z)
+        ```sql
+        SELECT * FROM Students ORDER BY name ASC; -- ASC: tăng dần (mặc định), DESC: giảm dần
+        ```
+    * **Lấy dữ liệu với nhiều điều kiện:** (Lấy sinh viên ngành 'IT' và tuổi <= 22)
+        ```sql
+        SELECT name, age FROM Students WHERE major = 'IT' AND age <= 22;
+        ```
+
+3.  **UPDATE (Cập nhật):** Dùng lệnh `UPDATE`
+    * **Cập nhật thông tin của một sinh viên cụ thể:** (Cập nhật ngành học cho sinh viên có id = 5)
+        ```sql
+        UPDATE Students
+        SET major = 'Computer Science'
+        WHERE id = 5;
+        -- Lưu ý: Luôn dùng mệnh đề WHERE khi UPDATE để tránh cập nhật toàn bộ bảng!
+        ```
+    * **Cập nhật nhiều cột:**
+        ```sql
+        UPDATE Students
+        SET age = 21, major = 'Data Science'
+        WHERE id = 10;
+        ```
+
+4.  **DELETE (Xóa):** Dùng lệnh `DELETE`
+    * **Xóa một sinh viên cụ thể:** (Xóa sinh viên có id = 3)
+        ```sql
+        DELETE FROM Students
+        WHERE id = 3;
+        -- Lưu ý: Luôn dùng mệnh đề WHERE khi DELETE để tránh xóa toàn bộ bảng!
+        ```
+    * **Xóa tất cả sinh viên thuộc một ngành:**
+        ```sql
+        DELETE FROM Students
+        WHERE major = 'Economics';
+        ```
+
+5.  **INSERT (Chèn):** Dùng lệnh `INSERT INTO` để thêm dữ liệu mới
+    * **Thêm một sinh viên mới:**
+        ```sql
+        INSERT INTO Students (name, age, major)
+        VALUES ('Nguyen Van A', 21, 'IT');
+        ```
+    * **Thêm nhiều sinh viên cùng lúc (cú pháp có thể khác nhau tùy hệ CSDL):**
+        ```sql
+        INSERT INTO Students (name, age, major) VALUES
+        ('Tran Thi B', 20, 'Marketing'),
+        ('Le Van C', 22, 'IT');
+        ```
+
+### IV. Kết hợp Cơ sở dữ liệu với Python
+
+Python có thể dễ dàng tương tác với hầu hết các loại CSDL thông qua các thư viện gọi là **database connectors** (hoặc drivers).
+
+1.  **Tại sao dùng Python với CSDL?**
+    * Tự động hóa các tác vụ liên quan đến dữ liệu.
+    * Xây dựng ứng dụng web (với các framework như Django, Flask) cần lưu trữ và truy xuất dữ liệu.
+    * Phân tích dữ liệu (kết hợp với Pandas, NumPy).
+    * Tạo các kịch bản (scripts) để quản lý, sao lưu, hoặc di chuyển dữ liệu.
+
+2.  **Các thư viện phổ biến:**
+    * **`sqlite3`:** Có sẵn trong Python, dùng cho CSDL SQLite (CSDL dựa trên file, rất tiện lợi cho ứng dụng nhỏ hoặc học tập).
+    * **`mysql-connector-python`:** Kết nối với MySQL. Cần cài đặt: `pip install mysql-connector-python`
+    * **`psycopg2`:** Kết nối với PostgreSQL. Cần cài đặt: `pip install psycopg2-binary` (hoặc `psycopg2`)
+    * **`pyodbc`:** Kết nối qua ODBC (có thể dùng cho SQL Server, Access...). Cần cài đặt: `pip install pyodbc`
+    * **SQLAlchemy:** Một ORM (Object-Relational Mapper) mạnh mẽ, cung cấp cách tiếp cận hướng đối tượng để làm việc với CSDL, trừu tượng hóa nhiều câu lệnh SQL. Phù hợp cho các dự án lớn. Cần cài đặt: `pip install SQLAlchemy` (và connector tương ứng).
+
+3.  **Quy trình cơ bản khi làm việc với CSDL trong Python:**
+
+    * **Import thư viện:** `import sqlite3` (hoặc thư viện khác).
+    * **Kết nối (Connect):** Tạo một đối tượng kết nối đến CSDL. Cần cung cấp thông tin như tên CSDL, host, user, password (tùy loại CSDL).
+    * **Tạo Con trỏ (Cursor):** Con trỏ là đối tượng cho phép bạn thực thi các lệnh SQL.
+    * **Thực thi (Execute):** Dùng con trỏ để thực thi các câu lệnh SQL (CREATE, INSERT, SELECT, UPDATE, DELETE). **Nên sử dụng tham số hóa (placeholders như `?` hoặc `%s`) để tránh lỗi SQL Injection.**
+    * **Lấy kết quả (Fetch):** Nếu là lệnh `SELECT`, dùng các phương thức như `Workspaceone()` (lấy 1 hàng), `Workspaceall()` (lấy tất cả các hàng), `Workspacemany(n)` (lấy n hàng).
+    * **Lưu thay đổi (Commit):** Đối với các lệnh làm thay đổi dữ liệu (INSERT, UPDATE, DELETE), cần gọi `connection.commit()` để lưu các thay đổi vào CSDL.
+    * **Đóng kết nối (Close):** Luôn đóng con trỏ và kết nối sau khi sử dụng xong để giải phóng tài nguyên (`cursor.close()`, `connection.close()`). Sử dụng `try...finally` hoặc `with` statement là cách tốt nhất để đảm bảo kết nối luôn được đóng.
+
+4.  **Ví dụ với `sqlite3` (Đơn giản nhất):**
+
+```python
+import sqlite3
+import os
+
+# Tên file CSDL
+db_file = 'my_school.db'
+
+# Xóa file db cũ nếu tồn tại (chỉ để chạy ví dụ này nhiều lần)
+if os.path.exists(db_file):
+    os.remove(db_file)
+
+# Hàm để thực hiện các thao tác
+def database_operations():
+    conn = None # Khởi tạo biến kết nối
+    try:
+        # 1. Kết nối (sẽ tạo file nếu chưa có)
+        conn = sqlite3.connect(db_file)
+        print(f"Đã kết nối tới SQLite DB: {db_file}")
+
+        # 2. Tạo con trỏ
+        cursor = conn.cursor()
+        print("Đã tạo con trỏ")
+
+        # 3. Thực thi: Tạo bảng Students (nếu chưa tồn tại)
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, -- SQLite dùng INTEGER PRIMARY KEY AUTOINCREMENT
+            name TEXT NOT NULL,
+            age INTEGER,
+            major TEXT
+        )
+        ''')
+        print("Đã tạo bảng Students (hoặc bảng đã tồn tại)")
+
+        # 4. Thực thi: Chèn dữ liệu (dùng placeholder ? để an toàn)
+        students_to_insert = [
+            ('Nguyen Van A', 21, 'IT'),
+            ('Tran Thi B', 20, 'Marketing'),
+            ('Le Van C', 22, 'IT')
+        ]
+        cursor.executemany('INSERT INTO Students (name, age, major) VALUES (?, ?, ?)', students_to_insert)
+        print(f"Đã chèn {len(students_to_insert)} sinh viên.")
+
+        # 5. Lưu thay đổi vào CSDL
+        conn.commit()
+        print("Đã commit các thay đổi.")
+
+        # 6. Thực thi: Truy vấn dữ liệu
+        print("\n--- Lấy tất cả sinh viên: ---")
+        cursor.execute('SELECT * FROM Students')
+        all_students = cursor.fetchall() # Lấy tất cả kết quả
+        for student in all_students:
+            print(student) # Mỗi student là một tuple (id, name, age, major)
+
+        print("\n--- Lấy sinh viên ngành IT: ---")
+        cursor.execute('SELECT name, age FROM Students WHERE major = ?', ('IT',)) # Truyền tham số là tuple
+        it_students = cursor.fetchall()
+        for student in it_students:
+            print(f"Tên: {student[0]}, Tuổi: {student[1]}")
+
+        # 7. Thực thi: Cập nhật dữ liệu
+        student_id_to_update = 1
+        new_major = 'Software Engineering'
+        cursor.execute('UPDATE Students SET major = ? WHERE id = ?', (new_major, student_id_to_update))
+        conn.commit() # Commit sau khi cập nhật
+        print(f"\nĐã cập nhật ngành cho sinh viên có ID {student_id_to_update} thành '{new_major}'.")
+
+        # Kiểm tra lại sau khi cập nhật
+        cursor.execute('SELECT * FROM Students WHERE id = ?', (student_id_to_update,))
+        updated_student = cursor.fetchone() # Lấy một hàng
+        print(f"Thông tin sau cập nhật: {updated_student}")
+
+        # 8. Thực thi: Xóa dữ liệu
+        student_id_to_delete = 2
+        cursor.execute('DELETE FROM Students WHERE id = ?', (student_id_to_delete,))
+        conn.commit() # Commit sau khi xóa
+        print(f"\nĐã xóa sinh viên có ID {student_id_to_delete}.")
+
+        # Kiểm tra lại toàn bộ bảng
+        print("\n--- Danh sách sinh viên cuối cùng: ---")
+        cursor.execute('SELECT * FROM Students')
+        final_students = cursor.fetchall()
+        for student in final_students:
+            print(student)
+
+    except sqlite3.Error as e:
+        print(f"Lỗi SQLite xảy ra: {e}")
+    except Exception as ex:
+        print(f"Lỗi khác xảy ra: {ex}")
+    finally:
+        # 9. Đóng kết nối (luôn thực hiện dù có lỗi hay không)
+        if conn:
+            conn.close()
+            print("\nĐã đóng kết nối CSDL.")
+
+# Chạy hàm thực hiện
+database_operations()
+```
+
+**Cách chạy ví dụ Python:**
+1. Lưu đoạn code trên vào một file ví dụ `database_example.py`.
+2. Mở terminal hoặc command prompt.
+3. Chạy file bằng lệnh: `python database_example.py`
+4. Bạn sẽ thấy các thông báo in ra màn hình và một file `my_school.db` được tạo trong cùng thư mục.
+
+=============================================================cơ sở dữ liệu cơ bản============================================
+Dưới đây là trình bày chi tiết về kiến thức cơ sở dữ liệu cần thiết và cách tương tác với chúng bằng Python.
+
+**Phần 1: Kiến thức Cơ bản về Cơ sở dữ liệu (Database)**
+
+1.  **Cơ sở dữ liệu (Database - CSDL) là gì?**
+    * Là một tập hợp các dữ liệu có cấu trúc, được tổ chức và lưu trữ một cách hệ thống, thường là trên máy tính.
+    * Được quản lý bởi một Hệ quản trị Cơ sở dữ liệu (Database Management System - DBMS).
+    * Mục đích: Lưu trữ, quản lý, truy xuất và cập nhật dữ liệu một cách hiệu quả, an toàn và đáng tin cậy.
+
+2.  **Các loại Cơ sở dữ liệu phổ biến:**
+    * **CSDL Quan hệ (Relational Databases - SQL):**
+        * Phổ biến nhất, dữ liệu được tổ chức thành các bảng (tables/relations).
+        * Mỗi bảng có các hàng (rows/records) và cột (columns/attributes).
+        * Sử dụng Ngôn ngữ Truy vấn Có cấu trúc (Structured Query Language - SQL).
+        * **Ví dụ DBMS:** MySQL, PostgreSQL, SQLite, Microsoft SQL Server, Oracle.
+        * **Khái niệm chính:** Bảng, Cột, Hàng, Khóa chính (Primary Key - PK), Khóa ngoại (Foreign Key - FK), Lược đồ (Schema), Mối quan hệ (1-1, 1-nhiều, nhiều-nhiều), Chuẩn hóa (Normalization).
+    * **CSDL NoSQL (Not Only SQL):**
+        * Mô hình dữ liệu linh hoạt hơn, thường có khả năng mở rộng (scalability) tốt hơn cho các trường hợp sử dụng cụ thể.
+        * **Document Databases:** Lưu dữ liệu dưới dạng tài liệu (thường là JSON/BSON). *Ví dụ: MongoDB, Couchbase.*
+        * **Key-Value Stores:** Lưu dữ liệu dạng cặp khóa-giá trị đơn giản. *Ví dụ: Redis, Memcached.*
+        * **Column-Family Stores:** Lưu dữ liệu theo cột thay vì hàng. *Ví dụ: Cassandra, HBase.*
+        * **Graph Databases:** Tập trung vào mối quan hệ giữa các điểm dữ liệu (nodes và edges). *Ví dụ: Neo4j, ArangoDB.*
+
+3.  **SQL (Structured Query Language):**
+    * Ngôn ngữ tiêu chuẩn để giao tiếp với CSDL quan hệ.
+    * **Các lệnh SQL cơ bản (CRUD và hơn thế nữa):**
+        * `SELECT`: Truy xuất dữ liệu (`FROM`, `WHERE`, `JOIN`, `GROUP BY`, `HAVING`, `ORDER BY`).
+        * `INSERT INTO`: Thêm dữ liệu mới.
+        * `UPDATE`: Cập nhật dữ liệu hiện có (`SET`, `WHERE`).
+        * `DELETE`: Xóa dữ liệu (`WHERE`).
+        * `CREATE TABLE`: Tạo bảng mới.
+        * `ALTER TABLE`: Sửa đổi cấu trúc bảng.
+        * `DROP TABLE`: Xóa bảng.
+        * `CREATE DATABASE`, `DROP DATABASE`: Quản lý CSDL.
+
+4.  **Thao tác CRUD:**
+    * Các hoạt động cơ bản trên dữ liệu: **C**reate (Tạo), **R**ead (Đọc), **U**pdate (Cập nhật), **D**elete (Xóa).
+    * Ánh xạ trực tiếp tới các lệnh SQL: `INSERT`, `SELECT`, `UPDATE`, `DELETE`.
+
+5.  **Giao dịch (Transactions):**
+    * Một chuỗi các thao tác CSDL được xem như một đơn vị công việc logic duy nhất.
+    * Đảm bảo tính toàn vẹn dữ liệu thông qua **ACID** (trong CSDL quan hệ):
+        * **Atomicity (Nguyên tử):** Hoặc tất cả thao tác thành công, hoặc không thao tác nào thành công (rollback).
+        * **Consistency (Nhất quán):** Giao dịch đưa CSDL từ trạng thái hợp lệ này sang trạng thái hợp lệ khác.
+        * **Isolation (Cô lập):** Các giao dịch đồng thời không can thiệp lẫn nhau.
+        * **Durability (Bền vững):** Một khi giao dịch đã được cam kết (commit), thay đổi là vĩnh viễn.
+
+6.  **Lược đồ CSDL (Database Schema):**
+    * Bản thiết kế chi tiết cấu trúc của CSDL: các bảng, cột, kiểu dữ liệu, mối quan hệ, ràng buộc (constraints).
+
+7.  **Chỉ mục (Indexes):**
+    * Cấu trúc dữ liệu đặc biệt giúp tăng tốc độ truy vấn dữ liệu (`SELECT`) bằng cách cho phép DBMS tìm kiếm nhanh hơn. Việc này đánh đổi bằng việc ghi (`INSERT`, `UPDATE`, `DELETE`) chậm hơn một chút và tốn thêm dung lượng lưu trữ.
+
+**Phần 2: Tương tác với CSDL trong Python**
+
+Python cung cấp nhiều cách để làm việc với CSDL, tuân theo một chuẩn chung và có các thư viện cho hầu hết các loại DBMS.
+
+1.  **DB-API 2.0 (PEP 249):**
+    * Là một đặc tả (specification) chuẩn của Python cho các module truy cập CSDL.
+    * Mục đích: Cung cấp một giao diện lập trình **thống nhất** cho dù bạn đang làm việc với SQLite, MySQL, PostgreSQL hay CSDL quan hệ khác.
+    * **Các đối tượng/khái niệm chính:**
+        * `connect()`: Hàm để thiết lập kết nối tới CSDL. Trả về đối tượng `Connection`.
+        * `Connection`: Đại diện cho phiên làm việc với CSDL. Có các phương thức như `cursor()`, `commit()` (lưu thay đổi), `rollback()` (hủy thay đổi), `close()` (đóng kết nối).
+        * `Cursor`: Đối tượng dùng để thực thi các lệnh SQL và lấy kết quả trả về. Có các phương thức như `execute()` (thực thi 1 lệnh), `executemany()` (thực thi 1 lệnh với nhiều bộ dữ liệu), `Workspaceone()` (lấy 1 dòng kết quả), `Workspaceall()` (lấy tất cả kết quả), `Workspacemany()` (lấy nhiều dòng).
+
+2.  **Module `sqlite3` (Tích hợp sẵn):**
+    * Python có sẵn module `sqlite3` để làm việc với CSDL SQLite (CSDL dạng file, không cần server riêng).
+    * Rất tiện lợi cho phát triển, thử nghiệm, ứng dụng nhỏ hoặc nhúng.
+    * **Quy trình cơ bản:**
+        ```python
+        import sqlite3
+
+        db_file = 'my_database.sqlite'
+
+        try:
+            # 1. Kết nối (dùng with để tự động đóng)
+            with sqlite3.connect(db_file) as conn:
+                # 2. Tạo đối tượng Cursor (dùng with để tự động đóng)
+                with conn.cursor() as cursor:
+                    # 3. Thực thi lệnh SQL (Ví dụ: Tạo bảng)
+                    cursor.execute("""
+                        CREATE TABLE IF NOT EXISTS users (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            name TEXT NOT NULL,
+                            email TEXT UNIQUE
+                        )
+                    """)
+                    print("Bảng 'users' đã sẵn sàng.")
+
+                    # 4. Insert dữ liệu (SỬ DỤNG THAM SỐ HÓA '?')
+                    user_name = "Alice"
+                    user_email = "alice@example.com"
+                    try:
+                        cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", (user_name, user_email))
+                        print(f"Đã thêm user: {user_name}")
+                    except sqlite3.IntegrityError: # Xử lý lỗi nếu email đã tồn tại (do UNIQUE)
+                        print(f"Email {user_email} đã tồn tại.")
+
+                    # Thực thi nhiều bản ghi
+                    users_to_add = [("Bob", "bob@example.com"), ("Charlie", "charlie@example.com")]
+                    cursor.executemany("INSERT OR IGNORE INTO users (name, email) VALUES (?, ?)", users_to_add)
+                    print(f"Đã thêm {cursor.rowcount} users từ list.") # rowcount chỉ có ý nghĩa sau executemany
+
+                    # 5. Truy vấn dữ liệu
+                    cursor.execute("SELECT id, name, email FROM users WHERE name LIKE ?", ('A%',)) # Tìm user tên bắt đầu bằng 'A'
+
+                    # 6. Lấy kết quả
+                    print("\n--- Users bắt đầu bằng 'A' ---")
+                    results = cursor.fetchall() # Lấy tất cả
+                    if results:
+                        for row in results:
+                            print(f"ID: {row[0]}, Name: {row[1]}, Email: {row[2]}")
+                    else:
+                        print("Không tìm thấy user nào.")
+
+                # 7. Commit (tự động khi kết thúc khối 'with conn:')
+                # conn.commit() # Không cần thiết khi dùng with conn:
+
+        except sqlite3.Error as e:
+            print(f"Lỗi CSDL SQLite: {e}")
+        # 8. Close (tự động khi kết thúc khối 'with conn:')
+        ```
+    * **Quan trọng:** Luôn dùng `?` làm placeholder trong `execute()` và truyền dữ liệu dưới dạng tuple để **tránh lỗi SQL Injection**.
+
+3.  **Làm việc với CSDL Quan hệ khác (MySQL, PostgreSQL,...):**
+    * Bạn cần cài đặt thư viện adapter (driver) tương ứng cho CSDL đó.
+    * **Ví dụ thư viện:**
+        * MySQL: `mysql-connector-python` hoặc `PyMySQL`
+        * PostgreSQL: `psycopg2` (phổ biến) hoặc `psycopg` (mới hơn)
+        * SQL Server: `pyodbc` (cần ODBC driver của hệ điều hành)
+        * Oracle: `cx_Oracle` (cần Oracle Instant Client)
+    * **Cài đặt:** Dùng pip, ví dụ: `pip install psycopg2-binary` (cho PostgreSQL).
+    * **Kết nối:** Sử dụng hàm `connect()` của thư viện đó, cung cấp các thông tin kết nối cần thiết (host, port, user, password, database name).
+        ```python
+        # Ví dụ với PostgreSQL (đã cài psycopg2)
+        import psycopg2
+
+        try:
+            with psycopg2.connect(
+                host="your_host",
+                database="your_db",
+                user="your_user",
+                password="your_password",
+                port="your_port" # thường là 5432
+            ) as conn:
+                with conn.cursor() as cursor:
+                    # Sử dụng cursor.execute(), fetchall(),... tương tự sqlite3
+                    # Lưu ý: Placeholder thường là %s thay vì ?
+                    cursor.execute("SELECT version();")
+                    db_version = cursor.fetchone()
+                    print(f"PostgreSQL version: {db_version[0]}")
+
+                    cursor.execute("SELECT name FROM users WHERE email = %s", ("bob@example.com",)) # Dùng %s
+                    # ... xử lý kết quả ...
+        except psycopg2.Error as e:
+            print(f"Lỗi CSDL PostgreSQL: {e}")
+        ```
+    * Các thao tác còn lại với `cursor`, `commit`, `rollback`, `close` tuân theo chuẩn DB-API 2.0, tương tự `sqlite3`.
+
+4.  **Object-Relational Mappers (ORMs):**
+    * Là các thư viện giúp ánh xạ các bảng/bản ghi trong CSDL thành các lớp/đối tượng trong Python.
+    * Cho phép bạn tương tác với CSDL bằng cách gọi phương thức trên các đối tượng Python thay vì viết SQL thuần túy (mặc dù vẫn có thể viết SQL nếu cần).
+    * **Ưu điểm:** Code Pythonic hơn, che giấu chi tiết SQL, có thể giúp chuyển đổi giữa các CSDL dễ hơn, quản lý mối quan hệ đối tượng.
+    * **Nhược điểm:** Cần thời gian học, có thể tạo ra truy vấn SQL không tối ưu nếu không cẩn thận, thêm một lớp trừu tượng.
+    * **Các ORM phổ biến:**
+        * **SQLAlchemy:** Rất mạnh mẽ, linh hoạt, được sử dụng rộng rãi. Bao gồm cả Core (cho phép viết SQL bằng biểu thức Python) và ORM.
+        * **Django ORM:** Tích hợp sẵn trong web framework Django.
+        * **Peewee:** Nhẹ nhàng, đơn giản hơn.
+    * **Ví dụ (ý tưởng với SQLAlchemy ORM):**
+        ```python
+        # (Cần cài đặt SQLAlchemy và cấu hình engine, session)
+        # from sqlalchemy import create_engine, Column, Integer, String
+        # from sqlalchemy.orm import sessionmaker, declarative_base
+
+        # Base = declarative_base()
+
+        # # Định nghĩa lớp tương ứng bảng users
+        # class User(Base):
+        #     __tablename__ = 'users'
+        #     id = Column(Integer, primary_key=True)
+        #     name = Column(String)
+        #     email = Column(String, unique=True)
+
+        # # Tạo session
+        # Session = sessionmaker(bind=engine) # engine đã được tạo trước đó
+        # session = Session()
+
+        # # Thêm user mới
+        # new_user = User(name="David", email="david@example.com")
+        # session.add(new_user)
+        # session.commit()
+
+        # # Truy vấn user
+        # alice = session.query(User).filter_by(name="Alice").first()
+        # if alice:
+        #      print(f"Found user via ORM: {alice.name}, {alice.email}")
+
+        # session.close()
+        ```
+
+5.  **Làm việc với CSDL NoSQL:**
+    * Mỗi loại CSDL NoSQL có thư viện Python riêng và cách tương tác khác nhau, không tuân theo DB-API 2.0.
+    * **Ví dụ thư viện:**
+        * MongoDB: `pymongo`
+        * Redis: `redis-py`
+        * Cassandra: `cassandra-driver`
+    * **Ví dụ (ý tưởng với MongoDB):**
+        ```python
+        # (Cần cài pymongo: pip install pymongo)
+        # from pymongo import MongoClient
+
+        # # Kết nối
+        # client = MongoClient('mongodb://localhost:27017/') # Địa chỉ MongoDB server
+
+        # # Chọn database
+        # db = client['mydatabase']
+
+        # # Chọn collection (tương tự bảng)
+        # users_collection = db['users']
+
+        # # Chèn document (tương tự bản ghi)
+        # user_doc = {"name": "Eve", "age": 25, "city": "Hanoi"}
+        # result = users_collection.insert_one(user_doc)
+        # print(f"Inserted document ID: {result.inserted_id}")
+
+        # # Tìm document
+        # eve = users_collection.find_one({"name": "Eve"})
+        # if eve:
+        #     print(f"Found document: {eve}")
+
+        # # Tìm nhiều document
+        # for user in users_collection.find({"age": {"$gte": 25}}): # Tìm user có tuổi >= 25
+        #      print(user)
+
+        # client.close()
+        ```
+
+6.  **Các Thực hành Tốt nhất (Best Practices):**
+    * **Dùng `with` statement:** Luôn dùng `with` cho `connection` và `cursor` để đảm bảo chúng được đóng đúng cách.
+    * **Tham số hóa Truy vấn:** **TUYỆT ĐỐI KHÔNG** dùng f-string hay định dạng chuỗi `%` để chèn biến vào SQL. Luôn dùng placeholders (`?`, `%s`) để chống SQL Injection.
+    * **Connection Pooling:** Đối với ứng dụng web hoặc ứng dụng có nhiều kết nối đồng thời, sử dụng connection pool để quản lý và tái sử dụng kết nối hiệu quả, thay vì tạo/đóng kết nối liên tục. (Các thư viện như SQLAlchemy có hỗ trợ).
+    * **Xử lý Lỗi:** Dùng `try...except` để bắt các lỗi liên quan đến CSDL (`sqlite3.Error`, `psycopg2.Error`, `pymysql.Error`,...) và xử lý một cách phù hợp.
+    * **Quản lý Giao dịch:** Sử dụng `commit()` và `rollback()` một cách cẩn thận, đặc biệt khi một loạt thao tác cần thành công hoặc thất bại cùng nhau.
+    * **Tách biệt Logic:** Giữ logic tương tác CSDL tách biệt khỏi logic nghiệp vụ/giao diện người dùng của ứng dụng.
+
+=============================================================hàm/phương thức cơ bản============================================
+Python có nhiều kiểu dữ liệu (data types) được tích hợp sẵn để biểu diễn các loại thông tin khác nhau. Python là ngôn ngữ kiểu động, nghĩa là bạn không cần khai báo kiểu dữ liệu của biến một cách tường minh; Python sẽ tự xác định kiểu dựa trên giá trị được gán.
+
+Dưới đây là các kiểu dữ liệu cơ bản và phổ biến trong Python:
+
+**1. Kiểu Số (Numeric Types)**
+
+* **`int` (Integer - Số nguyên):** Biểu diễn các số nguyên (không có phần thập phân), bao gồm số dương, số âm và số 0. Số nguyên trong Python có thể lớn tùy ý (chỉ giới hạn bởi bộ nhớ).
+    * *Tính chất:* Bất biến (Immutable - giá trị không thể thay đổi sau khi tạo).
+    * *Ví dụ:* `so_luong = 100`, `nhiet_do = -5`, `nam = 2025`
+* **`float` (Floating-Point - Số thực):** Biểu diễn các số có phần thập phân hoặc số ở dạng mũ (khoa học).
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `pi = 3.14159`, `gia = 99.99`, `toc_do_anh_sang = 3e8` (tức là 3 * 10^8)
+* **`complex` (Complex - Số phức):** Biểu diễn số phức với phần thực và phần ảo (kết thúc bằng `j` hoặc `J`). Ít phổ biến trong lập trình hàng ngày.
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `z = 3 + 4j`
+
+**2. Kiểu Tuần tự (Sequence Types)** - Lưu trữ các mục theo một thứ tự cụ thể.
+
+* **`str` (String - Chuỗi):** Biểu diễn một chuỗi các ký tự Unicode (văn bản). Được định nghĩa bằng dấu nháy đơn (`'`), nháy đôi (`"`) hoặc ba dấu nháy (`'''` hoặc `"""` cho chuỗi nhiều dòng).
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `ten = "Nguyễn Văn A"`, `loi_chao = 'Xin chào!'`, `mo_ta = """Đây là một\nmô tả nhiều dòng."""`
+* **`list` (List - Danh sách):** Lưu trữ một dãy các mục (có thể thuộc các kiểu khác nhau) theo thứ tự. Các mục có thể được truy cập, thay đổi, thêm hoặc xóa thông qua chỉ số (index).
+    * *Tính chất:* **Khả biến (Mutable - có thể thay đổi)**.
+    * *Ví dụ:* `diem_so = [8, 9, 7, 10]`, `thong_tin = ["An", 25, 1.75, True]`, `danh_sach_rong = []`
+* **`tuple` (Tuple - Bộ):** Tương tự như `list` nhưng các phần tử **không thể thay đổi** sau khi tạo. Thường dùng cho các tập hợp giá trị cố định.
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `toa_do = (10, 20)`, `mau_sac_rgb = (255, 0, 0)`
+* **`range`:** Biểu diễn một dãy số bất biến, thường dùng để lặp trong vòng lặp `for`. Nó tạo ra các số khi cần thay vì lưu trữ toàn bộ dãy số.
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `range(5)` (đại diện 0, 1, 2, 3, 4), `range(1, 10, 2)` (đại diện 1, 3, 5, 7, 9)
+
+**3. Kiểu Ánh xạ (Mapping Type)**
+
+* **`dict` (Dictionary - Từ điển):** Lưu trữ dữ liệu dưới dạng các cặp **khóa:giá trị (key:value)**. Mỗi khóa (key) phải là duy nhất và thuộc kiểu bất biến (thường là `str` hoặc `int`). Giá trị (value) có thể là bất kỳ kiểu nào. Từ Python 3.7 trở đi, `dict` duy trì thứ tự các mục được thêm vào.
+    * *Tính chất:* **Khả biến (Mutable)**.
+    * *Ví dụ:* `sinh_vien = {"ma_sv": "SV001", "ten": "Bình", "tuoi": 20}`, `tu_dien_rong = {}`
+
+**4. Kiểu Tập hợp (Set Types)** - Lưu trữ các phần tử **duy nhất**, không theo thứ tự.
+
+* **`set` (Set - Tập hợp):** Lưu trữ một tập hợp các phần tử duy nhất (không trùng lặp), không có thứ tự cụ thể. Hiệu quả cho việc kiểm tra sự tồn tại của phần tử và các phép toán tập hợp (hợp, giao, hiệu). Các phần tử phải thuộc kiểu bất biến.
+    * *Tính chất:* **Khả biến (Mutable)**.
+    * *Ví dụ:* `so_nguyen_to = {2, 3, 5, 7, 7, 3}` (sẽ là `{2, 3, 5, 7}`), `ky_tu_duy_nhat = set("banana")` (sẽ là `{'b', 'a', 'n'}`)
+* **`frozenset` (Frozen Set - Tập hợp cố định):** Phiên bản bất biến của `set`. Không thể thêm/xóa phần tử sau khi tạo. Có thể dùng làm khóa `dict` hoặc phần tử `set` khác.
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `tap_hop_bat_bien = frozenset([1, 2, 'a'])`
+
+**5. Kiểu Luận lý (Boolean Type)**
+
+* **`bool` (Boolean):** Chỉ có hai giá trị: `True` (Đúng) và `False` (Sai). Thường là kết quả của các phép so sánh hoặc điều kiện logic.
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `da_ket_hon = False`, `lon_hon_10 = (15 > 10)` (kết quả là `True`)
+
+**6. Kiểu None (None Type)**
+
+* **`NoneType`:** Có một giá trị duy nhất là `None`. Được dùng để biểu thị sự "không có giá trị", "rỗng" hoặc "null".
+    * *Tính chất:* Bất biến (Immutable).
+    * *Ví dụ:* `ket_qua = None`
+
+**7. Kiểu Nhị phân (Binary Types)** - Dùng cho dữ liệu dạng byte.
+
+* **`bytes`:** Dãy các byte (số nguyên từ 0-255) không thể thay đổi.
+* **`bytearray`:** Dãy các byte có thể thay đổi.
+* **`memoryview`:** Cung cấp cách truy cập bộ nhớ của dữ liệu nhị phân mà không cần sao chép.
+
+**Kiểm tra kiểu dữ liệu:**
+
+Bạn có thể dùng hàm `type()` để xác định kiểu dữ liệu của một biến:
+
+```python
+a = 10
+b = "Xin chào"
+c = [1, 2, 3]
+d = {"id": 1}
+e = True
+
+print(type(a))  # Kết quả: <class 'int'>
+print(type(b))  # Kết quả: <class 'str'>
+print(type(c))  # Kết quả: <class 'list'>
+print(type(d))  # Kết quả: <class 'dict'>
+print(type(e))  # Kết quả: <class 'bool'>
+```
+=============================================================đọc file CSV trong Python============================================
+để đọc file CSV trong Python, bạn có thể sử dụng thư viện tích hợp sẵn `csv`. Thư viện này cung cấp các công cụ mạnh mẽ và dễ sử dụng để xử lý dữ liệu dạng bảng được phân tách bằng dấu phẩy (hoặc các dấu phân cách khác).
+
+Dưới đây là các cách phổ biến để đọc file CSV bằng thư viện `csv`:
+
+**Giả sử bạn có file `data.csv` với nội dung sau:**
+
+```csv
+ID,Ten,Email
+1,Nguyen Van A,a.nguyen@example.com
+2,Tran Thi B,b.tran@example.com
+3,Le Van C,c.le@example.com
+```
+
+**Cách 1: Sử dụng `csv.reader` (Đọc từng dòng thành danh sách - list)**
+
+Cách này đọc mỗi dòng trong file CSV thành một danh sách (list), trong đó mỗi phần tử là một giá trị trong cột của dòng đó.
+
+```python
+import csv
+
+file_csv = 'data.csv'
+
+try:
+    # Mở file CSV để đọc ('r' mode)
+    # encoding='utf-8' là lựa chọn phổ biến và an toàn cho nhiều loại dữ liệu
+    # newline='' rất quan trọng để tránh các dòng trống không mong muốn khi đọc
+    with open(file_csv, mode='r', newline='', encoding='utf-8') as file:
+        # Tạo một đối tượng reader
+        csv_reader = csv.reader(file)
+
+        # Optional: Đọc dòng tiêu đề (header) nếu có và bỏ qua nó trong vòng lặp
+        try:
+            header = next(csv_reader)
+            print(f"Dòng tiêu đề: {header}")
+        except StopIteration:
+            print("Lỗi: File CSV trống.")
+            exit() # Thoát nếu file trống
+
+        # Lặp qua từng dòng còn lại trong file CSV
+        print("\nNội dung file:")
+        for dong in csv_reader:
+            # Mỗi 'dong' là một list các chuỗi, ví dụ: ['1', 'Nguyen Van A', 'a.nguyen@example.com']
+            if dong: # Đảm bảo dòng không rỗng
+                print(f"  ID: {dong[0]}, Tên: {dong[1]}, Email: {dong[2]}")
+            else:
+                print("  - Gặp dòng trống.")
+
+except FileNotFoundError:
+    print(f"Lỗi: Không tìm thấy file '{file_csv}'")
+except Exception as e:
+    print(f"Đã xảy ra lỗi không mong muốn: {e}")
+```
+
+**Cách 2: Sử dụng `csv.DictReader` (Đọc từng dòng thành từ điển - dictionary)**
+
+Cách này tiện lợi hơn vì nó đọc mỗi dòng thành một dictionary. Các *keys* của dictionary là tên cột lấy từ dòng tiêu đề (header row) của file CSV. Điều này giúp mã nguồn dễ đọc và dễ bảo trì hơn vì bạn truy cập dữ liệu qua tên cột thay vì chỉ số.
+
+```python
+import csv
+
+file_csv = 'data.csv'
+
+try:
+    with open(file_csv, mode='r', newline='', encoding='utf-8') as file:
+        # Tạo một đối tượng DictReader
+        # Tự động sử dụng dòng đầu tiên làm tên cột (keys)
+        csv_dict_reader = csv.DictReader(file)
+
+        # Optional: In ra tên các cột đã được nhận dạng
+        print(f"Tên các cột (từ header): {csv_dict_reader.fieldnames}")
+
+        # Lặp qua từng dòng trong file
+        print("\nNội dung file (dạng Dictionary):")
+        for dong_dict in csv_dict_reader:
+            # Mỗi 'dong_dict' là một dictionary, ví dụ:
+            # {'ID': '1', 'Ten': 'Nguyen Van A', 'Email': 'a.nguyen@example.com'}
+            if dong_dict: # Đảm bảo dictionary không rỗng (ít khi xảy ra với DictReader)
+                print(f"  ID: {dong_dict['ID']}, Tên: {dong_dict['Ten']}, Email: {dong_dict['Email']}")
+            # Lưu ý: Giá trị trong dictionary vẫn là dạng chuỗi (string)
+
+except FileNotFoundError:
+    print(f"Lỗi: Không tìm thấy file '{file_csv}'")
+except Exception as e:
+    print(f"Đã xảy ra lỗi không mong muốn: {e}")
+
+```
+
+**Xử lý các tùy chọn khác:**
+
+* **Dấu phân cách khác (Delimiter):** Nếu file của bạn không dùng dấu phẩy (`,`) mà dùng dấu chấm phẩy (`;`), dấu tab (`\t`), hoặc ký tự khác, bạn có thể chỉ định bằng tham số `delimiter`:
+    ```python
+    # Ví dụ cho file dùng dấu chấm phẩy
+    csv_reader = csv.reader(file, delimiter=';')
+    csv_dict_reader = csv.DictReader(file, delimiter=';')
+    ```
+* **Ký tự bao quanh (Quote Character):** Nếu các giá trị chứa dấu phân cách được bao quanh bởi dấu nháy kép (`"`) hoặc nháy đơn (`'`), `csv` thường tự động xử lý đúng. Bạn cũng có thể chỉ định nếu cần với `quotechar`.
+
+**Lưu ý quan trọng:**
+
+1.  **`with open(...)`:** Luôn sử dụng cấu trúc `with open(...)` để đảm bảo file được đóng tự động ngay cả khi có lỗi xảy ra.
+2.  **`newline=''`:** Tham số này rất quan trọng khi mở file CSV. Nó ngăn Python tự động chuyển đổi các ký tự kết thúc dòng, giúp thư viện `csv` xử lý các dòng một cách chính xác trên các hệ điều hành khác nhau.
+3.  **`encoding='utf-8'`:** UTF-8 là một bảng mã phổ biến, hỗ trợ nhiều loại ký tự (bao gồm tiếng Việt). Nếu bạn biết chắc file CSV của mình dùng bảng mã khác (như 'cp1252', 'latin1'), hãy thay đổi cho phù hợp.
+4.  **Dữ liệu là chuỗi:** Cả `csv.reader` và `csv.DictReader` đều đọc tất cả dữ liệu dưới dạng chuỗi (string). Nếu bạn cần làm việc với số liệu (int, float), bạn phải tự chuyển đổi chúng sau khi đọc (ví dụ: `int(dong[0])` hoặc `float(dong_dict['Gia'])`).
+5.  **Xử lý lỗi:** Sử dụng `try...except` để bắt các lỗi thường gặp như `FileNotFoundError` khi file không tồn tại hoặc các lỗi khác trong quá trình đọc file.
+
+=============================================================đọc file CSV trong Python============================================
+Trong Python, việc đọc file là một chức năng cơ bản và bạn **không cần import một thư viện (library) đặc biệt nào** cho các thao tác đọc/ghi file văn bản thông thường. Chức năng này được tích hợp sẵn thông qua hàm `open()`.
+
+Tuy nhiên, có nhiều **cách (phương thức)** khác nhau để đọc nội dung từ file sau khi đã mở nó. Dưới đây là các cách phổ biến:
+
+**1. Sử dụng `with open(...)` (Cách khuyến nghị)**
+
+Đây là cách tốt nhất và an toàn nhất để làm việc với file trong Python vì nó đảm bảo file sẽ **tự động được đóng lại** sau khi khối lệnh `with` kết thúc, ngay cả khi có lỗi xảy ra.
+
+```python
+# Giả sử file 'Text.txt' có nội dung là: 2 1 6 8
+file_name = "Text.txt"
+
+try:
+    with open(file_name, 'r') as file_object:
+        # Các cách đọc bên trong 'with':
+
+        # Cách 1: Đọc toàn bộ nội dung file vào một chuỗi duy nhất
+        content_str = file_object.read()
+        print("Đọc bằng read():", repr(content_str)) # repr để thấy ký tự đặc biệt như \n
+        # Bạn cần xử lý chuỗi này (ví dụ: tách bằng split())
+        numbers_list = content_str.split() # Tách theo khoảng trắng/newline
+        print("Danh sách số (dạng chuỗi):", numbers_list)
+
+        # Cách 2: Đọc từng dòng một (nếu mỗi số/dữ liệu nằm trên một dòng riêng)
+        # Dùng vòng lặp for - cách này hiệu quả về bộ nhớ cho file lớn
+        print("Đọc từng dòng bằng vòng lặp:")
+        lines_list = []
+        for line in file_object:
+            cleaned_line = line.strip() # Loại bỏ khoảng trắng thừa và ký tự xuống dòng (\n)
+            if cleaned_line: # Đảm bảo dòng không rỗng
+               lines_list.append(cleaned_line)
+               print("Đã đọc dòng:", repr(cleaned_line))
+        print("Danh sách các dòng:", lines_list)
+        # Nếu mỗi dòng chỉ có 1 số, list này chính là list số (dạng chuỗi)
+        # Nếu một dòng có nhiều số cách nhau bởi khoảng trắng, bạn cần split thêm:
+        numbers_from_lines = []
+        for line in lines_list:
+            numbers_from_lines.extend(line.split())
+        print("Số từ các dòng:", numbers_from_lines)
+
+
+        # Cách 3: Đọc toàn bộ các dòng vào một danh sách (list)
+        file_object.seek(0) # Quay lại đầu file nếu đã đọc trước đó
+        all_lines = file_object.readlines() # Trả về list các chuỗi, mỗi chuỗi là 1 dòng còn \n
+        print("Đọc bằng readlines():", all_lines)
+        # Cần xử lý từng phần tử trong list này (dùng strip())
+        cleaned_lines = [line.strip() for line in all_lines]
+        print("Danh sách dòng đã làm sạch:", cleaned_lines)
+
+        # Cách 4: Đọc một dòng duy nhất tại vị trí hiện tại
+        file_object.seek(0) # Quay lại đầu file
+        first_line = file_object.readline()
+        print("Đọc bằng readline():", repr(first_line))
+        second_line = file_object.readline() # Đọc dòng tiếp theo
+        print("Đọc tiếp bằng readline():", repr(second_line))
+
+    # File đã tự động được đóng ở đây
+
+except FileNotFoundError:
+    print(f"Lỗi: Không tìm thấy file '{file_name}'")
+except Exception as e:
+    print(f"Đã xảy ra lỗi: {e}")
+
+```
+
+* **`'r'`**: Chế độ đọc (read - mặc định). Các chế độ khác gồm `'w'` (ghi - write, xóa nội dung cũ), `'a'` (ghi nối - append), `'r+'` (đọc và ghi), `'b'` (chế độ nhị phân - binary), ...
+* **`file_object.read()`**: Đọc toàn bộ file thành 1 string. Cẩn thận với file lớn.
+* **`file_object.readline()`**: Đọc 1 dòng (đến ký tự `\n`).
+* **`file_object.readlines()`**: Đọc toàn bộ file thành 1 list các string (mỗi string là 1 dòng). Tốn bộ nhớ nếu file lớn.
+* **Vòng lặp `for line in file_object`**: Đọc file theo từng dòng, hiệu quả nhất về bộ nhớ cho file văn bản.
+
+**2. Sử dụng `open()` và `close()` thủ công (Cách cũ, không khuyến nghị)**
+
+Bạn phải tự mình gọi `file_object.close()` để đóng file. Nếu quên hoặc có lỗi xảy ra trước khi `close()`, file có thể không được đóng đúng cách.
+
+```python
+file_object = None # Khởi tạo để dùng trong finally
+try:
+    file_object = open("Text.txt", "r")
+    content = file_object.read()
+    # ... xử lý content ...
+    print("Đọc bằng open/close thủ công:", content.split())
+except FileNotFoundError:
+    print("Lỗi: Không tìm thấy file")
+finally:
+    if file_object: # Kiểm tra file đã mở thành công chưa
+        file_object.close() # Phải tự đóng file!
+        print("File đã được đóng thủ công.")
+```
+
+**3. Sử dụng các thư viện cho định dạng file cụ thể (Không cần cho bài này)**
+
+* **`csv`**: Đọc/ghi file CSV (Comma Separated Values).
+* **`json`**: Đọc/ghi file định dạng JSON.
+* **`pandas`**: Thư viện mạnh mẽ để đọc nhiều định dạng dữ liệu dạng bảng (CSV, Excel, JSON, SQL...) vào cấu trúc DataFrame (thường dùng trong phân tích dữ liệu).
+
+**Đối với bài toán của bạn (câu 2):**
+
+* Bạn cần đọc file "Text.txt". Giả sử nội dung file là các chữ số cách nhau bởi khoảng trắng (ví dụ: `2 1 6 8`) hoặc mỗi chữ số trên một dòng.
+* Cách **khuyến nghị** là dùng `with open(...)`.
+* Bên trong `with`, bạn có thể dùng `file_object.read().split()` nếu các số nằm trên cùng một dòng và cách nhau bởi khoảng trắng. Hoặc dùng vòng lặp `for line in file_object` rồi `line.strip()` nếu mỗi số nằm trên một dòng riêng. Kết quả cuối cùng bạn cần là một danh sách các chuỗi chứa chữ số: `['2', '1', '6', '8']`.
+
+
+
+
+
+Dưới đây là một số regex bạn có thể sử dụng với `re.split()` trong Python để tách chuỗi theo các điều kiện khác nhau:
+
+### 1. Tách theo khoảng trắng (bao gồm cả khoảng trắng đơn và nhiều khoảng trắng liên tiếp)
+```python
+import re
+
+text = "2   1  6  8"
+result = re.split(r'\s+', text)  # \s+ sẽ khớp với một hoặc nhiều khoảng trắng
+print(result)  # Output: ['2', '1', '6', '8']
+```
+
+### 2. Tách theo số
+```python
+import re
+
+text = "abc123def456ghi789"
+result = re.split(r'\d+', text)  # \d+ sẽ khớp với một hoặc nhiều chữ số
+print(result)  # Output: ['abc', 'def', 'ghi', '']
+```
+
+### 3. Tách theo ký tự không phải chữ cái hoặc số (non-alphanumeric)
+```python
+import re
+
+text = "abc,123;def.456|ghi"
+result = re.split(r'\W+', text)  # \W+ sẽ khớp với một hoặc nhiều ký tự không phải chữ cái hoặc số
+print(result)  # Output: ['abc', '123', 'def', '456', 'ghi']
+```
+
+### 4. Tách theo cả khoảng trắng và dấu câu
+```python
+import re
+
+text = "Hello, world! This is a test."
+result = re.split(r'[,\s.!?]+', text)  # Khớp với dấu câu (, . ! ?) hoặc khoảng trắng
+print(result)  # Output: ['Hello', 'world', 'This', 'is', 'a', 'test', '']
+```
+
+### 5. Tách theo một mẫu phức tạp (ví dụ: khoảng trắng hoặc dấu chấm phẩy)
+```python
+import re
+
+text = "2; 1  6;8"
+result = re.split(r'[;\s]+', text)  # Khớp với dấu chấm phẩy hoặc khoảng trắng
+print(result)  # Output: ['2', '1', '6', '8']
+```
+
+### 6. Tách theo chữ cái
+```python
+import re
+
+text = "123abc456def789ghi"
+result = re.split(r'[a-zA-Z]+', text)  # Khớp với một hoặc nhiều chữ cái
+print(result)  # Output: ['123', '456', '789', '']
+```
+
+Bạn có thể thay đổi các mẫu regex (`r'...'`) để phù hợp với yêu cầu cụ thể của mình.
+=============================================================cách ghi (write)============================================
+CChúng ta đã nói về cách đọc file. Giờ đến **cách ghi (write)** nội dung vào file trong Python. Tương tự như đọc, bạn cũng dùng hàm `open()` nhưng với các chế độ (mode) khác nhau.
+
+**1. Các chế độ ghi (Writing Modes) trong `open()`:**
+
+* **`'w'` (Write - Ghi đè):**
+    * Mở file để ghi.
+    * Nếu file **chưa tồn tại**, nó sẽ được **tạo mới**.
+    * Nếu file **đã tồn tại**, toàn bộ nội dung cũ của file sẽ bị **xóa sạch** trước khi ghi nội dung mới. Hãy cẩn thận khi dùng chế độ này!
+* **`'a'` (Append - Ghi nối tiếp):**
+    * Mở file để ghi.
+    * Nếu file **chưa tồn tại**, nó sẽ được **tạo mới**.
+    * Nếu file **đã tồn tại**, con trỏ sẽ được đặt ở **cuối file**, và nội dung mới bạn ghi vào sẽ được **thêm vào sau** nội dung cũ, không làm mất dữ liệu cũ.
+* **`'x'` (Exclusive Creation - Tạo độc quyền):**
+    * Chỉ để **tạo một file mới** và mở để ghi.
+    * Nếu file **đã tồn tại**, thao tác `open()` sẽ thất bại và gây ra lỗi `FileExistsError`. Chế độ này hữu ích khi bạn muốn chắc chắn rằng mình không vô tình ghi đè lên một file đã có.
+
+*Lưu ý:* Bạn cũng có thể thêm `+` vào các chế độ (ví dụ `w+`, `a+`) để cho phép cả đọc và ghi, nhưng với mục đích chỉ ghi đơn thuần thì `'w'` hoặc `'a'` là đủ.
+
+**2. Sử dụng `with open(...)` (Cách khuyến nghị)**
+
+Tương tự như khi đọc, dùng `with` để quản lý việc mở và **tự động đóng file** là cách tốt nhất.
+
+**3. Các phương thức ghi (Writing Methods):**
+
+Sau khi mở file bằng `with open(...)` ở chế độ ghi (`'w'` hoặc `'a'`), bạn dùng các phương thức sau:
+
+* **`file_object.write(string)`:**
+    * Ghi một **chuỗi (string)** duy nhất vào file tại vị trí con trỏ hiện tại.
+    * Phương thức này **không tự động thêm ký tự xuống dòng (`\n`)**. Nếu bạn muốn mỗi lần ghi là một dòng mới, bạn phải tự thêm `\n` vào cuối chuỗi.
+    * Trả về số lượng ký tự đã được ghi.
+
+* **`file_object.writelines(list_of_strings)`:**
+    * Ghi một **danh sách (hoặc một đối tượng iterable khác) các chuỗi** vào file.
+    * Nó sẽ ghi lần lượt từng chuỗi trong danh sách.
+    * Giống như `write()`, phương thức này cũng **không tự động thêm ký tự xuống dòng (`\n`)** giữa các chuỗi. Bạn cần đảm bảo các chuỗi trong danh sách đã chứa sẵn `\n` nếu muốn chúng nằm trên các dòng riêng biệt.
+
+**Ví dụ:**
+
+```python
+file_ghi = "output.txt"
+dong1 = "Đây là dòng đầu tiên.\n" # Có \n để xuống dòng
+dong2 = "Đây là dòng thứ hai."    # Không có \n
+
+danh_sach_dong = ["Dòng A\n", "Dòng B\n", "Dòng C"]
+
+# --- Ví dụ với chế độ 'w' (Ghi đè) ---
+try:
+    with open(file_ghi, 'w', encoding='utf-8') as f: # Dùng encoding='utf-8' cho tiếng Việt
+        f.write(dong1)
+        f.write(dong2)
+        f.write("\nThêm một dòng nữa.\n") # Tự thêm \n khi cần
+
+        # Ghi nhiều dòng từ list
+        f.writelines(danh_sach_dong) # Ghi Dòng A\n, Dòng B\n, Dòng C liền nhau
+
+    print(f"Đã ghi đè nội dung vào file '{file_ghi}' (chế độ 'w').")
+
+    # Kiểm tra nội dung file output.txt bây giờ sẽ là:
+    # Đây là dòng đầu tiên.
+    # Đây là dòng thứ hai.
+    # Thêm một dòng nữa.
+    # Dòng A
+    # Dòng B
+    # Dòng C
+
+except Exception as e:
+    print(f"Lỗi khi ghi file (chế độ 'w'): {e}")
+
+
+# --- Ví dụ với chế độ 'a' (Ghi nối tiếp) ---
+try:
+    with open(file_ghi, 'a', encoding='utf-8') as f: # Mở lại file ở chế độ append
+        f.write("\n--- Phần ghi nối tiếp ---\n")
+        f.write("Thêm dòng này vào cuối file.\n")
+
+    print(f"Đã ghi nối tiếp vào file '{file_ghi}' (chế độ 'a').")
+
+    # Kiểm tra nội dung file output.txt bây giờ sẽ có thêm phần mới ở cuối
+
+except Exception as e:
+    print(f"Lỗi khi ghi file (chế độ 'a'): {e}")
+```
+
+**Quan trọng:**
+
+* Luôn dùng `encoding='utf-8'` khi làm việc với file văn bản có chứa tiếng Việt hoặc các ký tự đặc biệt khác để tránh lỗi mã hóa.
+* Nhớ tự thêm ký tự xuống dòng `\n` khi sử dụng `write()` hoặc chuẩn bị các chuỗi trong `writelines()` nếu bạn muốn dữ liệu được ghi thành các dòng riêng biệt.
+* Hãy cẩn thận với chế độ `'w'` vì nó sẽ xóa toàn bộ nội dung cũ của file.
+
+=============================================================Đề 1 Thành Vui============================================
+import csv
+from datetime import datetime
+import sqlite3
+import requests
+import matplotlib.pyplot as plt
+
+# Question 1:
+# Task 1: 
+class User:
+    def __init__(self, id, name, email, location, gender, date_of_birth, registered_date):
+        self.id = id
+        self.name = name
+        self.email = email
+        self.location = location
+        self.gender = gender
+        self.date_of_birth = date_of_birth
+        self.registered_date = registered_date
+# Task 2:
+def load_user_data(filename):
+    list_user_data = []
+    try:
+        with open(filename, 'r', encoding='utf-8', newline='') as file:
+            csv_file = csv.DictReader(file)
+            for row in csv_file:
+                # Validate User information
+                if not row['ID'] or not row['Name'] or not row['Email']:
+                    print('Row contain empty attribute in user information!')
+                    continue
+                try:
+                    ID = int(row['ID'])       
+                    Name = str(row['Name'])
+                    Email = str(row['Email'])
+                    Location = str(row['Location'])
+                    Gender = str(row['Gender'])
+                    DateOfBirth = datetime.datetime.strptime(row['DateOfBirth'], "%Y-%m-%d")
+                    RegisteredDate = datetime.datetime.strptime(row['RegisteredDate'], "%Y-%m-%d")
+                    user = User(ID, Name, Email, Location, Gender, DateOfBirth, RegisteredDate)
+                    list_user_data.append(user)
+                except Exception as ex:
+                    print(f"Error while parsing row: {row} => {ex}")
+    except FileNotFoundError:
+        print(f"File not found '{filename}'")
+    except Exception as e:
+        print(f"Error while handling read file: {e}")
+    return list_user_data
+# Task 3:
+""""
+- Advantages of using list to store User objects:
++ Simplicity: List is a fundamental of Python data structure, easy to understand and use.
++ Build-in: No need to import special libraries just for storing the data in memory.
++ Ordered: Maintains the order in which users were added.
++ Mutable: Easy to add or remove users from the list after loading.
++ Iteration: Simple to loop through all users.
+
+- Disadvantages of using list to store User objects:
++ Search performance: With is O(n) complexity, which is slow for very large datasets. 
++ Memory usage: For extremely large datasets, storing all Users objects in a list in memory might consume a lot of RAM.
+Databases or generators might be more memory-efficient alternatives in such case.
++ Data analyst features: Lists lack the built-in analytical capabilities of structures like Pandas Dataframes.
+"""
+
+# Question 2:
+# Task 1:
+# Line chart:
+def visualize_user_data(data):
+    # Check validate data found or not found there are data in file or not
+    if not data:
+        print("Not found data to visualize user!")
+        return
+    # Collect data to visualize user
+    registrations_by_year = {}
+    gender_by_location = {}
+    
+    # Iteration through data to get all users
+    for user in data:
+        # Collect registrations_by_year to dictionary
+        year = user.registered_date.year
+        # Count the number of each year
+        registrations_by_year[year] = registrations_by_year.get(year, 0) + 1
+        
+        # Collect gender_by_location to get all users
+        loc = user.location.strip()
+        gender = user.gender.strip().capitalize()
+        # Check if location is empty then assign it equal to zero for male and female
+        if loc not in gender_by_location:
+            gender_by_location[loc] = {'Male': 0, 'Female': 0}
+        # Count the number of gender of each location
+        gender_by_location[loc][gender] = gender_by_location[loc].get(gender, 0) + 1
+        
+    # Create a figure with two subplots (in on figure will have two charts)
+    fig, axes =plt.subplots(1, 2, figsize=(16, 8))
+    
+    # Subplot 1: Registration trend
+    years = sorted(registrations_by_year.keys())
+    counts = [registrations_by_year[y] for y in years]
+    # Set left side is line chart
+    # Set attribute for charts
+    axis_line = axes[0]
+    axis_line.plot(years, counts, marker='o')
+    axis_line.set_title("Trend Of User Registrations Over The Years")
+    axis_line.set_xlabel("Year")
+    axis_line.set_ylabel("Number Of User")
+    axis_line.grid(True, linestyle='--', alpha=0.6)
+    
+    # Subplot 2: Male and Female users per location
+    locations = sorted(gender_by_location.keys())
+    genders = ['Male', 'Female']    
+    gender_count = {g: [gender_by_location[loc].get(g, 0) for loc in locations] for g in genders}
+    
+    # Split into two 
+    axis_bar = axes[1]
+    bottom = [0] * len(locations)
+    
+    # Calculate maximum total user per location for setting y-axis limit
+    max_users_per_location = max(sum(gender_by_location[loc].get(g, 0) for g in genders) for loc in locations)
+    
+    # Set y-axis limit to slightly higher than the maximum
+    axis_bar.set_ylim(0, max_users_per_location * 1.2)
+    
+    # For gender
+    for gender in genders:
+        axis_bar.bar(locations, gender_count[gender], label=gender, bottom=bottom)
+        bottom = [b + c for b, c in zip(bottom, gender_count[gender])]
+
+    axis_bar.set_title("Gender Distribution By Location")
+    axis_bar.set_xlabel("Location")
+    axis_bar.set_ylabel("Users")
+    axis_bar.set_xticks(range(len(locations)))
+    axis_bar.set_xticklabels(locations, rotation=45, ha='right')
+    axis_bar.legend(title='Gender')
+    # Calculate maximum total users
+    plt.tight_layout()
+    plt.show()
+# Task 2:
+    """
+    The challenges of handling data inconsistencies in visualizations:
+    1. Missing values: can lead to incomplete or inaccurate charts.
+    2. Incorrect data type: strings instead of numbers/dates can break plots.
+    3. Inconsistent formatting/categorization: causes incorrect grouping or labeling.
+    4. Outliers: skew the scale and distort the visual interpretation.
+    5. Conflicting information: duplication information can lead to unreliable results.
+    """
+
+# Question 3:
+def store_user_data_in_database(data):
+# Task 1:
+    if not data:
+        print("Not found data to store into database!")
+        return
+    try:
+        # Create database and connect database
+        with sqlite3.connect('UserData.db') as conn:
+            # Create cursor to execute sql queri
+            cursor = conn.cursor()
+            
+            # Create table Users
+            cursor.execute('''
+            CREATE TABLE IF NOT EXISTS Users
+                (
+                    ID INTEGER PRIMARY KEY,
+                    Name TEXT NOT NULL,
+                    Email TEXT NOT NULL UNIQUE,
+                    Location TEXT NOT NULL,
+                    Gender TEXT NOT NULL,
+                    DateOfBirth DATETIME NOT NULL,
+                    RegisteredDate DATETIME NOT NULL
+                )
+            ''')
+            
+            # Insert users data
+            for user in data:
+                cursor.execute('''
+                    INSERT OR IGNORE INTO Users (ID, Name, Email, Location, Gender, DateOfBirth, RegisteredDate)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (user.id, user.name, user.email, user.location, user.gender, user.date_of_birth.strftime('%Y-%m-%d'), user.registered_date.strftime('%Y-%m-%d')))
+            
+            # Commit
+            conn.commit()
+            
+            # Task 2:
+            # Top 5 location with highest number of registered users
+            cursor.execute('''
+                SELECT Location, COUNT(*) as UserCount
+                FROM Users
+                GROUP BY Location
+                ORDER BY UserCount DESC
+                LIMIT 5                      
+            ''')
+            top_locations = cursor.fetchall()
+            print("\nLocation with the highest number of registered users:")
+            for location, count in top_locations:
+                print(f"Location {location} - Count {count} Users")
+                
+            # The number of user per gender who registered after 2015
+            cursor.execute('''
+                SELECT Gender, COUNT(*) AS UserCount
+                FROM Users
+                WHERE RegisteredDate >= '2016-01-01'
+                GROUP BY Gender
+            ''')
+            user_per_gender = cursor.fetchall()
+            print("\nThe number of user per gender who registered after 2015:")
+            for gender, count in user_per_gender:
+                print(f"Gender: {gender}, Count: {count} users")
+            
+    except sqlite3.Error as e:
+        print(f"SQLite Error: {e}")
+    print("\nAll User stored into database successfully!")
+    
+# Question 4:
+def fetch_and_update_user_data(data):
+    try:
+        with sqlite3.connect('UserData.db') as conn:
+            cursor = conn.cursor()
+
+            cursor.execute('''PRAGMA table_info(Users)''')
+            existing_columns = [row[1] for row in cursor.fetchall()]
+    
+            columns_need_add = {
+                'Username': 'TEXT',
+                'PictureURL': 'TEXT',
+                'Timezone': 'TEXT'
+            }
+            
+            for column, data_type in columns_need_add.items():
+                if column not in existing_columns:
+                    cursor.execute(f'ALTER TABLE Users ADD COLUMN {column} {data_type}')
+        
+            cursor.execute('''SELECT ID FROM Users''')
+            existing_ids = [row[0] for row in cursor.fetchall()]
+            
+            if not existing_ids:
+                print("Not found user's ID to update!")
+                return
+        
+            # Fetch data from https://randomuser.me/api/
+            print("Loading data from: https://randomuser.me/api/ .....")
+            number_of_users = len(existing_ids)
+            response = requests.get(f'https://randomuser.me/api/?results={number_of_users}')
+            
+            data = response.json().get('results', [])
+            print(data)
+            update_user_count = 0
+            
+            for index, user_id in enumerate(existing_ids):
+                if index >= len(data):
+                    break
+                
+                user = data[index]
+                
+                # Extract data from URL
+                user_name = user.get('login', {}).get('username', '')
+                print(user_name)
+                picture_url = user.get('picture', {}).get('large', '')
+                print(picture_url)
+                time_zone = user.get('location', {}).get('timezone', {}).get('description', '')
+                print(time_zone)
+                
+                cursor.execute('''
+                    UPDATE Users
+                    SET Username = ?, PictureURL = ?, Timezone = ?       
+                    WHERE ID = ?
+                ''', (user_name, picture_url, time_zone, user_id))
+                
+                update_user_count += 1
+            conn.commit()
+            print(f"Update User Account {update_user_count} Users.")
+             
+    except requests.exceptions.RequestException as e:
+        print(f"Error while handling fetch data from API!: {e}")
+    except sqlite3.Error as ex:
+        print(f"Error while handling sql!: {ex}")
+    except Exception as es:
+        print(f"Error!: {es}")
+# Task 2:
+    """
+    Challenges of working with live API and json:
+    - API available and reliability: APIs may be down or stable. Use error handling and retries.
+    - Rate limiting: request limits can block access.
+    - API changes and versioning: update may break code.
+    - Data inconsistency and quality: missing or invalid data.
+    - Json structure complexity: nested structure cause errors.
+    - Error handling: catch all possible exceptions.
+    - Security: Authentication needs protection.
+    """
+
+# Question 5 Function:
+def gender_percentage():
+    current_year = datetime.now().year
+    cut_off_year = current_year - 5
+    try:
+        with sqlite3.connect('UserData.db') as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""
+                SELECT Gender, strftime('%Y', RegisteredDate) AS Year
+                FROM Users
+                WHERE CAST(strftime('%Y', RegisteredDate) AS INTEGER) >= ?
+            """, (cut_off_year,))
+            rows = cursor.fetchall()
+            
+            if not rows:
+                print(f"No users found who registered from {cut_off_year} to {current_year}")
+                return
+            
+            gender_counts = {'Male': 0, 'Female': 0}
+            total_count = 0
+            
+            for gender, year in rows:
+                gender = gender.capitalize()
+                if gender in gender_counts:
+                    gender_counts[gender] += 1
+                    total_count += 1
+                    
+            print(f"\nGender Distribution for Users Registered from {cut_off_year} to {current_year}:")
+            print(f"Total Users: {total_count}")
+            
+            for gender, count in gender_counts.items():
+                percentage = (count / total_count) * 100 if total_count > 0 else 0
+                print(f"Gender: {gender}, Count: {count}, Percentage: {percentage:.2f}%")
+            
+    except sqlite3.Error as e:
+        print(f"SQLite Error: {e}")
+    except Exception as ex:
+        print(f"Exception Error: {ex}")
+    
+# Question 5:
+def main():
+    # Question 1:
+    filename = "D:/Study-AI/Python/Practical/1_PRP201c_FA24_PE1_492118/PRP201c_FA24_PE1_492118/PRP201c_FA24_PE1_492118/PaperNo_2/All/user_data.csv"
+    data = load_user_data(filename)
+    
+    # Question 2:
+    # visualize_user_data(data)
+    
+    # Question 3:
+    store_user_data_in_database(data)
+    
+    # Question 4:
+    fetch_and_update_user_data(data)
+    
+    # Question 5:
+    gender_percentage()
+    
+# Main
+if __name__ == "__main__":
+    main()
+=============================================================Đề 1 Solution============================================
+import re
+from datetime import datetime
+import csv
+import sqlite3
+import requests
+import matplotlib.pyplot as plt
+
+# Q1: User Class and Data Validation
+class User:
+    def __init__(self, ID, Name, Email, Location, Gender, DateOfBirth, RegisteredDate):
+        self.ID = ID
+        self.Name = Name
+        self.Email = Email
+        self.Location = Location
+        self.Gender = Gender
+        self.DateOfBirth = DateOfBirth
+        self.RegisteredDate = RegisteredDate
+
+    def __repr__(self):
+        """Return a string representation of the User object."""
+        dob_str = self.DateOfBirth.strftime('%Y-%m-%d') if isinstance(self.DateOfBirth, datetime) else str(self.DateOfBirth)
+        reg_str = self.RegisteredDate.strftime('%Y-%m-%d') if isinstance(self.RegisteredDate, datetime) else str(self.RegisteredDate)
+        
+        return (f"User(ID={self.ID}, Name='{self.Name}', Email='{self.Email}', "
+                f"Location='{self.Location}', Gender='{self.Gender}', "
+                f"DateOfBirth='{dob_str}', RegisteredDate='{reg_str}')")
+
+
+def validate_data(id_str, name, email):
+    """
+    Validates user data fields.
+    
+    Args:
+        id_str (str): User ID string to validate
+        name (str): User name to validate
+        email (str): User email to validate
+        
+    Returns:
+        bool: True if all validations pass, False otherwise
+    """
+    # Validate ID (must be numeric)
+    if not id_str.isdigit():
+        print(f"Validation Error: ID '{id_str}' must contain only digits.")
+        return False
+    
+    # Validate Name (must contain only letters and spaces, and not be empty)
+    if not name.strip():
+        print(f"Validation Error: Name cannot be empty or just whitespace.")
+        return False
+    
+    if not all(char.isalpha() or char.isspace() for char in name):
+        print(f"Validation Error: Name '{name}' should only contain letters and spaces.")
+        return False
+    
+    # Validate Email (must match email format)
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if not re.match(email_regex, email):
+        print(f"Validation Error: Email '{email}' is not valid.")
+        return False
+    
+    return True
+
+
+def convert_to_datetime(date_str):
+    """
+    Converts a date string to a datetime object.
+    
+    Args:
+        date_str (str): Date string in 'YYYY-MM-DD' format
+        
+    Returns:
+        datetime: Parsed datetime object or None if parsing fails
+    """
+    input_date_format = "%Y-%m-%d"
+    try:
+        return datetime.strptime(date_str.strip(), input_date_format)
+    except ValueError as e:
+        print(f"Date Conversion Error: Could not parse date '{date_str}' using format '{input_date_format}'. Reason: {e}")
+        return None
+
+
+def load_user_data(filename):
+    """
+    Loads user data from a CSV file and returns a list of User objects.
+    
+    Args:
+        filename (str): Path to the CSV file
+        
+    Returns:
+        list: List of valid User objects
+    """
+    users = []
+    line_number = 0
+
+    try:
+        with open(filename, "r", newline='') as file:
+            csv_reader = csv.reader(file)
+            
+            try:
+                header = next(csv_reader)
+                line_number += 1
+                print(f"CSV Header found: {header}")
+                
+                if header[0].strip().upper() != 'ID':
+                    print(f"Warning: Header does not start with 'ID'. Processing might be incorrect.")
+            except StopIteration:
+                print("Error: CSV file is empty.")
+                return users
+            except Exception as e:
+                print(f"Error reading header: {e}")
+                return users
+
+            for row in csv_reader:
+                line_number += 1
+                
+                # Check if row has expected number of fields
+                if len(row) != 7:
+                    print(f"Skipping row {line_number}: Expected 7 fields, found {len(row)}. Row content: {row}")
+                    continue
+                
+                # Extract and strip values from row
+                id_str, name, email, location, gender, dob_str, reg_date_str = map(str.strip, row)
+                
+                # Validate basic fields
+                if not validate_data(id_str, name, email):
+                    print(f"Skipping row {line_number} due to validation error.")
+                    continue
+                
+                # Convert date strings to datetime objects
+                dob_obj = convert_to_datetime(dob_str)
+                reg_obj = convert_to_datetime(reg_date_str)
+                
+                if not dob_obj or not reg_obj:
+                    print(f"Skipping row {line_number} due to date conversion error.")
+                    continue
+                
+                # Create User object and add to list
+                try:
+                    user_id = int(id_str)
+                    user = User(user_id, name, email, location, gender, dob_obj, reg_obj)
+                    users.append(user)
+                except ValueError:
+                    print(f"Data Error on line {line_number}: ID '{id_str}' could not be converted to integer. Skipping row.")
+                    
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
+    except Exception as e:
+        print(f"An unexpected error occurred while reading file '{filename}' on/near line {line_number}: {e}")
+
+    return users
+
+
+# --- Discussion: Advantages and Disadvantages of using a List ---
+
+# Advantages of using a list to store User objects:
+# 1. Simplicity: Lists are a fundamental Python data structure, easy to understand and use.
+# 2. Built-in: No need to import special libraries just for storing the data in memory.
+# 3. Ordered: Maintains the order in which users were added (usually the order from the CSV file).
+# 4. Mutable: Easy to add or remove users from the list after loading.
+# 5. Iteration: Simple to loop through all users (e.g., for processing or display).
+
+# Disadvantages of using a list:
+# 1. Search Performance: Finding a specific user by ID or email requires iterating through potentially the entire list (O(n) complexity), which is slow for very large datasets. Dictionaries (using user_id as key) would be much faster (O(1) average complexity) for lookups.
+# 2. Memory Usage: For extremely large datasets, storing all User objects in a list in memory might consume a lot of RAM. Databases or generators might be more memory-efficient alternatives in such cases.
+# 3. Data Analysis Features: Lists lack the built-in analytical capabilities of structures like Pandas DataFrames (e.g., easy filtering, grouping, aggregation). You'd have to implement these manually.
+
+
+# Q2: Data Visualization
+def visualize_user_data(data):
+    """
+    Creates visualizations of user data.
+    
+    Args:
+        data (list): List of User objects
+    """
+    if not data:
+        print("No data provided for visualization.")
+        return
+
+    # Collect data for visualization
+    registrations_by_year = {}
+    gender_by_location = {}
+    
+    for user in data:
+        # Collect registration years
+        year = user.RegisteredDate.year
+        registrations_by_year[year] = registrations_by_year.get(year, 0) + 1
+
+        # Collect gender distribution by location
+        loc = user.Location.strip()
+        gender = user.Gender.capitalize()
+        
+        if loc not in gender_by_location:
+            gender_by_location[loc] = {'Male': 0, 'Female': 0}
+        
+        gender_by_location[loc][gender] = gender_by_location[loc].get(gender, 0) + 1
+
+    # Create figure with two subplots
+    fig, axes = plt.subplots(1, 2, figsize=(18, 7))
+
+    # Subplot 1: Registration Trend
+    years = sorted(registrations_by_year.keys())
+    counts = [registrations_by_year[y] for y in years]
+    
+    ax1 = axes[0]
+    ax1.plot(years, counts, marker='o')
+    ax1.set_title('User Registration Trend Over Years')
+    ax1.set_xlabel('Year')
+    ax1.set_ylabel('Registrations')
+    ax1.grid(True, linestyle='--', alpha=0.6)
+
+    # Subplot 2: Gender Distribution by Location
+    locations = sorted(gender_by_location.keys())
+    genders = ['Male', 'Female']
+    gender_counts = {g: [gender_by_location[loc].get(g, 0) for loc in locations] for g in genders}
+    
+    ax2 = axes[1]
+    bottom = [0] * len(locations)
+    
+    # Calculate maximum total users per location for setting y-axis limit
+    max_users_per_location = max(
+        sum(gender_by_location[loc].get(g, 0) for g in genders)
+        for loc in locations
+    )
+    
+    # Set y-axis limit to slightly higher than the maximum
+    ax2.set_ylim(0, max_users_per_location * 1.2)  # Add 20% padding
+    
+    for gender in genders:
+        ax2.bar(locations, gender_counts[gender], label=gender, bottom=bottom)
+        bottom = [b + c for b, c in zip(bottom, gender_counts[gender])]
+    
+    ax2.set_title('Gender Distribution by Location')
+    ax2.set_xlabel('Location')
+    ax2.set_ylabel('Users')
+    ax2.set_xticks(range(len(locations)))
+    ax2.set_xticklabels(locations, rotation=45, ha='right')
+    ax2.legend(title='Gender')
+
+    plt.tight_layout()
+    plt.show()
+    print("Visualizations displayed successfully.\n")
+
+
+# --- Discussion: Challenges of Handling Data Inconsistencies in Visualizations ---
+
+# Handling data inconsistencies is crucial before visualization, otherwise the plots can be misleading or fail to generate. Common challenges include:
+# 1. Missing Values (NaN/None):
+#    - Challenge: How to represent missing data points? Should they be ignored, imputed (filled with a guessed value like mean, median, mode), or highlighted specifically?
+#    - Impact: Ignoring might skew distributions (e.g., if missing data isn't random). Incorrect imputation can introduce bias. Plotting functions might fail if they encounter NaN.
+# 2. Incorrect Data Types:
+#    - Challenge: Numbers stored as strings, dates as generic strings without a consistent format.
+#    - Impact: Prevents numerical calculations (e.g., calculating age from 'DateOfBirth' string), sorting (e.g., chronological order for dates), or correct plotting (e.g., treating '5' as a category instead of a number). Requires explicit conversion and error handling for unparseable values.
+# 3. Inconsistent Formatting/Categorization:
+#    - Challenge: Variations in text data like 'Male', 'male', 'M' for gender; 'New York', 'NY', 'new york' for location; different date formats ('MM/DD/YYYY', 'YYYY-MM-DD', 'DD Mon YYYY').
+#    - Impact: Splits a single category into multiple ones, leading to incorrect counts and fragmented plots (e.g., multiple bars for 'New York' variants). Requires standardization/normalization (e.g., converting all to lowercase, using mapping dictionaries).
+# 4. Outliers:
+#    - Challenge: Extreme values that differ significantly from others (e.g., an age of 150, a registration date far in the future/past). Could be data entry errors or genuine rare cases.
+#    - Impact: Can drastically affect scales of axes, making the main distribution hard to see. Can skew aggregate statistics used in plots (like average registration counts). Requires investigation (are they errors?) and deciding whether to remove, cap, or visualize them separately.
+# 5. Conflicting Information:
+#    - Challenge: Data that contradicts itself (e.g., registration date before date of birth).
+#    - Impact: Indicates deeper data quality issues. Hard to resolve without domain knowledge or additional data sources. Plotting might proceed but represents flawed underlying data.
+
+
+# Q3: Database Integration
+def store_user_data(data):
+    """
+    Stores user data in a SQLite database and performs basic analytics.
+    
+    Args:
+        data (list): List of User objects
+    """
+    if not data:
+        print("No data provided to store.")
+        return
+        
+    try:
+        with sqlite3.connect("UserData.db") as conn:
+            cursor = conn.cursor()
+            
+            # Create table if it doesn't exist
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS Users (
+                    ID INTEGER PRIMARY KEY,
+                    Name TEXT NOT NULL,
+                    Email TEXT NOT NULL UNIQUE,
+                    Location TEXT NOT NULL,
+                    Gender TEXT NOT NULL,
+                    DateOfBirth TEXT NOT NULL,
+                    RegisteredDate TEXT NOT NULL
+                )
+            ''')
+
+            # Insert user data
+            for user in data:
+                cursor.execute('''
+                    INSERT OR IGNORE INTO Users 
+                    (ID, Name, Email, Location, Gender, DateOfBirth, RegisteredDate) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                    user.ID, 
+                    user.Name, 
+                    user.Email,
+                    user.Location, 
+                    user.Gender, 
+                    user.DateOfBirth.strftime('%Y-%m-%d'),
+                    user.RegisteredDate.strftime('%Y-%m-%d')
+                ))
+            
+            conn.commit()
+
+            # Analytics: Top 5 locations with highest number of registered users 
+            cursor.execute('''
+                SELECT Location, COUNT(*) as UserCount 
+                FROM Users 
+                GROUP BY Location 
+                ORDER BY UserCount DESC 
+                LIMIT 5
+            ''')
+            
+            top_locations = cursor.fetchall()
+            print("\nTop 5 Locations with Highest Number of Registered Users : ")
+            for location, count in top_locations:
+                print(f"{location}: {count} users")
+        
+            # Analytics: Number of users by gender who registered after 2015
+            cursor.execute('''
+                SELECT Gender, COUNT(*) as UserCount 
+                FROM Users 
+                WHERE RegisteredDate >= '2016-01-01' 
+                GROUP BY Gender
+            ''')
+            
+            gender_counts = cursor.fetchall()
+            print("\nNumber of users by gender who registered since 2015:")
+            for gender, count in gender_counts:
+                print(f"{gender}: {count} users")
+            
+    except sqlite3.Error as e:
+        print(f"SQLite error: {e}")
+    
+    print("\nUser data stored in the database and analytics completed successfully.")
+
+
+# Q4: Fetch and Update User Information
+def fetch_and_update_user_info():
+    """
+    Fetches random user data from an API and updates the database with additional user information.
+    """
+    try:
+        # Connect to database
+        with sqlite3.connect("UserData.db") as conn:
+            cursor = conn.cursor()
+            
+            # Check and add new columns if needed
+            cursor.execute('PRAGMA table_info(Users)')
+            existing_columns = [row[1] for row in cursor.fetchall()]
+            
+            columns_to_add = {
+                "Username": "TEXT",
+                "PictureURL": "TEXT",
+                "Timezone": "TEXT"
+            }
+            
+            for column, data_type in columns_to_add.items():
+                if column not in existing_columns:
+                    cursor.execute(f'ALTER TABLE Users ADD COLUMN {column} {data_type}')
+                    print(f"Added new column: {column}")
+
+            # Get existing user IDs
+            cursor.execute("SELECT ID FROM Users")
+            existing_ids = [row[0] for row in cursor.fetchall()]
+
+            if not existing_ids:
+                print("No user records found in the database to update.")
+                return
+
+            # Fetch data from API
+            print("Fetching data from randomuser.me API...")
+            response = requests.get("https://randomuser.me/api/?results=10")
+            
+            if response.status_code != 200:
+                print(f"Failed to fetch data from the API. Status code: {response.status_code}")
+                return
+            
+            # Process and update user data
+            data = response.json().get("results", [])
+            update_count = 0
+            
+            for i, user_id in enumerate(existing_ids):
+                if i >= len(data):
+                    break
+                    
+                user = data[i]
+                
+                # Extract data from API response
+                username = user.get("login", {}).get("username", "")
+                picture_url = user.get("picture", {}).get("large", "")
+                timezone = user.get("location", {}).get("timezone", {}).get("description", "")
+                
+                # Update database
+                cursor.execute('''
+                    UPDATE Users
+                    SET Username = ?, PictureURL = ?, Timezone = ?
+                    WHERE ID = ?
+                ''', (username, picture_url, timezone, user_id))
+                
+                update_count += 1
+            
+            conn.commit()
+            print(f"Successfully updated {update_count} user records with API data.")
+            
+    except requests.exceptions.RequestException as e:
+        print(f"API connection error: {e}")
+    except sqlite3.Error as e:
+        print(f"SQLite error: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
+
+# --- Discussion: Challenges of Working with Live APIs and JSON Data ---
+
+# Working with live APIs and JSON data presents several challenges:
+
+# 1. API Availability and Reliability:
+#    - Challenge: Live APIs might be temporarily unavailable due to server issues, maintenance, or network problems.
+#    - Impact: Code needs robust error handling (e.g., try-except blocks for requests.exceptions.RequestException) to manage connection timeouts, DNS errors, etc. Response times can vary, potentially slowing down the application.
+
+# 2. Rate Limiting:
+#    - Challenge: Many APIs limit the number of requests allowed within a specific time window to prevent abuse.
+#    - Impact: Exceeding the limit usually results in an error (like HTTP 429 Too Many Requests). Applications might need logic to handle rate limits, such as pausing requests (backoff) or using API keys that offer higher limits. (randomuser.me is quite open, but this is crucial for most APIs).
+
+# 3. API Changes and Versioning:
+
+#    - Challenge: APIs evolve. The structure of the JSON response, endpoint URLs, or required parameters might change over time (breaking changes).
+#    - Impact: This requires ongoing maintenance of the code that interacts with the API to ensure compatibility. Relying on specific API versions (if available) can help mitigate this.
+
+# 4. Data Inconsistency and Quality:
+#    - Challenge: Data returned from APIs might not always be consistent or complete. Fields could be missing, null, or have unexpected data types or formats (e.g., different date formats).
+#    - Impact: Robust parsing logic is needed (e.g., using .get() with defaults in Python dictionaries, data validation) to handle missing or malformed data gracefully without crashing.
+#    - Specific Challenge Here: The API (randomuser.me) generates random data, making it impossible to reliably "match" its generated users (and their API-specific IDs) with pre-existing users in a local database based on a shared ID. This highlights a data mapping/consistency challenge between external and internal data sources.
+
+# 5. JSON Structure Complexity:
+#    - Challenge: JSON responses can be deeply nested, requiring careful navigation to extract the desired data points.
+#    - Impact: Mistakes in accessing nested keys/indices can lead to KeyErrors or IndexErrors. Libraries or helper functions might be needed for complex parsing.
+
+# 6. Error Handling:
+#    - Challenge: Comprehensive error handling is critical. This includes network errors, HTTP error statuses (like 4xx client errors, 5xx server errors), JSON decoding errors (if the response is not valid JSON), and logical errors during data processing after retrieval.
+
+# 7. Security (Authentication/Authorization):
+#    - Challenge: Many APIs require authentication (e.g., API keys, OAuth tokens) to identify and authorize the calling application.
+#    - Impact: Securely managing these credentials is vital. (Not required for randomuser.me, but a major challenge in general).
+
+
+# Q5: Gender Percentage by Registration Year
+def calculate_gender_percentages():
+    """
+    Calculates and displays the gender percentages of users registered in the last 5 years.
+    """
+    current_year = datetime.now().year
+    cutoff_year = current_year - 5
+    
+    print(f"\nCalculating gender percentages for users registered from {cutoff_year} to {current_year}...")
+    
+    try:
+        with sqlite3.connect("UserData.db") as conn:
+            cursor = conn.cursor()
+            
+            # Query users registered in the last 5 years
+            cursor.execute("""
+                SELECT Gender, strftime('%Y', RegisteredDate) AS Year 
+                FROM Users 
+                WHERE CAST(Year AS INTEGER) >= ?
+            """, (cutoff_year,))
+
+            rows = cursor.fetchall()
+            
+            if not rows:
+                print(f"No users found who registered in the last 5 years (since {cutoff_year}).")
+                return
+            
+            # Count users by gender
+            gender_counts = {'Male': 0, 'Female': 0}
+            total_count = 0
+
+            for gender, year in rows:
+                gender = gender.capitalize()
+                if gender in gender_counts:
+                    gender_counts[gender] += 1
+                    total_count += 1
+
+            # Calculate and display percentages
+            print(f"\nGender Distribution for Users Registered Since {cutoff_year}:")
+            print(f"Total Users: {total_count}")
+            
+            for gender, count in gender_counts.items():
+                percentage = (count / total_count) * 100 if total_count > 0 else 0
+                print(f"{gender}: {count} users ({percentage:.2f}%)")
+                
+    except sqlite3.Error as e:
+        print(f"SQLite error: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
+
+# Main Function
+def main():
+    """Main program execution flow."""
+    print("=" * 80)
+    print("USER DATA PROCESSING AND ANALYSIS")
+    print("=" * 80)
+    
+    # Step 1: Load user data from CSV
+    print("\nSTEP 1: Loading User Data")
+    print("-" * 40)
+    user_data_file = "D:/Study-AI/Python/PRP201c/2034/de 1PRP201c_FA24_PE1_492118 tự làm để luyện tập/PRP201c_FA24_PE1_492118/PaperNo_2/All/user_data.csv"
+    users = load_user_data(user_data_file)
+    
+    if users:
+        print(f"Successfully loaded {len(users)} user(s).")
+    else:
+        print("No user data was loaded successfully.")
+        return
+
+    # Step 2: Visualize user data
+    print("\nSTEP 2: Visualizing User Data")
+    print("-" * 40)
+    visualize_user_data(users)
+
+    # Step 3: Store user data in database
+    print("\nSTEP 3: Storing User Data in Database")
+    print("-" * 40)
+    store_user_data(users)
+
+    # Step 4: Fetch and update user information
+    print("\nSTEP 4: Fetching and Updating User Information")
+    print("-" * 40)
+    fetch_and_update_user_info()
+
+    # Step 5: Calculate gender percentage by registration year
+    print("\nSTEP 5: Calculating Gender Percentage by Registration Year")
+    print("-" * 40)
+    calculate_gender_percentages()
+    
+    print("\n" + "=" * 80)
+    print("DATA PROCESSING COMPLETE")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
+=============================================================Đề 2 Thành Vui============================================
+# Import Library
+import cloudscraper
+import json
+import matplotlib.pyplot as plt
+import sqlite3
+
+# Question 1:
+# Task 1:
+class ColorPalette:
+    def __init__(self, ID, Title, UserName, HEXCode, RGBValues, HSVValues, NumberOfVotes, NumberOfHeads):
+        self.ID = ID
+        self.Title = Title
+        self.UserName = UserName
+        self.HEXCode = HEXCode
+        self.RGBValues = RGBValues
+        self.HSVValues = HSVValues
+        self.NumberOfVotes = NumberOfVotes
+        self.NumberOfHeads = NumberOfHeads
+    
+# Task 2:
+def fetch_top_rated_colors():
+    url_api = 'https://www.colourlovers.com/api/colors/top?format=json'
+    list_colors = []
+    
+    try:
+        scraper = cloudscraper.create_scraper()
+        responses = scraper.get(url_api)
+        responses.raise_for_status()
+        
+        data = responses.json()
+        print(json.dumps(data, indent=4))
+        
+        count = 0
+        for row in data:
+            color_palette_object = ColorPalette(
+                row['id'],
+                row['title'],
+                row['userName'],
+                row['hex'],
+                row['rgb'],
+                row['hsv'],
+                row['numVotes'],
+                row['numHearts']
+            )
+            list_colors.append(color_palette_object)
+            count += 1
+        print(f"Load successfully color {count} objects!")
+        
+    except Exception as e:
+        print(f"Error while handling fetch API: {e}")
+    return list_colors
+
+# Task 3: Discuss advantages and challenges of splitting RGB and HSV into individual attributes
+"""
+Advantages of Splitting RGB and HSV into Individual Attributes:
+1. Direct Access: Storing RGB (red, green, blue) and HSV (hue, saturation, value) as individual attributes
+   allows direct access.
+2. Type Safety: Individual attributes can be explicitly typed, reducing the risk of errors
+   from dictionary key typos or unexpected dictionary structures.
+3. Readability: The class structure is more intuitive, as each attribute represents a distinct property of the
+   color, making the code easier to understand and maintain.
+
+Challenges of Splitting RGB and HSV into Individual Attributes:
+1. Increased Complexity in Class Definition: The ColorPalette class has more attributes (10 instead of 6 if
+   RGB and HSV were kept as dictionaries), which makes the class definition and instantiation more verbose.
+2. Data Consistency: If RGB or HSV values are updated, you must ensure all related attributes (e.g., red, green,
+   blue) are updated together, which can lead to errors if not handled carefully.
+3. Scalability: If the API adds new color spaces (e.g., CMYK), you’d need to add more attributes to the class,
+   increasing maintenance overhead. Keeping RGB and HSV as dictionaries would make the class more flexible for such
+   changes.
+4. Memory Usage: Storing each value as a separate attribute may use slightly more memory compared to a single
+   dictionary, though this is negligible for small datasets.
+"""
+
+# Question 2:
+def visualize_color_trends(data):    
+    fig, (axis_line, axis_bar) = plt.subplots(1, 2, figsize=(15, 5))
+    
+    # Line chart
+    number_votes_colors = {}
+    for color_palette_object in data:
+        number_votes_colors[color_palette_object.Title] = color_palette_object.NumberOfVotes
+    print(number_votes_colors)
+    
+    # Get top 5 colors the most votes
+    top_5_colors = sorted(number_votes_colors.items(), key=lambda x: x[1], reverse=True)[:5]
+    print(top_5_colors)
+    
+    x_title = [title[0] for title in top_5_colors]
+    y_vote = [vote[1] for vote in top_5_colors]
+    
+    axis_line.plot(x_title, y_vote, marker='o')
+    axis_line.set_title("The number of votes with top 5 colors")
+    axis_line.set_xlabel("Title of Colors")
+    axis_line.set_ylabel("Number Votes of Colors")
+    axis_line.grid(True)
+    axis_line.tick_params(axis='x', rotation=45)
+    
+    for index, value in enumerate(y_vote):
+        axis_line.text(index, value + max(y_vote) * 0.02, str(value), ha='center')
+    
+    # Bar chart
+    all_colors = sorted(number_votes_colors.items(), key=lambda x: x[1], reverse=True)
+    print(all_colors)
+    
+    x_title_bar = [title[1] for title in all_colors]
+    y_vote_bar = [vote[0] for vote in all_colors]
+    
+    bars = axis_bar.barh(y_vote_bar, x_title_bar, color='green')
+    axis_bar.set_title("The number of hearts of all colors")
+    axis_bar.set_xlabel("Number hearts of Colors")
+    axis_bar.set_ylabel("Title of Colors")
+    axis_bar.grid(True, axis='x')
+    axis_bar.tick_params(axis='y', labelsize=9)
+    
+    for index, value in enumerate(bars):
+        width = value.get_width()
+        axis_bar.text(width + max(x_title_bar) * 0.01, value.get_y() + value.get_height() / 2, str(x_title_bar[index]), va='center')
+    
+    plt.tight_layout()
+    plt.show()
+    
+# Task 2: Discuss advantages and challenges of using visualizations
+"""
+Advantages of Using Visualizations to Identify Popularity Trends:
+1. Quick Insights: Visualizations like line and bar charts allow users to quickly identify trends, such as which
+   colors have the most votes or hearts, without needing to analyze raw numbers.
+2. Comparative Analysis: The line chart makes it easy to compare the top 5 colors’ votes, while the horizontal
+   bar chart shows the distribution of hearts across all colors, highlighting disparities.
+3. Engagement: Visual representations are more engaging and intuitive for users compared to tables or raw data,
+   making it easier to communicate findings.
+
+Challenges of Using Visualizations to Identify Popularity Trends:
+1. Data Overload: With many colors, the horizontal bar chart can become cluttered, making it hard to read labels
+   or distinguish bars, especially if the number of colors increases significantly.
+2. Misleading Scales: If the scales of votes or hearts vary widely (e.g., one color has 1500 votes, others have
+   10), the line chart might exaggerate differences, or the bar chart might compress smaller values, leading to
+   misinterpretation.   
+3. Label Overlap: In the line chart, long color titles may overlap when rotated, reducing readability. The bar
+   chart’s y-axis labels may also become unreadable if there are too many colors.
+4. Static Nature: These visualizations are static snapshots. If the data changes frequently (e.g., new votes),
+   the charts need to be regenerated, which may not be efficient for real-time analysis.
+"""
+
+# Question 3:
+def store_top_colors_in_database(data):
+    try:
+        # Create database
+        with sqlite3.connect('TopColors.db') as conn:
+            cursor = conn.cursor()
+            
+            # Create table
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS TopColors(
+                    ID TEXT PRIMARY KEY,
+                    Title TEXT NOT NULL,
+                    UserName TEXT NOT NULL,
+                    HEXCode TEXT NOT NULL,
+                    RGB_Red INTEGER NOT NULL,
+                    RGB_Green INTEGER NOT NULL,
+                    RGB_Blue INTEGER NOT NULL,
+                    HSV_Hue INTEGER NOT NULL,
+                    HSV_Saturation INTEGER NOT NULL,
+                    HSV_Value INTEGER NOT NULL,
+                    Votes INTEGER NOT NULL,
+                    Hearts INTEGER NOT NULL
+                )               
+            """)
+            
+            # Count 
+            count = 0
+            # Insert data into table
+            for color in data:
+                cursor.execute("""
+                    INSERT OR IGNORE INTO TopColors(ID, Title, UserName, HEXCode, RGB_Red, RGB_Green, RGB_Blue, HSV_Hue, HSV_Saturation, HSV_Value, Votes, Hearts)    
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+                """, (color.ID,
+                    color.Title,
+                    color.UserName,
+                    color.HEXCode,
+                    color.RGBValues["red"],
+                    color.RGBValues["green"],
+                    color.RGBValues["blue"],
+                    color.HSVValues["hue"],
+                    color.HSVValues["saturation"],
+                    color.HSVValues["value"],
+                    color.NumberOfVotes,
+                    color.NumberOfHeads))
+                count += 1
+            print(f"Insert into table {count} colors successfully!")
+            
+            # Display top 3 colors
+            cursor.execute("""
+                SELECT ID, Title, Votes, Hearts
+                FROM TopColors
+                ORDER BY Votes DESC
+                LIMIT 3                
+            """)
+            top_3_colors = cursor.fetchall()
+            print("\nTop 3 Colors:")
+            if top_3_colors:
+                for color in top_3_colors:
+                    print(f"Color: {color[1]}")
+            else:
+                print("Not Found Data!")
+            
+            # Average colors
+            cursor.execute("""
+                SELECT AVG(Votes)
+                FROM TopColors
+                WHERE Hearts > 10               
+            """)
+            avg_color = cursor.fetchone()
+            
+            print("\nThe Average of colors")
+            if avg_color and avg_color[0] is not None:
+                print(f"Average of color: {round(avg_color[0], 2)}")
+            else:
+                print(f"Not found data of average of color!")
+            
+            conn.commit()
+    except sqlite3.Error as e:
+        print(f"Error while handling sql: {e}")
+    except Exception as ex:
+        print(f"Exception error: {ex}")
+    
+# Question 4:
+# Task 1:
+def category_color_popularity():
+    try:
+        # Create database
+        with sqlite3.connect('TopColors.db') as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""PRAGMA table_info(TopColors)""")
+            existing_column = [row[1] for row in cursor.fetchall()]
+            
+            if 'PopularityLevel' not in existing_column:
+                # Add column
+                cursor.execute("""
+                    ALTER TABLE TopColors ADD COLUMN PopularityLevel TEXT CHECK (PopularityLevel IN ('High', 'Low', 'Moderate'))
+                """)
+            
+            # Update table with add column
+            cursor.execute("""
+                UPDATE TopColors
+                SET PopularityLevel =
+                    CASE
+                        WHEN votes > 20 THEN 'High'
+                        WHEN votes > 10 AND votes < 20 THEN 'Moderate'
+                        ELSE 'Low'
+                    END
+            """)
+            print("\nUpdate PopularityLevel successfully!")
+            
+            conn.commit()
+    except sqlite3.Error as e:
+        print(f"Error while handling sql: {e}")
+    except Exception as ex:
+        print(f"Exception error: {ex}")
+        
+# Task 2: Discuss the potential challenges of using static thresholds for dynamic popularity
+    """
+    Challenges of Using Static Thresholds for Dynamic Popularity Trends:
+
+    1. Inflexibility to Data Distribution:
+       - Static thresholds (e.g., >20 for High, 10–20 for Moderate, <10 for Low) may not reflect the actual
+         distribution of votes in the dataset. For example, in this dataset, most colors have votes in the
+         hundreds or thousands (e.g., 1532, 1149, 1122), so all colors are categorized as 'High', making the
+         categorization less meaningful. A better approach might be to use percentiles (e.g., top 25% as High,
+         next 50% as Moderate, bottom 25% as Low) to adapt to the data.
+
+    2. Sensitivity to Outliers:
+       - If there are outliers (e.g., one color with 10,000 votes while others have <100), static thresholds
+         can skew the categorization. Most colors might be categorized as 'Low' or 'Moderate', even if they
+         have significantly more votes than others in those categories. Normalizing the votes or using relative
+         thresholds could mitigate this issue.
+
+    3. Temporal Changes:
+       - Popularity trends may change over time as more users vote. A color with 20 votes might be 'High' today
+         but 'Low' in the future if vote counts increase significantly. Static thresholds don’t adapt to these
+         changes, requiring manual updates. A dynamic system that recalculates thresholds periodically would be
+         more robust.
+
+    4. Arbitrary Threshold Selection:
+       - The choice of 10 and 20 as thresholds is arbitrary and may not be meaningful for all datasets. In a
+         highly active community, 20 votes might be insignificant, while in a smaller community, 10 votes might
+         be substantial. Thresholds should be chosen based on domain knowledge or statistical analysis of the data.
+
+    5. Loss of Granularity:
+       - The three categories (High, Moderate, Low) oversimplify popularity. For example, colors with 21 votes
+         and 1500 votes are both 'High', but their popularity differs greatly. This can obscure nuanced insights.
+         A more granular system, such as a numerical popularity score or additional categories (e.g., 'Very High'),
+         might provide more detailed information.
+    """
+    
+# Question 5 Function:
+def summary_colors_popularity_level():
+    # Summary colors popularity level
+    try:
+        # Create database
+        with sqlite3.connect('TopColors.db') as conn:
+            cursor = conn.cursor()
+            
+            cursor.execute("""
+                SELECT Title, Votes, PopularityLevel
+                FROM TopColors
+                ORDER BY Votes DESC
+                LIMIT 3             
+            """)
+            # Top 3 Colors
+            top_color = cursor.fetchall()
+            print("\nTop 3 colors popularity level")
+            for row in top_color:
+                print(f"Title: {row[0]}, Votes: {row[1]}, PopularityLevel: {row[2]}")
+            
+            # Summary    
+            cursor.execute("""
+                SELECT PopularityLevel, COUNT(PopularityLevel)
+                FROM TopColors
+                GROUP BY PopularityLevel               
+            """)
+            
+            # Summary color popularity level
+            summary_color = cursor.fetchall()
+            print("\nSummary colors popularity level")
+            for row in summary_color:
+                print(f"Popularity: {row[0]}, Count: {row[1]}")
+                
+            conn.commit()
+    except sqlite3.Error as e:
+        print(f"Error while handling sql: {e}")
+    except Exception as ex:
+        print(f"Exception error: {ex}")
+        
+# Question 5:
+def main():
+    # Question 1:
+    data = fetch_top_rated_colors()
+    
+    # Question 2:
+    visualize_color_trends(data)
+    
+    # Question 3:
+    store_top_colors_in_database(data)
+    
+    # Question 4:
+    category_color_popularity()
+    
+    # Question 5:
+    summary_colors_popularity_level()
+    
+# Main
+if __name__ == '__main__':
+    main()
+=============================================================Đề 2 Solution============================================
+import sqlite3
+import cloudscraper
+import matplotlib.pyplot as plt 
+
+# Q1 
+class ColorPalette: 
+    def __init__(self, ID, title, userName, hexCode, rgbValues, hsvValues, numberOfVotes , numberOfHearts):
+        self.ID = ID
+        self.title = title
+        self.userName = userName
+        self.hexCode = hexCode
+        self.rgbValues = rgbValues
+        self.hsvValues = hsvValues
+        self.numberOfVotes = numberOfVotes
+        self.numberOfHearts = numberOfHearts
+    
+    def __str__(self):
+        return f"Title: {self.title}\nUser: {self.userName}\nHex: {self.hexCode}\nVotes: {self.numberOfVoteAndHearts}"
+
+def fetch_top_rated_colors():
+    print("==========Q1==========")
+    data = []
+    apiUrl = "https://www.colourlovers.com/api/colors/top?format=json"
+
+
+    """ data mẫu của 1 phần tử trong list dataInRespone
+        {"id":14,"title":"Black","userName":"ninjascience","numViews":157676,"numVotes":1532,"numComments":1789,"numHearts":4.5,"rank":1,"dateCreated":"2004-12-17 08:36:26","hex":"000000",
+        "rgb":{"red":0,"green":0,"blue":0},"hsv":{"hue":0,"saturation":0,"value":0},"description":"<a href=\"http:\/\/www.colourlovers.com\/color\/69636F\/Store_me_Storm\" target=\"_blank\"><img src=\"http:\/\/static.colourlovers.com\/images\/colors\/2618\/2618826i.jpg\" \/><\/a><a href=\"http:\/\/www.colourlovers.com\/color\/A79DA9\/Not_Flying_Elephant\" target=\"_blank\"><img src=\"http:\/\/static.colourlovers.com\/images\/colors\/2620\/2620182i.jpg\" \/><\/a>\r\n<div style=\
+        max-width: 400px ;margin-left: auto; margin-right: auto; text-align: center; color:#ebf2f5; border: 4px dotted #6b6b6b; font-size:112%; font-family:palatino linotype, palatino, serif; line-height:1.5; padding:12px; background-color: #1b1b1f; background-image: -moz-linear-gradient(top, #1b1b1f, #31314a); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #1b1b1f),color-stop(1, #31314a)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=","url":"http:\/\/www.colourlovers.com\/color\/000000\/Black","imageUrl":"http:\/\/www.colourlovers.com\/img\/000000\/100\/100\/Black.png","badgeUrl":"http:\/\/www.colourlovers.com\/images\/badges\/c\/0\/14_Black.png","apiUrl":"http:\/\/www.colourlovers.com\/api\/color\/000000"}
+    """
+    try:
+        # Sử dụng cloudscraper thay vì requests để vượt qua Cloudflare
+        scraper = cloudscraper.create_scraper()
+        response = scraper.get(apiUrl)
+
+        # nếu có lỗi http thì raise exception
+        response.raise_for_status()
+        # nếu không có lỗi http thì parse json
+        dataInRespone = response.json()  # bây h dataInRespone là 1 list các dict data của top rated colors
+
+        # nếu không có lỗi json thì tạo các đối tượng ColorPalette và thêm vào danh sách data []
+        count = 0 
+        for color in dataInRespone:
+            temptObject = ColorPalette(
+                color["id"],
+                color["title"],
+                color["userName"],
+                color["hex"],
+                color["rgb"],
+                color["hsv"],
+                color["numVotes"],  
+                color["numHearts"]
+            )
+            data.append(temptObject)
+            count +=1 
+
+        print(f"Sucessfully fetch {count} color from api")
+        
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+    
+    return data 
+
+
+
+# Q2 
+
+def data_visualize_color_trend(colors):
+    print("==========Q2==========")
+    # Tạo một figure với 2 subplots (1 hàng, 2 cột)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+    
+    # ------------------ LINE CHART (top 5 màu) ------------------
+    colorVoteData = {}
+    for objectColorPalette in colors:
+        colorVoteData[objectColorPalette.title] = objectColorPalette.numberOfVotes
+    
+    # Lấy top 5 màu nhiều vote nhất
+    top5VotedColor = sorted(colorVoteData.items(), key=lambda x: x[1], reverse=True)[:5]
+    
+    # Chuẩn bị dữ liệu cho line chart
+    xAxis_line = [x[0] for x in top5VotedColor]
+    yAxis_line = [y[1] for y in top5VotedColor]
+    
+    # Vẽ line chart trên subplot đầu tiên (ax1)
+    ax1.plot(xAxis_line, yAxis_line, marker='o', linewidth=2, markersize=8)
+    ax1.set_title("Top 5 most voted colors", fontsize=14, fontweight='bold')
+    ax1.set_xlabel("Color Names", fontsize=12)
+    ax1.set_ylabel("Number of votes", fontsize=12)
+    ax1.grid(True)
+    ax1.tick_params(axis='x', rotation=45)
+    
+    # Thêm giá trị số lượng vote trên mỗi điểm
+    for i, v in enumerate(yAxis_line):
+        ax1.text(i, v + max(yAxis_line)*0.02, str(v), ha='center')
+    
+    # ------------------ HORIZONTAL BAR CHART (tất cả màu) ------------------
+    # Lấy ra giá trị số và tên màu cho tất cả màu
+    all_colors = sorted(colorVoteData.items(), key=lambda x: x[1], reverse=True)
+    xAxis_bar = [y[1] for y in all_colors]  # Số lượng vote
+    yAxis_bar = [x[0] for x in all_colors]  # Tên màu
+    
+    # Vẽ biểu đồ ngang trên subplot thứ hai (ax2)
+    bars = ax2.barh(yAxis_bar, xAxis_bar, color='skyblue')
+    ax2.set_title("All colors vote distribution", fontsize=14, fontweight='bold')
+    ax2.set_ylabel("Number of hearts", fontsize=12)
+    ax2.set_xlabel("Colors", fontsize=12)
+    ax2.grid(True, axis='x')
+    
+    # Đảm bảo tên màu hiển thị đầy đủ
+    ax2.tick_params(axis='y', labelsize=9)
+    
+    # Hiển thị giá trị trên mỗi thanh
+    for i, bar in enumerate(bars):
+        width = bar.get_width()
+        ax2.text(width + max(xAxis_bar)*0.01, bar.get_y() + bar.get_height()/2, 
+                 str(xAxis_bar[i]), va='center')
+    
+    # Điều chỉnh layout để đảm bảo không gian hiển thị tốt
+    plt.tight_layout()
+    
+    # Hiển thị biểu đồ
+    plt.show()
+
+# Q3 
+def createFileIfNotExist(fileName): 
+    with open(fileName , 'w') as f : 
+        return True
+
+def createTableInDb(cursor):
+    cursor.execute(''' CREATE TABLE IF NOT EXISTS TopColors(
+                   ID TEXT PRIMARY KEY,
+                   Title TEXT NOT NULL,
+                   UserName TEXT NOT NULL,
+                   RGB_Red INTEGER,
+                   RGB_Green INTEGER,
+                   RGB_Blue INTEGER,
+                   HSV_Hue INTEGER,
+                   HSV_Saturation INTEGER,
+                   HSV_Value INTEGER,
+                   Votes INTEGER NOT NULL,
+                   Hearts INTEGER NOT NULL )''')
+
+def insertDataInDb(colors, cursor):
+    x = 0
+    for color in colors:
+        cursor.execute(''' INSERT OR IGNORE INTO TopColors(
+                       ID, Title, UserName, 
+                       RGB_Red, RGB_Green, RGB_Blue,
+                       HSV_Hue, HSV_Saturation, HSV_Value,
+                       Votes, Hearts)
+                       VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
+                      (color.ID, color.title, color.userName, 
+                       color.rgbValues["red"], color.rgbValues["green"], color.rgbValues["blue"],
+                       color.hsvValues["hue"], color.hsvValues["saturation"], color.hsvValues["value"], 
+                       color.numberOfVotes, color.numberOfHearts))
+        x += 1
+    
+    print(f"Success insert {x} elements in to database.")
+
+def queries(cursor):
+    try:
+        # Query 1: Top 3 colors with highest number of votes
+        cursor.execute('''SELECT t.ID, t.Title, t.Votes, t.Hearts 
+                         FROM TopColors t 
+                         ORDER BY Votes DESC 
+                         LIMIT 3''')
+        que1 = cursor.fetchall()
+        
+        print("Top 3 colors with highest number of votes:")
+        if que1:
+            print(f"{'ID':<10}{'Title':<20}{'Votes':<10}{'Hearts':<10}")
+            print("-" * 50)
+            for row in que1:
+                print(f"{row[0]:<10}{row[1]:<20}{row[2]:<10}{row[3]:<10}")
+        else:
+            print("No data found.")
+
+        # Query 2: Average votes for colors with > 10 hearts
+        cursor.execute('''SELECT AVG(t.Votes) 
+                         FROM TopColors t 
+                         WHERE t.Hearts > 10''')
+        que2 = cursor.fetchone()  # Chỉ lấy một hàng
+        
+        print("\nAverage number of votes for colors with > 10 hearts:")
+        if que2 and que2[0] is not None:
+            avg_votes = round(que2[0], 2)
+            print(avg_votes)
+        else:
+            print("No colors found with > 10 hearts.")
+
+    except Exception as e:
+        print(f"Error executing queries: {e}")
+
+def store_top_colors_in_database(colors): 
+    print("==========Q33==========")
+
+    # tạo sqlite db tên TopColors.db 
+    createFileIfNotExist("TopColors.db")
+    with sqlite3.connect("TopColors.db") as connector: 
+         cursor = connector.cursor()
+         createTableInDb(cursor)
+         insertDataInDb(colors, cursor)
+         queries(cursor)
+         cursor.close()
+         connector.commit()
+
+
+
+# Q4 
+def addAttributeAndRestoreToTable(cursor):
+    # Step 1: Add the PopularityLevel column with the CHECK constraint
+    cursor.execute('''
+        ALTER TABLE TopColors
+        ADD COLUMN PopularityLevel TEXT
+        CHECK (PopularityLevel IN ('High', 'Low', 'Moderate'))
+    ''')
+
+    # Step 2: Update the PopularityLevel based on the votes
+    cursor.execute('''
+        UPDATE TopColors
+        SET PopularityLevel = 
+            CASE 
+                WHEN votes > 20 THEN 'High'
+                WHEN votes >= 10 AND votes <= 20 THEN 'Moderate'
+                ELSE 'Low'
+            END
+    ''')
+
+def category_color_purlarity():
+    print("==========Q4==========")
+
+    with sqlite3.connect("TopColors.db") as connector: 
+         cursor = connector.cursor()
+         addAttributeAndRestoreToTable(cursor)
+         print("Sucessfully Altear TABLE and restore data ")
+         cursor.close()
+         connector.commit()
+
+#Q5 
+def testSysFunc(): 
+    print("==========Q5==========")
+
+  
+    with sqlite3.connect("TopColors.db") as connector: 
+        cursor = connector.cursor()
+        
+        # Query 1: Top 3 colors with highest number of votes with their popularity level 
+        cursor.execute('''SELECT t.Title, t.Votes, t.PopularityLevel
+                        FROM TopColors t 
+                        ORDER BY Votes DESC 
+                        LIMIT 3''')
+        que1 = cursor.fetchall()
+        print("Top 3 colors with highest number of votes:")
+        if que1:
+            print(f"{'Title':<20}{'Votes':<10}{'PopularityLevel':<15}")
+            print("-" * 50)
+            for row in que1:
+                print(f"{row[0]:<20}{row[1]:<10}{row[2]:<15}")
+        
+        # Query 2: Total number of colors per PopularityLevel
+        cursor.execute('''SELECT t.PopularityLevel, COUNT(*) as count 
+                         FROM TopColors t 
+                         GROUP BY t.PopularityLevel''')
+        
+        que2 = cursor.fetchall()
+        print("\nSummary of the number of colors in each popularity level:")
+        if que2: 
+            print(f"{'Popularity Level':<20}{'Number of Colors':<15}")
+            print("-" * 50)
+            for row in que2: 
+                print(f"{row[0]:<20}{row[1]:<15}")
+        
+        cursor.close()
+        connector.commit()
+
+def main(): 
+    colors = fetch_top_rated_colors()
+    # data_visualize_color_trend(colors)
+    store_top_colors_in_database(colors)
+    category_color_purlarity()
+    testSysFunc()
+   
+if __name__ == "__main__":
+    main()
+
+=============================================================Huy Hoang Sources============================================
+import csv
+from collections import defaultdict
+
+#                                                               Handle File
+import os
+
+# Ex1 Read File
+# f = open("demofile.txt", "r")
+# print(f.readline())
+# f.close()
+
+# Ex2 Remove File
+# if os.path.exists("demofile.txt"):
+#   os.remove("demofile.txt")
+# else:
+#   print("The file does not exist")
+  
+# Ex3 Remove Folder
+# os.rmdir("myfolder")
+
+
+
+#                                                               Numpy
+import numpy as np
+
+
+
+#                                                               Pandas
+import pandas as pd
+
+# Ex1 Data Frame
+# data = {
+#   "calories": [420, 380, 390],
+#   "duration": [50, 40, 45]
+# }
+
+# #load data into a DataFrame object:
+# df = pd.DataFrame(data, index = ["day1", "day2", "day3"])
+
+# print(df) 
+
+# # #use a list of indexes:
+# # print(df.loc[[0, 1]])
+
+# Ex2 Read CSV
+# df = pd.read_csv('user_data.csv')
+
+# print(df) 
+# # print(df.to_string()) 
+
+# Ex3 Read JSON
+# data = {
+#   "Duration":{
+#     "0":60,
+#     "1":60,
+#     "2":60,
+#     "3":45,
+#     "4":45,
+#     "5":60
+#   },
+#   "Pulse":{
+#     "0":110,
+#     "1":117,
+#     "2":103,
+#     "3":109,
+#     "4":117,
+#     "5":102
+#   },
+#   "Maxpulse":{
+#     "0":130,
+#     "1":145,
+#     "2":135,
+#     "3":175,
+#     "4":148,
+#     "5":127
+#   },
+#   "Calories":{
+#     "0":409,
+#     "1":479,
+#     "2":340,
+#     "3":282,
+#     "4":406,
+#     "5":300
+#   }
+# }
+
+# df = pd.DataFrame(data)
+
+# print(df)
+
+# Ex4 Cleaning Data
+# df.loc[7, 'Duration'] = 45
+# print(df.duplicated())
+# df = df.drop_duplicates()
+
+
+
+#                                                               Matplotlib
+# pip install matplotlib
+import matplotlib.pyplot as plt
+# import numpy as np
+
+# Ex1
+# ypoints = np.array([3, 8, 1, 10])
+
+# plt.plot(ypoints, 'o:r', ms = 10, mec = 'r', mfc = 'g', 
+#          linewidth=5)
+
+# y1 = np.array([1, 3, 5, 7])
+# y2 = np.array([6, 2, 7, 11])
+
+# font1 = {'family':'serif','color':'blue','size':20}
+# font2 = {'family':'serif','color':'darkred','size':15}
+
+# plt.title("Sports Watch Data", fontdict = font1, loc = 'left')
+# plt.xlabel("Average Pulse", fontdict = font2)
+# plt.ylabel("Calorie Burnage", fontdict = font2)
+
+# plt.plot(y1)
+# plt.plot(y2)
+
+# plt.grid(axis = 'y', color = 'green', linestyle = '--', linewidth = 0.5)
+
+# plt.show()
+
+# Ex2
+# #plot 1:
+# x = np.array([0, 1, 2, 3])
+# y = np.array([3, 8, 1, 10])
+
+# plt.subplot(1, 2, 1)
+# plt.plot(x,y)
+# plt.title("SALES")
+
+# #plot 2:
+# x = np.array([0, 1, 2, 3])
+# y = np.array([10, 20, 30, 40])
+
+# plt.subplot(1, 2, 2)
+# plt.plot(x,y)
+# plt.title("INCOME")
+
+# plt.suptitle("MY SHOP")
+# plt.show()
+
+# Ex3 Bar
+# x = np.array(["A", "B", "C", "D"])
+# y = np.array([3, 8, 1, 10])
+
+# plt.barh(x, y,  color = "hotpink")
+# plt.show()
+
+# Ex4 Histogram
+# x = np.random.normal(170, 10, 250)
+
+# plt.hist(x)
+# plt.show() 
+
+# Ex5 Pie Charts
+# y = np.array([35, 25, 25, 15])
+# mylabels = ["Apples", "Bananas", "Cherries", "Dates"]
+# myexplode = [0.2, 0, 0, 0]
+
+# plt.pie(y, labels = mylabels, explode = myexplode, shadow = True, startangle = 90)
+# plt.legend(title = "Four Fruits:")
+# plt.show() 
+
+
+
+#                                                               Class
+# class Person:
+#   def __init__(self, name, age):
+#     self.name = name
+#     self.age = age
+
+#   def myfunc(self):
+#     print("Hello my name is " + self.name)
+
+# p1 = Person("John", 36)
+# p1.myfunc()
+
+
+
+#                                                               SQLite
+import sqlite3
+
+
+
+#                                                               APIs
+# import requests
+# try:
+#   res = requests.get("https://randomuser.me/api/")
+#   if res.status_code == 200:
+#     info = res.json()["results"][0]
+#     username = info["login"]["username"]
+#     picture = info["picture"]["large"]
+#     timezone = info["location"]["timezone"]["offset"] + " " + info["location"]["timezone"]["description"]
+    
+#     print(f"Username: {username}\nPicture URL: {picture}\nTimezone: {timezone}")
+# except:
+#   print("An error occurred while fetching user data.")
