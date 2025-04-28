@@ -4,7 +4,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 # Câu 1: Đọc và in thông tin latitude, longitude, elevation, timezone
-with open('berlin_14day_weather.json', 'r') as file:
+with open('D:/Study-AI/Python/Practical/8_PRP201c_SP25_PE1_0259621/Tham Khao/lam bai/berlin_14day_weather.json', 'r') as file:
     data = json.load(file)
 
 latitude = data['latitude']
