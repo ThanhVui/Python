@@ -11,8 +11,8 @@ def read_file_print_info(file_name):
     try:
         with open(file_name, 'r') as json_file:
             data = json.load(json_file)
-            json_data = json.dumps(data, indent=4)
-            print(json_data)
+            # json_data = json.dumps(data, indent=4)
+            # print(json_data)
             
             latitude = data['latitude']
             longitude = data['longitude']
