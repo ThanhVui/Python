@@ -75,7 +75,7 @@ def detect_stable_days(data):
 # ====================================Question 4=========================================
 # -------------------------------------Task 1:-------------------------------------------
 def export_stable_day_to_csv(data, list_stable_days):
-    print(f"\n{'=' * 50} Question 3 {'=' * 50}")
+    print(f"\n{'=' * 50} Question 4 {'=' * 50}")
     dates = data['daily']['time']
     max_temperatures = data['daily']['temperature_2m_max']
     min_temperatures = data['daily']['temperature_2m_min']
