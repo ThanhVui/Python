@@ -1,3 +1,113 @@
+# ===================================== Import Library ==========================================
+
+# ======================================= Question 1: ===========================================
+# def function_1(data):
+# ======================================= Question 2: ===========================================
+# def function_2(data):
+# ======================================= Question 3: ===========================================
+# def function_3(data):
+# ======================================= Question 4: ===========================================
+# def function_4(data):
+# ======================================= Question 5: ===========================================
+# def function_5(data):
+# ======================================= Question 6: ===========================================
+# def function_6(data):
+# ======================================= Question 7: ===========================================
+# def function_7(data):
+# ======================================= Question 8: ===========================================
+# def function_8(data):
+
+# ====================================== Main Function ==========================================
+def main():
+# --------------------------------------- Question 1: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 1 {'=' * 50}")
+    # function_1(data)
+# --------------------------------------- Question 2: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 2 {'=' * 50}")
+    # function_2(data)
+# --------------------------------------- Question 3: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 3 {'=' * 50}")
+    # function_3(data)
+# --------------------------------------- Question 4: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 4 {'=' * 50}")
+    # function_4(data)
+# --------------------------------------- Question 5: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 5 {'=' * 50}")
+    # function_5(data)
+# --------------------------------------- Question 6: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 6 {'=' * 50}")
+    # function_6(data)
+# --------------------------------------- Question 7: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 7 {'=' * 50}")
+    # function_7(data)
+# --------------------------------------- Question 8: -------------------------------------------
+    # print(f"\n{'=' * 50} Question 8 {'=' * 50}")
+    # function_8(data)
+    return
+
+# ========================================== Main ===============================================
+if __name__ == "__main__":
+    main()
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # =============================================================hàm/phương thức cơ bản============================================
 # Dưới đây là trình bày về các loại toán tử trong Python và các hàm/phương thức cơ bản thường dùng với các cấu trúc dữ liệu chính của nó.
 
@@ -2946,7 +3056,7 @@
 #     main()
 
 # =============================================================Đề 1 Pratical Exam 1 solution============================================
-import json
+# import json
 # import csv
 # import sqlite3
 # import matplotlib.pyplot as plt
@@ -3130,267 +3240,267 @@ import json
 # plot_temperature_trends(data)
 
 # =============================================================Đề 2 Pratical Exam 2============================================
-# Import library
-import json 
-import csv
-import sqlite3
-import matplotlib.pyplot as plt
+# # Import library
+# import json 
+# import csv
+# import sqlite3
+# import matplotlib.pyplot as plt
 
-# ====================================Question 1=========================================
-def load_and_print_summary(file_name):
-    print(f"\n{'=' * 50} Question 1 {'=' * 50}")
-    with open(file_name, mode='r', newline='') as json_data_file:
-        data = json.load(json_data_file)
-        print(data)
-        data_json = json.dumps(data, indent=4)
-        print(data_json)
+# # ====================================Question 1=========================================
+# def load_and_print_summary(file_name):
+#     print(f"\n{'=' * 50} Question 1 {'=' * 50}")
+#     with open(file_name, mode='r', newline='') as json_data_file:
+#         data = json.load(json_data_file)
+#         print(data)
+#         data_json = json.dumps(data, indent=4)
+#         print(data_json)
         
-        # Print summary
-        latitude = data['latitude']
-        longitude = data['longitude']
-        timezone = data['timezone']
-        elevation = data['elevation']
+#         # Print summary
+#         latitude = data['latitude']
+#         longitude = data['longitude']
+#         timezone = data['timezone']
+#         elevation = data['elevation']
         
-        print(f"The summary of latitude: {latitude}")
-        print(f"The summary of longitude: {longitude}")
-        print(f"The summary of timezone: {timezone}")
-        print(f"The summary of elevation: {elevation}")
+#         print(f"The summary of latitude: {latitude}")
+#         print(f"The summary of longitude: {longitude}")
+#         print(f"The summary of timezone: {timezone}")
+#         print(f"The summary of elevation: {elevation}")
         
-        return data
-# ====================================Question 2=========================================
-# -------------------------------------Task 1:-------------------------------------------
-def find_top3_warmest_days(data):
-    print(f"\n{'=' * 50} Question 2 {'=' * 50}")
-    top3_warmest_days = []
+#         return data
+# # ====================================Question 2=========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def find_top3_warmest_days(data):
+#     print(f"\n{'=' * 50} Question 2 {'=' * 50}")
+#     top3_warmest_days = []
     
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
     
-    for index in range(len(dates)):
-        date = dates[index]
-        max_temperature = max_temperatures[index]
+#     for index in range(len(dates)):
+#         date = dates[index]
+#         max_temperature = max_temperatures[index]
 
-        top3_warmest_days.append((date, max_temperature))
+#         top3_warmest_days.append((date, max_temperature))
         
-    top3_warmest_days_sorted = sorted(top3_warmest_days, key=lambda x : x[1], reverse=True)[:3]
+#     top3_warmest_days_sorted = sorted(top3_warmest_days, key=lambda x : x[1], reverse=True)[:3]
          
-    for row in top3_warmest_days_sorted:
-        print(f"Date: {row[0]} - Temperature: {row[1]}")        
+#     for row in top3_warmest_days_sorted:
+#         print(f"Date: {row[0]} - Temperature: {row[1]}")        
         
-    return top3_warmest_days_sorted
+#     return top3_warmest_days_sorted
 
-# ====================================Question 3=========================================
-# -------------------------------------Task 1:-------------------------------------------
-def detect_stable_days(data):
-    print(f"\n{'=' * 50} Question 3 {'=' * 50}")
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
-    min_temperatures = data['daily']['temperature_2m_min']
+# # ====================================Question 3=========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def detect_stable_days(data):
+#     print(f"\n{'=' * 50} Question 3 {'=' * 50}")
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
+#     min_temperatures = data['daily']['temperature_2m_min']
     
-    list_stable_days = []
+#     list_stable_days = []
     
-    for index in range(len(dates)):
-        date = dates[index]
-        max_temperature = max_temperatures[index]
-        min_temperature = min_temperatures[index]
+#     for index in range(len(dates)):
+#         date = dates[index]
+#         max_temperature = max_temperatures[index]
+#         min_temperature = min_temperatures[index]
         
-        stable_day = max_temperature - min_temperature
+#         stable_day = max_temperature - min_temperature
         
-        if stable_day <= 5:
-            list_stable_days.append((date, stable_day))
+#         if stable_day <= 5:
+#             list_stable_days.append((date, stable_day))
             
-    for row in list_stable_days:
-        print(f"Date: {row[0]} - Stable Temperature: {row[1]:.2f}")
+#     for row in list_stable_days:
+#         print(f"Date: {row[0]} - Stable Temperature: {row[1]:.2f}")
     
-    return list_stable_days
+#     return list_stable_days
 
-# ====================================Question 4=========================================
-# -------------------------------------Task 1:-------------------------------------------
-def export_stable_day_to_csv(data, list_stable_days):
-    print(f"\n{'=' * 50} Question 4 {'=' * 50}")
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
-    min_temperatures = data['daily']['temperature_2m_min']
+# # ====================================Question 4=========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def export_stable_day_to_csv(data, list_stable_days):
+#     print(f"\n{'=' * 50} Question 4 {'=' * 50}")
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
+#     min_temperatures = data['daily']['temperature_2m_min']
     
-    with open(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\stable_days_thanh_vui.csv", mode='w', newline='', encoding='utf-8') as cvs_file:
-        writer = csv.writer(cvs_file)
-        writer.writerow(['dates', 'max_temps', 'min_temps', 'stable_temperature'])
-        count = 0
+#     with open(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\stable_days_thanh_vui.csv", mode='w', newline='', encoding='utf-8') as cvs_file:
+#         writer = csv.writer(cvs_file)
+#         writer.writerow(['dates', 'max_temps', 'min_temps', 'stable_temperature'])
+#         count = 0
         
-        for row in list_stable_days:
-            # Create index variable to find date
-            index = dates.index(row[0])
-            print(index)
-            date = row[0]
-            stable_day = row[1]
-            max_temp = max_temperatures[index]
-            min_temp = min_temperatures[index]
+#         for row in list_stable_days:
+#             # Create index variable to find date
+#             index = dates.index(row[0])
+#             print(index)
+#             date = row[0]
+#             stable_day = row[1]
+#             max_temp = max_temperatures[index]
+#             min_temp = min_temperatures[index]
             
-            print(date)
-            print(f"{stable_day:.2f}")
-            print(max_temp)
-            print(min_temp)
-            stable_day = f"{stable_day:.2f}"
-            writer.writerow([date, max_temp, min_temp, stable_day])
-            count += 1
+#             print(date)
+#             print(f"{stable_day:.2f}")
+#             print(max_temp)
+#             print(min_temp)
+#             stable_day = f"{stable_day:.2f}"
+#             writer.writerow([date, max_temp, min_temp, stable_day])
+#             count += 1
             
-        print(f"Loads {count} rows stable days successfully!")
+#         print(f"Loads {count} rows stable days successfully!")
 
-# ====================================Question 5 ========================================
-# -------------------------------------Task 1:-------------------------------------------
-def store_data_in_sqlite(data):
-    print(f"\n{'=' * 50} Question 5 {'=' * 50}")
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
-    min_temperatures = data['daily']['temperature_2m_min']
+# # ====================================Question 5 ========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def store_data_in_sqlite(data):
+#     print(f"\n{'=' * 50} Question 5 {'=' * 50}")
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
+#     min_temperatures = data['daily']['temperature_2m_min']
     
-    # Create database and open database
-    with sqlite3.connect(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\weather_thanh_vui.db") as conn:
-        cursor = conn.cursor()
+#     # Create database and open database
+#     with sqlite3.connect(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\weather_thanh_vui.db") as conn:
+#         cursor = conn.cursor()
         
-        cursor.execute("""
-                DROP TABLE weather_thanh_vui
-                """)
+#         cursor.execute("""
+#                 DROP TABLE weather_thanh_vui
+#                 """)
                 
-        # Create table
-        cursor.execute("""
-                       CREATE TABLE IF NOT EXISTS weather_thanh_vui(
-                           id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-                           date TEXT,
-                           max_temp REAL,
-                           min_temp REAL,
-                           stable_temp REAL
-                       )
-                       """)
+#         # Create table
+#         cursor.execute("""
+#                        CREATE TABLE IF NOT EXISTS weather_thanh_vui(
+#                            id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+#                            date TEXT,
+#                            max_temp REAL,
+#                            min_temp REAL,
+#                            stable_temp REAL
+#                        )
+#                        """)
         
-        # Loop through data and insert data into table weather_thanh_vui
-        count = 0
-        for index in range(len(dates)):
-            date = dates[index]
-            max_temperature = max_temperatures[index]
-            min_temperature = min_temperatures[index]
+#         # Loop through data and insert data into table weather_thanh_vui
+#         count = 0
+#         for index in range(len(dates)):
+#             date = dates[index]
+#             max_temperature = max_temperatures[index]
+#             min_temperature = min_temperatures[index]
         
-            stable_day = max_temperature - min_temperature
+#             stable_day = max_temperature - min_temperature
             
-            # Insert data into table
-            cursor.execute("""
-                        INSERT OR IGNORE INTO weather_thanh_vui (date, max_temp, min_temp, stable_temp)
-                        VALUES(?, ?, ?, ?)
-                        """, (date, max_temperature, min_temperature, f"{stable_day:.2f}"))
+#             # Insert data into table
+#             cursor.execute("""
+#                         INSERT OR IGNORE INTO weather_thanh_vui (date, max_temp, min_temp, stable_temp)
+#                         VALUES(?, ?, ?, ?)
+#                         """, (date, max_temperature, min_temperature, f"{stable_day:.2f}"))
 
-            count += 1
-        print(f"Insert {count} rows into table successfully!")
-        # Commit
-        conn.commit()
+#             count += 1
+#         print(f"Insert {count} rows into table successfully!")
+#         # Commit
+#         conn.commit()
 
-# ====================================Question 6 ========================================
-# -------------------------------------Task 1:-------------------------------------------
-def unstable_warm_days(data):
-    print(f"\n{'=' * 50} Question 6 {'=' * 50}")
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
-    min_temperatures = data['daily']['temperature_2m_min']
+# # ====================================Question 6 ========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def unstable_warm_days(data):
+#     print(f"\n{'=' * 50} Question 6 {'=' * 50}")
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
+#     min_temperatures = data['daily']['temperature_2m_min']
     
-    list_unstable_days = []
+#     list_unstable_days = []
     
-    for index in range(len(dates)):
-        date = dates[index]
-        max_temperature = max_temperatures[index]
-        min_temperature = min_temperatures[index]
+#     for index in range(len(dates)):
+#         date = dates[index]
+#         max_temperature = max_temperatures[index]
+#         min_temperature = min_temperatures[index]
         
-        stable_day = max_temperature - min_temperature
+#         stable_day = max_temperature - min_temperature
         
-        if stable_day >= 8:
-            list_unstable_days.append((date, stable_day))
+#         if stable_day >= 8:
+#             list_unstable_days.append((date, stable_day))
             
-    for row in list_unstable_days:
-        print(f"Date: {row[0]} - Unstable Temperature: {row[1]:.2f}\u00b0C")
+#     for row in list_unstable_days:
+#         print(f"Date: {row[0]} - Unstable Temperature: {row[1]:.2f}\u00b0C")
     
-    return list_unstable_days
+#     return list_unstable_days
 
-# ====================================Question 7 ========================================
-# -------------------------------------Task 1:-------------------------------------------
-def generate_forecast_statistics(data):
-    print(f"\n{'=' * 50} Question 7 {'=' * 50}")
-    dates = data['daily']['time']
-    max_temperatures = data['daily']['temperature_2m_max']
-    min_temperatures = data['daily']['temperature_2m_min']
+# # ====================================Question 7 ========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def generate_forecast_statistics(data):
+#     print(f"\n{'=' * 50} Question 7 {'=' * 50}")
+#     dates = data['daily']['time']
+#     max_temperatures = data['daily']['temperature_2m_max']
+#     min_temperatures = data['daily']['temperature_2m_min']
     
-    with sqlite3.connect(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\weather_thanh_vui.db") as conn:
-        cursor = conn.cursor()
+#     with sqlite3.connect(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\weather_thanh_vui.db") as conn:
+#         cursor = conn.cursor()
         
-        cursor.execute("""
-                    SELECT SUM(max_temp) as max_temp, SUM(min_temp) as min_temp, COUNT(max_temp) as count_temp
-                    FROM weather_thanh_vui
-                       """)
-        sum_temps = cursor.fetchall()
+#         cursor.execute("""
+#                     SELECT SUM(max_temp) as max_temp, SUM(min_temp) as min_temp, COUNT(max_temp) as count_temp
+#                     FROM weather_thanh_vui
+#                        """)
+#         sum_temps = cursor.fetchall()
         
-        sum_max_temp = sum_temps[0][0]
-        sum_min_temp = sum_temps[0][1]
-        count_temp = sum_temps[0][2]
-        print(sum_max_temp)
-        print(sum_min_temp)
-        print(count_temp)
+#         sum_max_temp = sum_temps[0][0]
+#         sum_min_temp = sum_temps[0][1]
+#         count_temp = sum_temps[0][2]
+#         print(sum_max_temp)
+#         print(sum_min_temp)
+#         print(count_temp)
 
-    avg_max_temp = sum_max_temp / count_temp
-    print(f"Average of Max Temperature: {avg_max_temp:.2f}\u00b0C")
-    avg_min_temp = sum_min_temp / count_temp
-    print(f"Average of Max Temperature: {avg_min_temp:.2f}\u00b0C")
+#     avg_max_temp = sum_max_temp / count_temp
+#     print(f"Average of Max Temperature: {avg_max_temp:.2f}\u00b0C")
+#     avg_min_temp = sum_min_temp / count_temp
+#     print(f"Average of Max Temperature: {avg_min_temp:.2f}\u00b0C")
     
-    stable_day = detect_stable_days(data)[0]
-    print(f"Stable Day: {stable_day[0]} - Temperature: {stable_day[1]}\u00b0C")
+#     stable_day = detect_stable_days(data)[0]
+#     print(f"Stable Day: {stable_day[0]} - Temperature: {stable_day[1]}\u00b0C")
     
-    unstable_day = unstable_warm_days(data)[0]
-    print(f"Unstable Day: {unstable_day[0]} - Temperature: {unstable_day[1]}\u00b0C")
+#     unstable_day = unstable_warm_days(data)[0]
+#     print(f"Unstable Day: {unstable_day[0]} - Temperature: {unstable_day[1]}\u00b0C")
     
-    full_temp = max(max_temperatures) - min(min_temperatures)
-    print(f"Full Temperature: {full_temp}\u00b0C")
+#     full_temp = max(max_temperatures) - min(min_temperatures)
+#     print(f"Full Temperature: {full_temp}\u00b0C")
 
-# ====================================Question 8 ========================================
-# -------------------------------------Task 1:-------------------------------------------
-def plot_stable_and_unstable_days(data, list_stable_days, list_unstable_days):
-    print(f"\n{'=' * 50} Question 8 {'=' * 50}")
+# # ====================================Question 8 ========================================
+# # -------------------------------------Task 1:-------------------------------------------
+# def plot_stable_and_unstable_days(data, list_stable_days, list_unstable_days):
+#     print(f"\n{'=' * 50} Question 8 {'=' * 50}")
     
-    stable_days = [row[1] for row in list_stable_days]
-    day_stable = [row[0] for row in list_stable_days]
-    unstable_days = [row[1] for row in list_unstable_days]
-    day_unstable = [row[0] for row in list_unstable_days]
+#     stable_days = [row[1] for row in list_stable_days]
+#     day_stable = [row[0] for row in list_stable_days]
+#     unstable_days = [row[1] for row in list_unstable_days]
+#     day_unstable = [row[0] for row in list_unstable_days]
 
-    print(stable_days)
-    print(unstable_days)
+#     print(stable_days)
+#     print(unstable_days)
     
-    plt.plot(day_stable, stable_days, marker='o')
-    plt.plot(day_unstable, unstable_days, marker='o')
-    plt.title("Stable And Unstable Days")
-    plt.xlabel("Days")    
-    plt.ylabel("Temperatures")    
-    plt.grid()
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
+#     plt.plot(day_stable, stable_days, marker='o')
+#     plt.plot(day_unstable, unstable_days, marker='o')
+#     plt.title("Stable And Unstable Days")
+#     plt.xlabel("Days")    
+#     plt.ylabel("Temperatures")    
+#     plt.grid()
+#     plt.xticks(rotation=45)
+#     plt.tight_layout()
+#     plt.show()
 
-# =======================================Main============================================
-def main():
-# -------------------------------------Task 1:-------------------------------------------
-    file_name = r'D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\berlin_14day_weather.json'
-    data = load_and_print_summary(file_name)
-# -------------------------------------Task 2:-------------------------------------------
-    top3_warmest_days = find_top3_warmest_days(data)
-# -------------------------------------Task 3:-------------------------------------------
-    list_stable_days = detect_stable_days(data)
-# -------------------------------------Task 4:-------------------------------------------
-    export_stable_day_to_csv(data, list_stable_days)
-# -------------------------------------Task 5:-------------------------------------------
-    store_data_in_sqlite(data)
-# -------------------------------------Task 6:-------------------------------------------
-    list_unstable_days = unstable_warm_days(data)
-# -------------------------------------Task 7:-------------------------------------------
-    generate_forecast_statistics(data)
-# -------------------------------------Task 8:-------------------------------------------
-    plot_stable_and_unstable_days(data, list_stable_days, list_unstable_days)
-# ========================================Main===========================================
-if __name__ == "__main__":
-    main()
+# # =======================================Main============================================
+# def main():
+# # -------------------------------------Task 1:-------------------------------------------
+#     file_name = r'D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\berlin_14day_weather.json'
+#     data = load_and_print_summary(file_name)
+# # -------------------------------------Task 2:-------------------------------------------
+#     top3_warmest_days = find_top3_warmest_days(data)
+# # -------------------------------------Task 3:-------------------------------------------
+#     list_stable_days = detect_stable_days(data)
+# # -------------------------------------Task 4:-------------------------------------------
+#     export_stable_day_to_csv(data, list_stable_days)
+# # -------------------------------------Task 5:-------------------------------------------
+#     store_data_in_sqlite(data)
+# # -------------------------------------Task 6:-------------------------------------------
+#     list_unstable_days = unstable_warm_days(data)
+# # -------------------------------------Task 7:-------------------------------------------
+#     generate_forecast_statistics(data)
+# # -------------------------------------Task 8:-------------------------------------------
+#     plot_stable_and_unstable_days(data, list_stable_days, list_unstable_days)
+# # ========================================Main===========================================
+# if __name__ == "__main__":
+#     main()
 
 # =============================================================Huy Hoang Sources============================================
 # import csv
@@ -3657,3 +3767,325 @@ if __name__ == "__main__":
 #     data_pickle = pickle.load(f)
 # with open('output.pkl', 'wb') as f:  # ghi file pickle
 #     pickle.dump(data_pickle, f)
+
+
+# Thanh Vui 8
+# ===================================== Import Library ==========================================
+# import json
+# import csv
+# import sqlite3
+# import matplotlib.pyplot as plt
+
+# # ======================================= Question 1: ===========================================
+# def read_file_print_info(file_name):
+#     try:
+#         # Open file and read file
+#         with open(file_name, mode='r', newline='', encoding='utf-8') as json_file:
+#             data = json.load(json_file)
+#             data_format_json = json.dumps(data, indent=4)
+#             print(data_format_json)
+
+#             # Store values into variables
+#             latitude = data['latitude']
+#             longitude = data['longitude']
+#             elevation = data['elevation']
+#             timezone = data['timezone']
+            
+#             # Print info all values
+#             print(f"Latitude: {latitude}")
+#             print(f"Longitude: {longitude}")
+#             print(f"Elevation: {elevation}")
+#             print(f"Timezone: {timezone}")
+            
+#             # Return data after read all
+#             return data
+#     except FileNotFoundError as e:
+#         print(f"File not found: {e}")
+#     except Exception as e:
+#         print(f"Error while handling data: {e}")
+        
+# # ======================================= Question 2: ===========================================
+# def find_max_fluctuation_days(data):
+#     # List all date and temperature max and min in each day
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+    
+#     max_fluctuation = 0
+#     max_fluctuation_day = ''
+#     list_fluctuations = []
+    
+#     # Loop through each day to find each fluctuation
+#     for index in range(len(dates)):
+#         date = dates[index]
+#         temp_max = temperature_2m_maxs[index]
+#         temp_min = temperature_2m_mins[index]
+        
+#         # Calculate fluctuation of each day
+#         fluctuation = float(temp_max - temp_min)
+#         list_fluctuations.append((date, temp_max, temp_min, fluctuation))
+        
+#         # Print fluctuation of each day
+#         print("Fluctuation of each day:")
+#         print(f"Date: {date} - Fluctuation: {fluctuation:.2f}\u00b0C")
+        
+#         # Calculate fluctuation to find max fluctuation
+#         if fluctuation > max_fluctuation:
+#             max_fluctuation = fluctuation
+#             max_fluctuation_day = date
+    
+#     print("\nMax fluctuation day:")
+#     print(f"Max fluctuation Day: {max_fluctuation_day}")
+#     print(f"Max fluctuation: {max_fluctuation:.2f}\u00b0C")
+    
+#     # Return list_fluctuations
+#     return list_fluctuations
+
+# # ======================================= Question 3: ===========================================
+# def find_cold_days(data):
+#     # Create list cold days to return list cold days
+#     list_cold_days = []
+    
+#     # List all date and temperature max and min in each day
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+    
+#     # Loop through data to find cold days with max temperature less than 15
+#     for index in range(len(dates)):
+#         date = dates[index]
+#         temp_max = temperature_2m_maxs[index]
+        
+#         # Calculate list cold days
+#         if temp_max < 15:
+#             list_cold_days.append(date)
+    
+#     # Return list cold days
+#     return list_cold_days
+
+# # ======================================= Question 4: ===========================================
+# def write_list_cold_days_to_csv(data, list_cold_days):
+#     # Path of file
+#     file_csv_name = r"D:\Study-AI\Python\Practical\8_PRP201c_SP25_PE1_0259621\Tham Khao\lam bai\weather_thanh_vui.csv"
+    
+#     # Get list dates and temperatures max and min
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+    
+#     # Create file or open file if exist to write file
+#     with open(file_csv_name, mode='w', newline='', encoding='utf-8') as csv_file:
+#         # Create method writer to write file
+#         writer = csv.writer(csv_file)
+#         # Write header for file column
+#         writer.writerow(['date', 'max_temp', 'min_temp'])
+        
+#         count = 0
+#         # Loop through data list of cold days to store list of cold days into csv file
+#         for day in list_cold_days:
+#             index = dates.index(day)
+#             max_temp = f"{temperature_2m_maxs[index]:.2f}"
+#             min_temp = f"{temperature_2m_mins[index]:.2f}"
+            
+#             writer.writerow([day, max_temp, min_temp])
+#             count += 1
+            
+#     print(f"Write {count} days into list cold day to csv successfully!")
+        
+# # ======================================= Question 5: ===========================================
+# def create_and_fill_database(data):
+#     # Create file path
+#     file_name_db = r"D:\Study-AI\Python\Practical\8_PRP201c_SP25_PE1_0259621\Tham Khao\lam bai\weather_02_vui.db"
+    
+#     # Get list dates and temperatures max and min
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+    
+#     # Create database
+#     with sqlite3.connect(file_name_db) as conn:
+#         # Call cursor to execute query
+#         cursor = conn.cursor()
+        
+#         cursor.execute("""
+#                        DROP TABLE weather_forecast
+#                        """)
+#         # Create table
+#         cursor.execute("""
+#                        CREATE TABLE IF NOT EXISTS weather_forecast(
+#                            id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+#                            date TEXT,
+#                            max_temp REAL,
+#                            min_temp REAL,
+#                            fluctuation REAL
+#                        )
+#                        """)
+        
+#         # Count row insert into data
+#         count = 0
+#         # Insert data into table
+#         # Loop through data list of cold days to store list of cold days into csv file
+#         for index in range(len(dates)):
+#             date = dates[index]
+#             max_temp = temperature_2m_maxs[index]
+#             min_temp = temperature_2m_mins[index]
+#             fluctuation = max_temp - min_temp
+#             count += 1
+#             # Execute to insert into database
+#             cursor.execute("""
+#                         INSERT OR IGNORE INTO weather_forecast (date, max_temp, min_temp, fluctuation)
+#                         VALUES (?, ?, ?, ?)
+#                         """, (date, max_temp, min_temp, fluctuation))
+        
+#         print(f"Insert {count} dates into database successfully!")
+        
+#         conn.commit()
+        
+# # ======================================= Question 6: ===========================================
+# def find_cold_nighs(data):
+#     # Create file path
+#     file_name_db = r"D:\Study-AI\Python\Practical\8_PRP201c_SP25_PE1_0259621\Tham Khao\lam bai\weather_02_vui.db"
+    
+#     # Create list cold nights
+#     list_cold_nights = []
+    
+#     # Create database
+#     with sqlite3.connect(file_name_db) as conn:
+#         # Call cursor to execute query
+#         cursor = conn.cursor()
+        
+#         cursor.execute("""
+#                     SELECT date
+#                     FROM weather_forecast
+#                     WHERE min_temp < 9
+#                        """)
+        
+#         list_cold_nights = [row[0] for row in cursor.fetchall()]
+        
+#         conn.commit()
+        
+#     # Return list cold nights
+#     return list_cold_nights
+
+# # ======================================= Question 7: ===========================================
+# def weather_summary_report(data):
+#     # Get list dates and temperatures max and min
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+#     sum_temperature_2m_maxs = sum(temperature_2m_maxs)            
+#     sum_temperature_2m_mins = sum(temperature_2m_mins)            
+    
+#     # Calculate count of days
+#     count_day = 0
+#     for day in dates:
+#         count_day += 1
+    
+#     avg_temperature_2m_maxs = sum_temperature_2m_maxs / count_day
+#     avg_temperature_2m_mins = sum_temperature_2m_mins / count_day
+    
+#     # Cold days
+#     cold_days = find_cold_days(data)
+#     number_of_cold_days = len(cold_days)
+    
+#     # Cold nights
+#     cold_nights = find_cold_nighs(data)
+#     number_of_cold_nights = len(cold_nights)
+    
+#     # Full temperature range
+#     full_temp = max(temperature_2m_maxs) - max(temperature_2m_mins)
+    
+#     # Print summary
+#     print("Weather Summary Report:")
+#     print(f"Average Of Max Temperature Days: {avg_temperature_2m_maxs:.2f}\u00b0C")
+#     print(f"Average Of Max Temperature Days: {avg_temperature_2m_mins:.2f}\u00b0C")
+#     print(f"Number Of Cold Days: {number_of_cold_days}")
+#     print(f"Number Of Cold Nights: {number_of_cold_nights}")
+#     print(f"Full Temperature Range: {full_temp:.2f}\u00b0C")
+    
+# # ======================================= Question 8: ===========================================
+# def visualize_temperature_min_max(data):
+#     # Extract data
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+
+#     # Create figure and plot lines with enhancements
+#     plt.figure(figsize=(10, 5))
+    
+#     plt.plot(dates, temperature_2m_maxs, marker='o', linestyle='-', color='red',
+#              label='Max Temperature (°C)', linewidth=2, markersize=6)
+#     plt.plot(dates, temperature_2m_mins, marker='o', linestyle='--', color='blue',
+#              label='Min Temperature (°C)', linewidth=2, markersize=6)
+
+#     # Optional: Fill area between min and max to emphasize difference
+#     plt.fill_between(dates, temperature_2m_mins, temperature_2m_maxs, color='orange', alpha=0.2)
+
+#     # Add labels and title
+#     plt.xlabel('Date', fontsize=12)
+#     plt.ylabel('Temperature (°C)', fontsize=12)
+#     plt.title('Daily Max and Min Temperatures', fontsize=14, fontweight='bold')
+
+#     # Improve legend
+#     plt.legend(loc='upper right', fontsize=10, frameon=True, shadow=True)
+
+#     # Grid and layout
+#     plt.grid(True, linestyle='--', alpha=0.5)
+#     plt.xticks(rotation=45)
+#     plt.tight_layout()
+    
+#     # Show plot
+#     plt.show()
+
+# # ====================================== Main Function ==========================================
+# def main():
+# # --------------------------------------- Question 1: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 1 {'=' * 50}")
+#     file_name = r"D:\Study-AI\Python\Practical\8_PRP201c_SP25_PE1_0259621\Tham Khao\lam bai\berlin_14day_weather.json"
+#     data = read_file_print_info(file_name)
+    
+#     # Get list dates and temperatures max and min
+#     dates = data['daily']['time']
+#     temperature_2m_maxs = data['daily']['temperature_2m_max']
+#     temperature_2m_mins = data['daily']['temperature_2m_min']
+    
+# # --------------------------------------- Question 2: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 2 {'=' * 50}")
+#     list_fluctuations = find_max_fluctuation_days(data)
+
+# # --------------------------------------- Question 3: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 3 {'=' * 50}")
+#     print(f"List cold days:")
+#     list_cold_days = find_cold_days(data)
+#     for day in list_cold_days:
+#         index = dates.index(day)
+#         print(f"Date: {dates[index]} - Max Temperature: {temperature_2m_maxs[index]:.2f}\u00b0C")
+
+# # --------------------------------------- Question 4: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 4 {'=' * 50}")    
+#     write_list_cold_days_to_csv(data, list_cold_days)
+    
+# # --------------------------------------- Question 5: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 5 {'=' * 50}")    
+#     create_and_fill_database(data)
+    
+# # --------------------------------------- Question 6: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 6 {'=' * 50}")    
+#     print(f"List cold nights:")
+#     list_cold_nights = find_cold_nighs(data)
+#     for day in list_cold_nights:
+#         index = dates.index(day)
+#         print(f"Date: {dates[index]} - Min Temperature: {temperature_2m_mins[index]:.2f}\u00b0C")
+        
+# # --------------------------------------- Question 7: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 7 {'=' * 50}")    
+#     weather_summary_report(data)
+    
+# # --------------------------------------- Question 8: -------------------------------------------
+#     print(f"\n{'=' * 50} Question 8 {'=' * 50}")    
+#     visualize_temperature_min_max(data)
+    
+#     print("All Done! Get 10 Points")
+
+# # ========================================== Main ===============================================
+# if __name__ == "__main__":
+#     main()
