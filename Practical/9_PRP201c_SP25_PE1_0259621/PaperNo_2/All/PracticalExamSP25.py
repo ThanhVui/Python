@@ -116,9 +116,9 @@ def store_data_in_sqlite(data):
     with sqlite3.connect(r"D:\Study-AI\Python\Practical\9_PRP201c_SP25_PE1_0259621\PaperNo_2\All\weather_thanh_vui.db") as conn:
         cursor = conn.cursor()
         
-        cursor.execute("""
-                DROP TABLE weather_thanh_vui
-                """)
+        # cursor.execute("""
+        #         DROP TABLE weather_thanh_vui
+        #         """)
                 
         # Create table
         cursor.execute("""
@@ -226,6 +226,9 @@ def plot_stable_and_unstable_days(data, list_stable_days, list_unstable_days):
 
     print(stable_days)
     print(unstable_days)
+    
+    print(day_stable)
+    print(day_unstable)
     
     plt.plot(day_stable, stable_days, marker='o')
     plt.plot(day_unstable, unstable_days, marker='o')
