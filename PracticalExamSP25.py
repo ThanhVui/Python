@@ -1336,7 +1336,7 @@ if __name__ == "__main__":
 #         gender_by_location[loc][gender] = gender_by_location[loc].get(gender, 0) + 1
         
 #     # Create a figure with two subplots (in on figure will have two charts)
-#     fig, axes =plt.subplots(1, 2, figsize=(16, 8))
+#     fig, axes = plt.subplots(1, 2, figsize=(16, 8))
     
 #     # Subplot 1: Registration trend
 #     years = sorted(registrations_by_year.keys())
