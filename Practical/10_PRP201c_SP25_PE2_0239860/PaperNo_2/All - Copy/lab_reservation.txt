@@ -1,0 +1,12 @@
+student_id,student_name,room,date,time_slot
+S1001,Nguyễn Văn A,Alan Turing Lab,2025-03-18,08:00
+S1002,Trần Thị Bích,Deep Blue Lab,2025-03-18,10:30
+S1003,Lê Hoàng C,Alan Turing Lab,2025-03-18,14:00
+S1004,Phạm Minh Dũng,Deep Blue Lab,2025-03-19,09:00
+S1005,Hoàng Hải Yến,Alan Turing Lab,2025-03-19,15:30
+S1006,Đỗ Thanh Tùng,Deep Blue Lab,2025-03-20,11:00
+S1007,Vũ Bảo Ngọc,Alan Turing Lab,2025-03-20,13:00
+S1008,Phan Văn Khoa,Deep Blue Lab,2025-03-21,16:00
+S1009,Ngô Thị Hạnh,Alan Turing Lab,2025-03-21,09:00
+S1010,Bùi Anh Tuấn,Deep Blue Lab,2025-03-22,10:30
+S1011,Dương Thanh Lam,Alan Turing Lab,2025-03-22,14:30
