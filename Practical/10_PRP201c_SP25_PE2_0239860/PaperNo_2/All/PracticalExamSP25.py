@@ -212,7 +212,7 @@ def visualize_booking_trend(file_name):
 def main():
 # --------------------------------------- Question 1: -------------------------------------------
     print(f"\n{'=' * 50} Question 1 {'=' * 50}")
-    file_name = r"lab_reservation.txt"
+    file_name = r"D:\Study-AI\Python\Practical\10_PRP201c_SP25_PE2_0239860\PaperNo_2\All\lab_reservation.txt"
     load_and_print_summary(file_name)
     
 # --------------------------------------- Question 2: -------------------------------------------
